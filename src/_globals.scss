@@ -1,0 +1,27 @@
+@import 'react-md/src/scss/react-md';
+
+// Any variable overrides. The following just changes the default theme to use teal and purple.
+// $md-primary-color: $md-teal-500;
+// $md-secondary-color: $md-purple-a-400;
+
+// $md-primary-color: $md-indigo-500 !default;
+// $md-secondary-color: $md-pink-a-200 !default;
+
+$md-light-theme: false; // optional for light theme
+$md-primary-color: $md-light-blue-500;
+$md-secondary-color: $md-deep-orange-a-200;
+
+@include react-md-everything;
+// @include react-md-typography;
+// @include react-md-cards;
+// @include react-md-buttons;
+// @include react-md-inks;
+// @include react-md-navigation-drawers;
+
+
+@include react-md-theme-everything(
+  $md-primary-color,
+  $md-secondary-color,
+  false, // specifying dark-theme
+  'dark-theme' // class name to wrap dark-theme styles in
+);
