@@ -1,12 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
 
 function App() {
+  const handleClick = () => {
+    import("./components/moduleA")
+      .then(({ moduleA }) => {
+        // Use moduleA
+        alert(moduleA);
+      })
+      .catch(err => {
+        // Handle failure
+      });
+  };
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src={logo} className="App-logo" alt="logo" onClick={handleClick} />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
