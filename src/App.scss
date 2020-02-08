@@ -36,3 +36,33 @@
     transform: rotate(360deg);
   }
 }
+
+
+.custom-portal-container {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+}
+
+.custom-portal-slider {
+  position: fixed;
+  left: calc(50vw - 30px);
+}
+
+.custom-center-appbar{
+  justify-content: center;
+}
+
+@media screen and (min-width: 48em){
+  #layout-header{
+    left: 0;
+    width: 100vw;
+  }
+
+  #layout-nav-container{
+    display: none;
+  }
+  #layout-main {
+    margin-left: 0;
+  }
+}

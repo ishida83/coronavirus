@@ -1098,6 +1098,410 @@
     prop-types "^15.6.1"
     react-lifecycles-compat "^3.0.4"
 
+"@react-md/alert@^2.0.0-alpha.13":
+  version "2.0.0-alpha.13"
+  resolved "https://registry.yarnpkg.com/@react-md/alert/-/alert-2.0.0-alpha.13.tgz#d67524713b7e5d4ceb28242329b104f40c3f0740"
+  dependencies:
+    "@react-md/button" "^2.0.0-alpha.13"
+    "@react-md/elevation" "^2.0.0-alpha.13"
+    "@react-md/portal" "^2.0.0-alpha.13"
+    "@react-md/theme" "^2.0.0-alpha.13"
+    "@react-md/transition" "^2.0.0-alpha.13"
+    "@react-md/typography" "^2.0.0-alpha.13"
+    "@react-md/utils" "^2.0.0-alpha.13"
+    classnames "^2.2.6"
+    react-transition-group "^4.3.0"
+  optionalDependencies:
+    prop-types ">= 15.6"
+
+"@react-md/app-bar@^2.0.0-alpha.13":
+  version "2.0.0-alpha.13"
+  resolved "https://registry.yarnpkg.com/@react-md/app-bar/-/app-bar-2.0.0-alpha.13.tgz#6f536867f7d8438aa4d2229c0e409d5faee3f7df"
+  dependencies:
+    "@react-md/button" "^2.0.0-alpha.13"
+    "@react-md/elevation" "^2.0.0-alpha.13"
+    "@react-md/icon" "^2.0.0-alpha.13"
+    "@react-md/theme" "^2.0.0-alpha.13"
+    "@react-md/typography" "^2.0.0-alpha.13"
+    "@react-md/utils" "^2.0.0-alpha.13"
+    classnames "^2.2.6"
+  optionalDependencies:
+    prop-types ">= 15.6"
+
+"@react-md/autocomplete@^2.0.0-alpha.13":
+  version "2.0.0-alpha.13"
+  resolved "https://registry.yarnpkg.com/@react-md/autocomplete/-/autocomplete-2.0.0-alpha.13.tgz#27cc9301bcd2de65ee23fcf72f05b79b0f319a18"
+  dependencies:
+    "@react-md/form" "^2.0.0-alpha.13"
+    "@react-md/list" "^2.0.0-alpha.13"
+    "@react-md/portal" "^2.0.0-alpha.13"
+    "@react-md/states" "^2.0.0-alpha.13"
+    "@react-md/theme" "^2.0.0-alpha.13"
+    "@react-md/transition" "^2.0.0-alpha.13"
+    "@react-md/typography" "^2.0.0-alpha.13"
+    "@react-md/utils" "^2.0.0-alpha.13"
+    classnames "^2.2.6"
+  optionalDependencies:
+    prop-types ">= 15.6"
+
+"@react-md/avatar@^2.0.0-alpha.13":
+  version "2.0.0-alpha.13"
+  resolved "https://registry.yarnpkg.com/@react-md/avatar/-/avatar-2.0.0-alpha.13.tgz#c012d39e4ca1f85ca2a804d0b887bf2360224741"
+  dependencies:
+    "@react-md/icon" "^2.0.0-alpha.13"
+    "@react-md/theme" "^2.0.0-alpha.13"
+    "@react-md/utils" "^2.0.0-alpha.13"
+    classnames "^2.2.6"
+  optionalDependencies:
+    prop-types ">= 15.6"
+
+"@react-md/badge@^2.0.0-alpha.13":
+  version "2.0.0-alpha.13"
+  resolved "https://registry.yarnpkg.com/@react-md/badge/-/badge-2.0.0-alpha.13.tgz#1e1f772e4c43977d281508fc97de88daee18f911"
+  dependencies:
+    "@react-md/button" "^2.0.0-alpha.13"
+    "@react-md/icon" "^2.0.0-alpha.13"
+    "@react-md/theme" "^2.0.0-alpha.13"
+    "@react-md/typography" "^2.0.0-alpha.13"
+    "@react-md/utils" "^2.0.0-alpha.13"
+    classnames "^2.2.6"
+  optionalDependencies:
+    prop-types ">= 15.6"
+
+"@react-md/button@^2.0.0-alpha.13":
+  version "2.0.0-alpha.13"
+  resolved "https://registry.yarnpkg.com/@react-md/button/-/button-2.0.0-alpha.13.tgz#55766cfe31552d5e3c37b1da3aaf6f5efe8a9617"
+  dependencies:
+    "@react-md/elevation" "^2.0.0-alpha.13"
+    "@react-md/icon" "^2.0.0-alpha.13"
+    "@react-md/states" "^2.0.0-alpha.13"
+    "@react-md/theme" "^2.0.0-alpha.13"
+    "@react-md/typography" "^2.0.0-alpha.13"
+    "@react-md/utils" "^2.0.0-alpha.13"
+    classnames "^2.2.6"
+  optionalDependencies:
+    prop-types ">= 15.6"
+
+"@react-md/card@^2.0.0-alpha.13":
+  version "2.0.0-alpha.13"
+  resolved "https://registry.yarnpkg.com/@react-md/card/-/card-2.0.0-alpha.13.tgz#bfabdde0add503a5681e0c6e97ebd0f4473facb5"
+  dependencies:
+    "@react-md/divider" "^2.0.0-alpha.13"
+    "@react-md/elevation" "^2.0.0-alpha.13"
+    "@react-md/icon" "^2.0.0-alpha.13"
+    "@react-md/states" "^2.0.0-alpha.13"
+    "@react-md/theme" "^2.0.0-alpha.13"
+    "@react-md/typography" "^2.0.0-alpha.13"
+    "@react-md/utils" "^2.0.0-alpha.13"
+    classnames "^2.2.6"
+  optionalDependencies:
+    prop-types ">= 15.6"
+
+"@react-md/chip@^2.0.0-alpha.13":
+  version "2.0.0-alpha.13"
+  resolved "https://registry.yarnpkg.com/@react-md/chip/-/chip-2.0.0-alpha.13.tgz#fe787cf33690108134819ab6dc8b0dc5857eaf5a"
+  dependencies:
+    "@react-md/elevation" "^2.0.0-alpha.13"
+    "@react-md/icon" "^2.0.0-alpha.13"
+    "@react-md/states" "^2.0.0-alpha.13"
+    "@react-md/theme" "^2.0.0-alpha.13"
+    "@react-md/typography" "^2.0.0-alpha.13"
+    "@react-md/utils" "^2.0.0-alpha.13"
+    classnames "^2.2.6"
+  optionalDependencies:
+    prop-types ">= 15.6"
+
+"@react-md/dialog@^2.0.0-alpha.13":
+  version "2.0.0-alpha.13"
+  resolved "https://registry.yarnpkg.com/@react-md/dialog/-/dialog-2.0.0-alpha.13.tgz#1d1b21211c1bd54cbc0f695c3af591a2622da5c7"
+  dependencies:
+    "@react-md/app-bar" "^2.0.0-alpha.13"
+    "@react-md/elevation" "^2.0.0-alpha.13"
+    "@react-md/overlay" "^2.0.0-alpha.13"
+    "@react-md/portal" "^2.0.0-alpha.13"
+    "@react-md/theme" "^2.0.0-alpha.13"
+    "@react-md/transition" "^2.0.0-alpha.13"
+    "@react-md/typography" "^2.0.0-alpha.13"
+    "@react-md/utils" "^2.0.0-alpha.13"
+    classnames "^2.2.6"
+    react-transition-group "^4.3.0"
+  optionalDependencies:
+    prop-types ">= 15.6"
+
+"@react-md/divider@^2.0.0-alpha.13":
+  version "2.0.0-alpha.13"
+  resolved "https://registry.yarnpkg.com/@react-md/divider/-/divider-2.0.0-alpha.13.tgz#ea75de718a16cbf4e1fb21547c0475ca34a8613d"
+  dependencies:
+    "@react-md/theme" "^2.0.0-alpha.13"
+    "@react-md/utils" "^2.0.0-alpha.13"
+    classnames "^2.2.6"
+  optionalDependencies:
+    prop-types ">= 15.6"
+
+"@react-md/elevation@^2.0.0-alpha.13":
+  version "2.0.0-alpha.13"
+  resolved "https://registry.yarnpkg.com/@react-md/elevation/-/elevation-2.0.0-alpha.13.tgz#e3ffe3d71ccbc0433341329e6c16898fb6809474"
+  dependencies:
+    "@react-md/theme" "^2.0.0-alpha.13"
+    "@react-md/transition" "^2.0.0-alpha.13"
+    "@react-md/utils" "^2.0.0-alpha.13"
+
+"@react-md/expansion-panel@^2.0.0-alpha.13":
+  version "2.0.0-alpha.13"
+  resolved "https://registry.yarnpkg.com/@react-md/expansion-panel/-/expansion-panel-2.0.0-alpha.13.tgz#f706e3a869a1ae1c09f3c32a88e45eaa0c44cfb5"
+  dependencies:
+    "@react-md/button" "^2.0.0-alpha.13"
+    "@react-md/icon" "^2.0.0-alpha.13"
+    "@react-md/theme" "^2.0.0-alpha.13"
+    "@react-md/transition" "^2.0.0-alpha.13"
+    "@react-md/utils" "^2.0.0-alpha.13"
+    classnames "^2.2.6"
+  optionalDependencies:
+    prop-types ">= 15.6"
+
+"@react-md/form@^2.0.0-alpha.13":
+  version "2.0.0-alpha.13"
+  resolved "https://registry.yarnpkg.com/@react-md/form/-/form-2.0.0-alpha.13.tgz#2e3dbaeee306487c118a37747a0dc2e0cdd6f197"
+  dependencies:
+    "@react-md/button" "^2.0.0-alpha.13"
+    "@react-md/icon" "^2.0.0-alpha.13"
+    "@react-md/list" "^2.0.0-alpha.13"
+    "@react-md/portal" "^2.0.0-alpha.13"
+    "@react-md/progress" "^2.0.0-alpha.13"
+    "@react-md/states" "^2.0.0-alpha.13"
+    "@react-md/theme" "^2.0.0-alpha.13"
+    "@react-md/transition" "^2.0.0-alpha.13"
+    "@react-md/typography" "^2.0.0-alpha.13"
+    "@react-md/utils" "^2.0.0-alpha.13"
+    classnames "^2.2.6"
+  optionalDependencies:
+    prop-types ">= 15.6"
+
+"@react-md/icon@^2.0.0-alpha.13":
+  version "2.0.0-alpha.13"
+  resolved "https://registry.yarnpkg.com/@react-md/icon/-/icon-2.0.0-alpha.13.tgz#eeac9a022804d1504a96388f88a896dc23622161"
+  dependencies:
+    "@react-md/theme" "^2.0.0-alpha.13"
+    "@react-md/typography" "^2.0.0-alpha.13"
+    "@react-md/utils" "^2.0.0-alpha.13"
+    classnames "^2.2.6"
+  optionalDependencies:
+    prop-types ">= 15.6"
+
+"@react-md/layout@^2.0.0-alpha.13":
+  version "2.0.0-alpha.13"
+  resolved "https://registry.yarnpkg.com/@react-md/layout/-/layout-2.0.0-alpha.13.tgz#86e901f420be9fddc3e7f2b6816ce4df6a805e84"
+  dependencies:
+    "@react-md/app-bar" "^2.0.0-alpha.13"
+    "@react-md/dialog" "^2.0.0-alpha.13"
+    "@react-md/divider" "^2.0.0-alpha.13"
+    "@react-md/icon" "^2.0.0-alpha.13"
+    "@react-md/link" "^2.0.0-alpha.13"
+    "@react-md/list" "^2.0.0-alpha.13"
+    "@react-md/sheet" "^2.0.0-alpha.13"
+    "@react-md/states" "^2.0.0-alpha.13"
+    "@react-md/theme" "^2.0.0-alpha.13"
+    "@react-md/tooltip" "^2.0.0-alpha.13"
+    "@react-md/transition" "^2.0.0-alpha.13"
+    "@react-md/tree" "^2.0.0-alpha.13"
+    "@react-md/typography" "^2.0.0-alpha.13"
+    "@react-md/utils" "^2.0.0-alpha.13"
+    classnames "^2.2.6"
+  optionalDependencies:
+    prop-types ">= 15.6"
+
+"@react-md/link@^2.0.0-alpha.13":
+  version "2.0.0-alpha.13"
+  resolved "https://registry.yarnpkg.com/@react-md/link/-/link-2.0.0-alpha.13.tgz#ed5ae5f13019000ce2cfd2e6e7def25a964d759b"
+  dependencies:
+    "@react-md/states" "^2.0.0-alpha.13"
+    "@react-md/theme" "^2.0.0-alpha.13"
+    "@react-md/transition" "^2.0.0-alpha.13"
+    "@react-md/typography" "^2.0.0-alpha.13"
+    classnames "^2.2.6"
+  optionalDependencies:
+    prop-types "^15.6.2"
+
+"@react-md/list@^2.0.0-alpha.13":
+  version "2.0.0-alpha.13"
+  resolved "https://registry.yarnpkg.com/@react-md/list/-/list-2.0.0-alpha.13.tgz#35f838288f60e2217b7b71bf110cfcaa370263c6"
+  dependencies:
+    "@react-md/avatar" "^2.0.0-alpha.13"
+    "@react-md/divider" "^2.0.0-alpha.13"
+    "@react-md/icon" "^2.0.0-alpha.13"
+    "@react-md/states" "^2.0.0-alpha.13"
+    "@react-md/theme" "^2.0.0-alpha.13"
+    "@react-md/typography" "^2.0.0-alpha.13"
+    "@react-md/utils" "^2.0.0-alpha.13"
+    classnames "^2.2.6"
+  optionalDependencies:
+    prop-types ">= 15.6"
+
+"@react-md/material-icons@^2.0.0-alpha.13":
+  version "2.0.0-alpha.13"
+  resolved "https://registry.yarnpkg.com/@react-md/material-icons/-/material-icons-2.0.0-alpha.13.tgz#df9047a70e7fa44a2e8ea5d4c7f67ae4e70f1517"
+
+"@react-md/media@^2.0.0-alpha.13":
+  version "2.0.0-alpha.13"
+  resolved "https://registry.yarnpkg.com/@react-md/media/-/media-2.0.0-alpha.13.tgz#3bcbb2a202df16f5daf86a827dc4328d4988a748"
+  dependencies:
+    "@react-md/theme" "^2.0.0-alpha.13"
+    "@react-md/utils" "^2.0.0-alpha.13"
+    classnames "^2.2.6"
+  optionalDependencies:
+    prop-types ">= 15.6"
+
+"@react-md/menu@^2.0.0-alpha.13":
+  version "2.0.0-alpha.13"
+  resolved "https://registry.yarnpkg.com/@react-md/menu/-/menu-2.0.0-alpha.13.tgz#97212ea4f248b9cedfeefc1bb328899f8e1d0736"
+  dependencies:
+    "@react-md/app-bar" "^2.0.0-alpha.13"
+    "@react-md/button" "^2.0.0-alpha.13"
+    "@react-md/divider" "^2.0.0-alpha.13"
+    "@react-md/elevation" "^2.0.0-alpha.13"
+    "@react-md/icon" "^2.0.0-alpha.13"
+    "@react-md/list" "^2.0.0-alpha.13"
+    "@react-md/states" "^2.0.0-alpha.13"
+    "@react-md/theme" "^2.0.0-alpha.13"
+    "@react-md/typography" "^2.0.0-alpha.13"
+    "@react-md/utils" "^2.0.0-alpha.13"
+    classnames "^2.2.6"
+  optionalDependencies:
+    prop-types ">= 15.6"
+
+"@react-md/overlay@^2.0.0-alpha.13":
+  version "2.0.0-alpha.13"
+  resolved "https://registry.yarnpkg.com/@react-md/overlay/-/overlay-2.0.0-alpha.13.tgz#8db5690f0cb2d68b1e72c177773ccbfc11b80f59"
+  dependencies:
+    "@react-md/portal" "^2.0.0-alpha.13"
+    "@react-md/theme" "^2.0.0-alpha.13"
+    "@react-md/transition" "^2.0.0-alpha.13"
+    "@react-md/utils" "^2.0.0-alpha.13"
+    classnames "^2.2.6"
+    react-transition-group "^4.3.0"
+  optionalDependencies:
+    prop-types ">= 15.6"
+
+"@react-md/portal@^2.0.0-alpha.13":
+  version "2.0.0-alpha.13"
+  resolved "https://registry.yarnpkg.com/@react-md/portal/-/portal-2.0.0-alpha.13.tgz#ac6428715e2c715e1917d62e9d400a010542a65d"
+  optionalDependencies:
+    prop-types ">= 15.6"
+
+"@react-md/progress@^2.0.0-alpha.13":
+  version "2.0.0-alpha.13"
+  resolved "https://registry.yarnpkg.com/@react-md/progress/-/progress-2.0.0-alpha.13.tgz#28056e7045b401d089e968f02dfa1b8cbea2624e"
+  dependencies:
+    "@react-md/theme" "^2.0.0-alpha.13"
+    "@react-md/transition" "^2.0.0-alpha.13"
+    "@react-md/utils" "^2.0.0-alpha.13"
+    classnames "^2.2.6"
+  optionalDependencies:
+    prop-types ">= 15.6"
+
+"@react-md/sheet@^2.0.0-alpha.13":
+  version "2.0.0-alpha.13"
+  resolved "https://registry.yarnpkg.com/@react-md/sheet/-/sheet-2.0.0-alpha.13.tgz#85280054c83500433ae6e4b40063434d543e2178"
+  dependencies:
+    "@react-md/dialog" "^2.0.0-alpha.13"
+    "@react-md/elevation" "^2.0.0-alpha.13"
+    "@react-md/overlay" "^2.0.0-alpha.13"
+    "@react-md/theme" "^2.0.0-alpha.13"
+    "@react-md/transition" "^2.0.0-alpha.13"
+    "@react-md/utils" "^2.0.0-alpha.13"
+    classnames "^2.2.6"
+  optionalDependencies:
+    prop-types ">= 15.6"
+
+"@react-md/states@^2.0.0-alpha.13":
+  version "2.0.0-alpha.13"
+  resolved "https://registry.yarnpkg.com/@react-md/states/-/states-2.0.0-alpha.13.tgz#fcb5d271b589e7634b949ac7658488ba30e7bc37"
+  dependencies:
+    "@react-md/theme" "^2.0.0-alpha.13"
+    "@react-md/transition" "^2.0.0-alpha.13"
+    "@react-md/utils" "^2.0.0-alpha.13"
+    react-transition-group "^4.3.0"
+  optionalDependencies:
+    prop-types ">= 15.6"
+
+"@react-md/table@^2.0.0-alpha.13":
+  version "2.0.0-alpha.13"
+  resolved "https://registry.yarnpkg.com/@react-md/table/-/table-2.0.0-alpha.13.tgz#005d6d5bfff2090866a7f79823c1f454fc8f1564"
+  dependencies:
+    "@react-md/divider" "^2.0.0-alpha.13"
+    "@react-md/form" "^2.0.0-alpha.13"
+    "@react-md/theme" "^2.0.0-alpha.13"
+    "@react-md/transition" "^2.0.0-alpha.13"
+    "@react-md/typography" "^2.0.0-alpha.13"
+    "@react-md/utils" "^2.0.0-alpha.13"
+    classnames "^2.2.6"
+  optionalDependencies:
+    prop-types ">= 15.6"
+
+"@react-md/theme@^2.0.0-alpha.13":
+  version "2.0.0-alpha.13"
+  resolved "https://registry.yarnpkg.com/@react-md/theme/-/theme-2.0.0-alpha.13.tgz#0c9b75a12582d8ec29c31d4e59368b3134b385e3"
+  dependencies:
+    "@react-md/utils" "^2.0.0-alpha.13"
+  optionalDependencies:
+    prop-types ">= 15.6"
+
+"@react-md/tooltip@^2.0.0-alpha.13":
+  version "2.0.0-alpha.13"
+  resolved "https://registry.yarnpkg.com/@react-md/tooltip/-/tooltip-2.0.0-alpha.13.tgz#968a3f31e3e2af92d7419e7a8e68491f50953acc"
+  dependencies:
+    "@react-md/portal" "^2.0.0-alpha.13"
+    "@react-md/theme" "^2.0.0-alpha.13"
+    "@react-md/transition" "^2.0.0-alpha.13"
+    "@react-md/typography" "^2.0.0-alpha.13"
+    "@react-md/utils" "^2.0.0-alpha.13"
+    classnames "^2.2.6"
+    react-transition-group "^4.3.0"
+  optionalDependencies:
+    prop-types ">= 15.6"
+
+"@react-md/transition@^2.0.0-alpha.13":
+  version "2.0.0-alpha.13"
+  resolved "https://registry.yarnpkg.com/@react-md/transition/-/transition-2.0.0-alpha.13.tgz#b6a7b2c069f30a7adbe8dd3720949ca144724935"
+  dependencies:
+    "@react-md/portal" "^2.0.0-alpha.13"
+    "@react-md/theme" "^2.0.0-alpha.13"
+    "@react-md/utils" "^2.0.0-alpha.13"
+    "@types/react-transition-group" "^4.2.3"
+    classnames "^2.2.6"
+    react-transition-group "^4.3.0"
+  optionalDependencies:
+    prop-types ">= 15.6"
+
+"@react-md/tree@^2.0.0-alpha.13":
+  version "2.0.0-alpha.13"
+  resolved "https://registry.yarnpkg.com/@react-md/tree/-/tree-2.0.0-alpha.13.tgz#f8a56391484ede56b13c9c767e4f0f1236f92364"
+  dependencies:
+    "@react-md/icon" "^2.0.0-alpha.13"
+    "@react-md/list" "^2.0.0-alpha.13"
+    "@react-md/theme" "^2.0.0-alpha.13"
+    "@react-md/transition" "^2.0.0-alpha.13"
+    "@react-md/utils" "^2.0.0-alpha.13"
+    classnames "^2.2.6"
+  optionalDependencies:
+    prop-types ">= 15.6"
+
+"@react-md/typography@^2.0.0-alpha.13":
+  version "2.0.0-alpha.13"
+  resolved "https://registry.yarnpkg.com/@react-md/typography/-/typography-2.0.0-alpha.13.tgz#1653288cd67fdb47b9ae906259c948a23c592448"
+  dependencies:
+    "@react-md/theme" "^2.0.0-alpha.13"
+    "@react-md/utils" "^2.0.0-alpha.13"
+    classnames "^2.2.6"
+  optionalDependencies:
+    prop-types ">= 15.6"
+
+"@react-md/utils@^2.0.0-alpha.13":
+  version "2.0.0-alpha.13"
+  resolved "https://registry.yarnpkg.com/@react-md/utils/-/utils-2.0.0-alpha.13.tgz#a5a8496a69f78023007440fd0c54f5cb9173d21e"
+  dependencies:
+    resize-observer-polyfill "^1.5.1"
+
 "@sheerun/mutationobserver-shim@^0.3.2":
   version "0.3.2"
   resolved "https://registry.yarnpkg.com/@sheerun/mutationobserver-shim/-/mutationobserver-shim-0.3.2.tgz#8013f2af54a2b7d735f71560ff360d3a8176a87b"
@@ -1703,6 +2107,12 @@
 "@types/react-textarea-autosize@^4.3.3":
   version "4.3.5"
   resolved "https://registry.yarnpkg.com/@types/react-textarea-autosize/-/react-textarea-autosize-4.3.5.tgz#6c4d2753fa1864c98c0b2b517f67bb1f6e4c46de"
+  dependencies:
+    "@types/react" "*"
+
+"@types/react-transition-group@^4.2.3":
+  version "4.2.3"
+  resolved "https://registry.yarnpkg.com/@types/react-transition-group/-/react-transition-group-4.2.3.tgz#4924133f7268694058e415bf7aea2d4c21131470"
   dependencies:
     "@types/react" "*"
 
@@ -3320,7 +3730,7 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
-classnames@^2.2.5:
+classnames@^2.2.5, classnames@^2.2.6:
   version "2.2.6"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
 
@@ -4043,7 +4453,7 @@ cssstyle@^1.0.0, cssstyle@^1.1.1:
   dependencies:
     cssom "0.3.x"
 
-csstype@^2.2.0, csstype@^2.5.7, csstype@^2.6.5:
+csstype@^2.2.0, csstype@^2.5.7, csstype@^2.6.5, csstype@^2.6.7:
   version "2.6.8"
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-2.6.8.tgz#0fb6fc2417ffd2816a418c9336da74d7f07db431"
 
@@ -4306,6 +4716,13 @@ dom-converter@^0.2:
   resolved "https://registry.yarnpkg.com/dom-converter/-/dom-converter-0.2.0.tgz#6721a9daee2e293682955b6afe416771627bb768"
   dependencies:
     utila "~0.4"
+
+dom-helpers@^5.0.1:
+  version "5.1.3"
+  resolved "https://registry.yarnpkg.com/dom-helpers/-/dom-helpers-5.1.3.tgz#7233248eb3a2d1f74aafca31e52c5299cc8ce821"
+  dependencies:
+    "@babel/runtime" "^7.6.3"
+    csstype "^2.6.7"
 
 dom-serializer@0:
   version "0.2.2"
@@ -9358,7 +9775,7 @@ prompts@^2.0.1:
     kleur "^3.0.3"
     sisteransi "^1.0.3"
 
-prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
+"prop-types@>= 15.6", prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   dependencies:
@@ -9755,6 +10172,43 @@ react-lifecycles-compat@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
 
+react-md@^2.0.0-alpha.13:
+  version "2.0.0-alpha.13"
+  resolved "https://registry.yarnpkg.com/react-md/-/react-md-2.0.0-alpha.13.tgz#3500537095a60b09b534fdc7427a26f43d24a40e"
+  dependencies:
+    "@react-md/alert" "^2.0.0-alpha.13"
+    "@react-md/app-bar" "^2.0.0-alpha.13"
+    "@react-md/autocomplete" "^2.0.0-alpha.13"
+    "@react-md/avatar" "^2.0.0-alpha.13"
+    "@react-md/badge" "^2.0.0-alpha.13"
+    "@react-md/button" "^2.0.0-alpha.13"
+    "@react-md/card" "^2.0.0-alpha.13"
+    "@react-md/chip" "^2.0.0-alpha.13"
+    "@react-md/dialog" "^2.0.0-alpha.13"
+    "@react-md/divider" "^2.0.0-alpha.13"
+    "@react-md/elevation" "^2.0.0-alpha.13"
+    "@react-md/expansion-panel" "^2.0.0-alpha.13"
+    "@react-md/form" "^2.0.0-alpha.13"
+    "@react-md/icon" "^2.0.0-alpha.13"
+    "@react-md/layout" "^2.0.0-alpha.13"
+    "@react-md/link" "^2.0.0-alpha.13"
+    "@react-md/list" "^2.0.0-alpha.13"
+    "@react-md/material-icons" "^2.0.0-alpha.13"
+    "@react-md/media" "^2.0.0-alpha.13"
+    "@react-md/menu" "^2.0.0-alpha.13"
+    "@react-md/overlay" "^2.0.0-alpha.13"
+    "@react-md/portal" "^2.0.0-alpha.13"
+    "@react-md/progress" "^2.0.0-alpha.13"
+    "@react-md/sheet" "^2.0.0-alpha.13"
+    "@react-md/states" "^2.0.0-alpha.13"
+    "@react-md/table" "^2.0.0-alpha.13"
+    "@react-md/theme" "^2.0.0-alpha.13"
+    "@react-md/tooltip" "^2.0.0-alpha.13"
+    "@react-md/transition" "^2.0.0-alpha.13"
+    "@react-md/tree" "^2.0.0-alpha.13"
+    "@react-md/typography" "^2.0.0-alpha.13"
+    "@react-md/utils" "^2.0.0-alpha.13"
+
 react-popper-tooltip@^2.8.3:
   version "2.10.1"
   resolved "https://registry.yarnpkg.com/react-popper-tooltip/-/react-popper-tooltip-2.10.1.tgz#e10875f31916297c694d64a677d6f8fa0a48b4d1"
@@ -9955,6 +10409,15 @@ react-textarea-autosize@^7.1.0:
   dependencies:
     "@babel/runtime" "^7.1.2"
     prop-types "^15.6.0"
+
+react-transition-group@^4.3.0:
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-4.3.0.tgz#fea832e386cf8796c58b61874a3319704f5ce683"
+  dependencies:
+    "@babel/runtime" "^7.5.5"
+    dom-helpers "^5.0.1"
+    loose-envify "^1.4.0"
+    prop-types "^15.6.2"
 
 react@^16.12.0, react@^16.8.3:
   version "16.12.0"
