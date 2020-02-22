@@ -1,23 +1,25 @@
 import React, { PureComponent } from "react";
-import { BottomNavigation, FontIcon } from "react-md";
+import { BottomNavigation, FontIcon, Drawer, Toolbar, Button } from "react-md";
 import AppToolbar from './components/AppToolbar';
 import Expandable from './components/Expandable';
+import drawerMenu from './components/DrawerMenu';
+import Timelines from './components/Timelines';
 
-const Recent = () => <div>Recent</div>;
-const Favorites = () => <div>Favorites</div>;
-const Nearby = () => <div>Nearby</div>;
+const Recent = () => <div>热门</div>;
+const Favorites = () => <div>收藏</div>;
+const Nearby = () => <div>附近</div>;
 
 const links = [
   {
-    label: "Recent",
+    label: "热门",
     icon: <FontIcon>access_time</FontIcon>
   },
   {
-    label: "Favorites",
+    label: "收藏",
     icon: <FontIcon>favorite</FontIcon>
   },
   {
-    label: "Nearby",
+    label: "附近",
     icon: <FontIcon>place</FontIcon>
   }
 ];
@@ -39,14 +41,18 @@ export default class Fixed extends PureComponent {
         children = <Nearby key="nearby" />;
         break;
       default:
-        children = <Recent key="recent" />;
+        children = <Timelines key="recent" />;
     }
 
     this.setState({ children });
   };
 
   handleNavClick = () => {
-    this.setState({searching: false})
+    if(!this.state.searching){
+      this.setState({visible: true});
+    }else{
+      this.setState({searching: false})
+    }
   }
 
   handleActionClick = () => {
@@ -56,9 +62,13 @@ export default class Fixed extends PureComponent {
       this.setState({ searching: true });
     }
   }
+  handleVisibility = (visible) => {
+    this.setState({ visible });
+  };
 
   render() {
-    const { children, searching } = this.state;
+    const { children, searching,  visible  } = this.state;
+    const closeBtn = <Button icon onClick={()=>this.handleVisibility(false)}>arrow_back</Button>;
 
     return (
       <>
@@ -68,6 +78,19 @@ export default class Fixed extends PureComponent {
           handleActionClick={this.handleActionClick}
         />
         {children}
+        <Drawer
+          id="simple-drawer-example"
+          type={Drawer.DrawerTypes.TEMPORARY}
+          visible={visible}
+          onVisibilityChange={this.handleVisibility}
+          navItems={drawerMenu}
+          header={(
+            <Toolbar
+              actions={closeBtn}
+              className="md-divider-border md-divider-border--bottom"
+            />
+          )}
+        />
         <BottomNavigation
           links={links}
           dynamic={false}

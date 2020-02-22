@@ -21,7 +21,7 @@ KebabMenu.propTypes = {
 };
 
 KebabMenu.defaultProps = {
-  menuItems: ['Settings', 'Feedback'],
+  menuItems: ['设置', '反馈'],
 };
 
 export default KebabMenu;
