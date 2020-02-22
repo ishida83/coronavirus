@@ -1,5 +1,7 @@
 import React, { PureComponent } from "react";
 import { BottomNavigation, FontIcon } from "react-md";
+import AppToolbar from './components/AppToolbar';
+import Expandable from './components/Expandable';
 
 const Recent = () => <div>Recent</div>;
 const Favorites = () => <div>Favorites</div>;
@@ -21,13 +23,17 @@ const links = [
 ];
 
 export default class Fixed extends PureComponent {
-  state = { children: <Recent /> };
+  state = { 
+    children: <Recent />,
+    searching: false
+  };
 
   handleNavChange = activeIndex => {
     let children;
     switch (activeIndex) {
       case 1:
-        children = <Favorites key="favorites" />;
+        children = <Expandable />;
+        // <Favorites key="favorites" />;
         break;
       case 2:
         children = <Nearby key="nearby" />;
@@ -39,11 +45,28 @@ export default class Fixed extends PureComponent {
     this.setState({ children });
   };
 
+  handleNavClick = () => {
+    this.setState({searching: false})
+  }
+
+  handleActionClick = () => {
+    if (this.state.searching) {
+      this.setState({ value: '' });
+    } else {
+      this.setState({ searching: true });
+    }
+  }
+
   render() {
-    const { children } = this.state;
+    const { children, searching } = this.state;
 
     return (
       <>
+        <AppToolbar
+          searching={searching}
+          handleNavClick={this.handleNavClick}
+          handleActionClick={this.handleActionClick}
+        />
         {children}
         <BottomNavigation
           links={links}
