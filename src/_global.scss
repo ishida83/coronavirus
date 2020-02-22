@@ -1,0 +1,19 @@
+@import '~react-md/src/scss/react-md';
+
+$md-primary-color: $md-indigo-500 !default;
+$md-secondary-color: $md-pink-a-200 !default;
+
+
+@include react-md-theme-everything(
+  $md-primary-color,
+  $md-secondary-color,
+  false, // specifying dark-theme
+  'dark-theme' // class name to wrap dark-theme styles in
+);
+
+@include react-md-everything;
+
+// @import react-md-typography;
+// @import react-md-cards;
+// @import react-md-buttons;
+// @import react-md-inks;

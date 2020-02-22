@@ -1,37 +1,56 @@
-import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import React, { PureComponent } from "react";
+import { BottomNavigation, FontIcon } from "react-md";
 
-function App() {
-  const handleClick = () => {
-    import("./components/moduleA")
-      .then(({ moduleA }) => {
-        // Use moduleA
-        alert(moduleA);
-      })
-      .catch(err => {
-        // Handle failure
-      });
+const Recent = () => <div>Recent</div>;
+const Favorites = () => <div>Favorites</div>;
+const Nearby = () => <div>Nearby</div>;
+
+const links = [
+  {
+    label: "Recent",
+    icon: <FontIcon>access_time</FontIcon>
+  },
+  {
+    label: "Favorites",
+    icon: <FontIcon>favorite</FontIcon>
+  },
+  {
+    label: "Nearby",
+    icon: <FontIcon>place</FontIcon>
+  }
+];
+
+export default class Fixed extends PureComponent {
+  state = { children: <Recent /> };
+
+  handleNavChange = activeIndex => {
+    let children;
+    switch (activeIndex) {
+      case 1:
+        children = <Favorites key="favorites" />;
+        break;
+      case 2:
+        children = <Nearby key="nearby" />;
+        break;
+      default:
+        children = <Recent key="recent" />;
+    }
+
+    this.setState({ children });
   };
 
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" onClick={handleClick} />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+  render() {
+    const { children } = this.state;
 
-export default App;
+    return (
+      <>
+        {children}
+        <BottomNavigation
+          links={links}
+          dynamic={false}
+          onNavChange={this.handleNavChange}
+        />
+      </>
+    );
+  }
+}
