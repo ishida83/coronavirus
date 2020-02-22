@@ -27,7 +27,7 @@ export default class Timelines extends React.Component {
     return (
 			<div className="clear">
 				<VerticalTimeline
-					layout = '2-columns'
+					layout = '1-column'
 				>
 					<VerticalTimelineElement
 						className="vertical-timeline-element--work"

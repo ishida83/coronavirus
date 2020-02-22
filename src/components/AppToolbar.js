@@ -53,7 +53,7 @@ const AppToolbar = ({
       );
   }
 	const handleResize = ({ height, width, el }) => {
-    console.log(width, height);
+    // console.log(width, height);
 		w = width;
 		h = height;
 	}
