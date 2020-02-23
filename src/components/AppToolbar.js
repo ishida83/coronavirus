@@ -10,7 +10,7 @@ const AppToolbar = ({
   searching,
   handleNavClick,
   handleActionClick,
-  title = "星志时间轴",
+  title = process.env.REACT_APP_WEBSITE_NAME,
   className
 }) => {
 	if (searching) {

@@ -1,12 +1,47 @@
 /* eslint-disable no-undef,no-restricted-globals */
 
 importScripts("/third_party/workbox/workbox-v5.0.0/workbox-sw.js");
+// importScripts("/third_party/workbox/workbox-v5.0.0/workbox-background-sync.prod.js");
 
 workbox.setConfig({
   modulePathPrefix: "/third_party/workbox/workbox-v5.0.0"
 });
 
-console.log("hello from custom-sw.js");
+const queue = new workbox.backgroundSync.Queue("myQueueName");
+
+// Enable navigation preload.
+workbox.navigationPreload.enable();
+
+
+export const showNotification = ({
+  body = "You are back online and your post was successfully sent!",
+  icon = "../images/icon/256.png",
+  badge = "../images/icon/32png.png",
+  vibrate = [200, 100, 200, 100, 200, 100, 200],
+  tag = "vibration-sample"
+}) => {
+  // Notification.requestPermission(function(result) {
+  //   if (result === 'granted') {
+  //     // navigator.serviceWorker.ready.then(function(registration) {
+  //     //   registration.showNotification('Vibration Sample', {
+  //     //     body: 'Buzz! Buzz!',
+  //     //     icon: '../images/touch/chrome-touch-icon-192x192.png',
+  //     //     vibrate: [200, 100, 200, 100, 200, 100, 200],
+  //     //     tag: 'vibration-sample'
+  //     //   });
+  //     // });
+  //   }
+  // });
+  if (Notification.permission === "granted") {
+    self.registration.showNotification(process.env.REACT_APP_NAME, {
+      body,
+      icon,
+      badge,
+      vibrate,
+      tag
+    });
+  }
+};
 
 if (workbox) {
   console.log(`Yay! Workbox is loaded 🎉`);
@@ -20,6 +55,26 @@ if (workbox) {
   self.addEventListener("activate", event =>
     event.waitUntil(self.clients.claim())
   );
+
+  self.addEventListener("push", event => {
+    const data = event.data.json();
+    console.log("New notification", data);
+    const options = {
+      body: data.body
+    };
+    // event.waitUntil(self.registration.showNotification(data.title, options));
+    event.waitUntil(showNotification(options))
+  });
+
+  self.addEventListener("fetch", event => {
+    // Clone the request to ensure it's safe to read when
+    // adding to the Queue.
+    const promiseChain = fetch(event.request.clone()).catch(err => {
+      return queue.pushRequest({ request: event.request });
+    });
+
+    event.waitUntil(promiseChain);
+  });
 
   // app-shell
   // workbox.routing.registerRoute("/", workbox.strategies.networkFirst());
