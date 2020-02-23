@@ -21,7 +21,32 @@
 .vertical-timeline-element-date {
   color: #333;
 }
+.vertical-timeline-element-content{
+  display: flex;
+  flex-direction: column;
 
+  .vertical-timeline-element-title{
+    order:2;
+  }
+  .md-media{
+    order: 3;
+  }
+  .vertical-timeline-element-subtitle{
+    order: 4;
+  }
+  .vertical-timeline-element-date{
+    order: 1;
+  }
+  > p {
+    order: 5;
+  }
+}
+
+.dark-theme {
+  .vertical-timeline-element-content{
+    background-color: #444;
+  }
+}
 
 /* Example with custom animations */
 /*

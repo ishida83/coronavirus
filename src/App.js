@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, PureComponent } from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -39,13 +39,38 @@ const links = [
   }
 ];
 
+const fetchData = () => {
+  return fetch(process.env.REACT_APP_API_URL)
+    .then(res => res.json())
+    .then(data => {
+      console.log(data);
+      return Promise.resolve(data);
+    });
+};
 
-class App extends Component {
-  state = { 
-    children: <Timelines key="recent" />,
-    searching: false,
-    activeIndex: 0
-  };
+class App extends PureComponent {
+  constructor(props){
+    super(props);
+    this.state = { 
+      children: <Timelines key="recent" />,
+      searching: false,
+      timelineData: [],
+      activeIndex: this.getInitialIndex(props.location?props.location.pathname:window.location.pathname)
+    };
+  }
+  getInitialIndex = (pathname) => {
+    let index = -1;
+    links.some(({ to }, i) => {
+      if (to === pathname) {
+        index = i;
+        return true;
+      }
+
+      return false;
+    });
+
+    return index === -1 ? 0 : index;
+  }
 
   handleNavChange = activeIndex => {
     let children;
@@ -83,24 +108,32 @@ class App extends Component {
     this.setState({ visible });
   };
 
+  componentDidMount(){
+    fetchData().then(data => {
+      this.setState({
+        timelineData: data
+      })
+    })
+  }
+
   render() {
     const { children, searching,  visible, activeIndex  } = this.state;
     const closeBtn = <Button icon onClick={()=>this.handleVisibility(false)}>arrow_back</Button>;
     const { location={} } = this.props;
     const { pathname='' } = location;
-    const inset = !pathname.match(/\/$/);
+    const inset = pathname.match(/\/$/);
 
     return (
       <Router>
         <AppToolbar
-          inset={inset}
+          inset
           searching={searching}
           handleNavClick={this.handleNavClick}
           handleActionClick={this.handleActionClick}
         />
         <Switch>
           ...{links.map(link => (
-            <Route path={link.to} exact render={(props) => <link.page {...props} />} key={link.label}/>
+            <Route path={link.to} exact render={(props) => <link.page {...props} timelineData={this.state.timelineData} />} key={link.label}/>
           ))}
         </Switch>
         <Drawer

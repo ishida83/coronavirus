@@ -8,6 +8,10 @@ $md-light-theme: true; // optional for light theme
 $md-primary-color: $md-light-blue-500;
 $md-secondary-color: $md-deep-orange-a-200;
 
+@media (prefers-color-scheme: dark) {
+  $md-light-theme: true;
+}
+
 
 @include react-md-theme-everything(
   $md-primary-color,
