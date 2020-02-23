@@ -1,4 +1,10 @@
-import React, { PureComponent } from "react";
+import React, { Component } from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 import { BottomNavigation, FontIcon, Drawer, Toolbar, Button } from "react-md";
 import AppToolbar from './components/AppToolbar';
 import Expandable from './components/Expandable';
@@ -12,22 +18,33 @@ const Nearby = () => <div>附近</div>;
 const links = [
   {
     label: "热门",
-    icon: <FontIcon>access_time</FontIcon>
+    icon: <FontIcon>access_time</FontIcon>,
+    to: '/',
+    component: Link,
+    page: Timelines
   },
   {
     label: "收藏",
-    icon: <FontIcon>favorite</FontIcon>
+    icon: <FontIcon>favorite</FontIcon>,
+    to: '/fav',
+    component: Link,
+    page: Expandable
   },
   {
     label: "附近",
-    icon: <FontIcon>place</FontIcon>
+    icon: <FontIcon>place</FontIcon>,
+    to: '/nearby',
+    component: Link,
+    page: Nearby
   }
 ];
 
-export default class Fixed extends PureComponent {
+
+class App extends Component {
   state = { 
-    children: <Recent />,
-    searching: false
+    children: <Timelines key="recent" />,
+    searching: false,
+    activeIndex: 0
   };
 
   handleNavChange = activeIndex => {
@@ -44,7 +61,7 @@ export default class Fixed extends PureComponent {
         children = <Timelines key="recent" />;
     }
 
-    this.setState({ children });
+    this.setState({ activeIndex, children });
   };
 
   handleNavClick = () => {
@@ -67,36 +84,50 @@ export default class Fixed extends PureComponent {
   };
 
   render() {
-    const { children, searching,  visible  } = this.state;
+    const { children, searching,  visible, activeIndex  } = this.state;
     const closeBtn = <Button icon onClick={()=>this.handleVisibility(false)}>arrow_back</Button>;
+    const { location={} } = this.props;
+    const { pathname='' } = location;
+    const inset = !pathname.match(/\/$/);
 
     return (
-      <>
+      <Router>
         <AppToolbar
+          inset={inset}
           searching={searching}
           handleNavClick={this.handleNavClick}
           handleActionClick={this.handleActionClick}
         />
-        {children}
+        <Switch>
+          ...{links.map(link => (
+            <Route path={link.to} exact render={(props) => <link.page {...props} />} key={link.label}/>
+          ))}
+        </Switch>
         <Drawer
           id="simple-drawer-example"
           type={Drawer.DrawerTypes.TEMPORARY}
           visible={visible}
           onVisibilityChange={this.handleVisibility}
           navItems={drawerMenu}
-          header={(
+          header={
             <Toolbar
               actions={closeBtn}
               className="md-divider-border md-divider-border--bottom"
             />
-          )}
+          }
         />
         <BottomNavigation
-          links={links}
+          links={links.map(item => {let {page, ...newItem} = item; return newItem})}
           dynamic={false}
-          onNavChange={this.handleNavChange}
+          // onNavChange={this.handleNavChange}
+          defaultActiveIndex={activeIndex}
+          dynamic
+          // colored
         />
-      </>
+      </Router>
     );
   }
 }
+
+
+export default App;
