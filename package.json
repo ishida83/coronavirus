@@ -14,10 +14,11 @@
     "react-vertical-timeline-component": "^2.5.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "dev": "serve -s build",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "npm run copySW && react-app-rewired start",
+    "build": "react-app-rewired build && npm run copySW",
+    "copySW": "workbox copyLibraries public/third_party/workbox/",
+    "test": "react-app-rewired test --env=jsdom",
+    "serve": "serve -s build",
     "eject": "react-scripts eject",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
@@ -47,8 +48,12 @@
     "@storybook/preset-create-react-app": "^1.5.2",
     "@storybook/react": "^5.3.12",
     "node-sass": "^4.13.1",
+    "react-app-rewire-workbox": "^2.0.1",
+    "react-app-rewired": "^2.1.5",
     "react-styleguidist": "^10.6.1",
     "serve": "^11.3.0",
-    "source-map-explorer": "^2.2.2"
+    "source-map-explorer": "^2.2.2",
+    "workbox-cli": "^5.0.0",
+    "workbox-webpack-plugin": "^5.0.0"
   }
 }
