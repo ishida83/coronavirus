@@ -10,8 +10,10 @@ const AppToolbar = ({
   searching,
   handleNavClick,
   handleActionClick,
+  inset=false,
+  fixed=false,
   title = process.env.REACT_APP_WEBSITE_NAME,
-  className
+  className="phone-emulator__toolbar"
 }) => {
 	if (searching) {
     title =
@@ -63,6 +65,8 @@ const AppToolbar = ({
 				title={title}
 				titleId="search-pastries"
 				className={className}
+        fixed = {fixed}
+        inset = {inset}
 				nav={<Nav handleNavClick={handleNavClick} searching={searching} />}
 				// colored
 				// fixed

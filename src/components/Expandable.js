@@ -1,4 +1,5 @@
 import React from "react";
+import cn from 'classnames';
 import {
   Avatar,
   Button,
@@ -13,8 +14,8 @@ import {randomImage} from "../utils/random";
 
 const style = { maxWidth: 600 };
 
-const Expandable = ({ avatar }) => (
-  <Card style={style} className="md-block-centered">
+const Expandable = ({ avatar, className }) => (
+  <Card style={style} className={cn("md-block-centered", className)}>
     <Media>
       <iframe
         referrerPolicy="no-referrer"

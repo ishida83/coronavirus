@@ -7,6 +7,7 @@ import "react-vertical-timeline-component/style.min.css";
 import { SVGIcon, FontIcon, Avatar, Media } from 'react-md';
 import './Timeline.scss';
 import {randomImage} from "../utils/random";
+import cn from 'classnames';
 
 const WorkIcon = props => (
   <Avatar src={props.avatar || randomImage()} role="presentation" />
@@ -22,10 +23,10 @@ const StarIcon = props => (
   </FontIcon>
 );
 
-export default class Timelines extends React.PureComponent {
+export default class Timelines extends React.Component {
   render() {
     return (
-      <div className="clear">
+      <div className={cn("clear", this.props.className)}>
         <VerticalTimeline layout="1-column">
           {this.props.timelineData.map((item, idx) => (
             <VerticalTimelineElement

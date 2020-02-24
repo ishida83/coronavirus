@@ -23,4 +23,6 @@ yarn-debug.log*
 yarn-error.log*
 
 stories
-third_party
+coronavirus/
+public/third_party
+new

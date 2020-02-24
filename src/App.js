@@ -1,4 +1,4 @@
-import React, { Component, PureComponent } from "react";
+import React, { Component } from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -11,9 +11,9 @@ import Expandable from './components/Expandable';
 import drawerMenu from './components/DrawerMenu';
 import Timelines from './components/Timelines';
 
-const Recent = () => <div>热门</div>;
-const Favorites = () => <div>收藏</div>;
-const Nearby = () => <div>附近</div>;
+// const Recent = () => <div>热门</div>;
+// const Favorites = () => <div>收藏</div>;
+const Nearby = (props) => <div {...props}>附近</div>;
 
 const links = [
   {
@@ -48,7 +48,7 @@ const fetchData = () => {
     });
 };
 
-class App extends PureComponent {
+class App extends Component {
   constructor(props){
     super(props);
     this.state = { 
@@ -72,22 +72,22 @@ class App extends PureComponent {
     return index === -1 ? 0 : index;
   }
 
-  handleNavChange = activeIndex => {
-    let children;
-    switch (activeIndex) {
-      case 1:
-        children = <Expandable />;
-        // <Favorites key="favorites" />;
-        break;
-      case 2:
-        children = <Nearby key="nearby" />;
-        break;
-      default:
-        children = <Timelines key="recent" />;
-    }
+  // handleNavChange = activeIndex => {
+  //   let children;
+  //   switch (activeIndex) {
+  //     case 1:
+  //       children = <Expandable />;
+  //       // <Favorites key="favorites" />;
+  //       break;
+  //     case 2:
+  //       children = <Nearby key="nearby" />;
+  //       break;
+  //     default:
+  //       children = <Timelines key="recent" />;
+  //   }
 
-    this.setState({ activeIndex, children });
-  };
+  //   this.setState({ activeIndex, children });
+  // };
 
   handleNavClick = () => {
     if(!this.state.searching){
@@ -117,16 +117,12 @@ class App extends PureComponent {
   }
 
   render() {
-    const { children, searching,  visible, activeIndex  } = this.state;
+    const { searching,  visible, activeIndex  } = this.state;
     const closeBtn = <Button icon onClick={()=>this.handleVisibility(false)}>arrow_back</Button>;
-    const { location={} } = this.props;
-    const { pathname='' } = location;
-    const inset = pathname.match(/\/$/);
 
     return (
       <Router>
         <AppToolbar
-          inset
           searching={searching}
           handleNavClick={this.handleNavClick}
           handleActionClick={this.handleActionClick}
@@ -151,10 +147,9 @@ class App extends PureComponent {
         />
         <BottomNavigation
           links={links.map(item => {let {page, ...newItem} = item; return newItem})}
-          dynamic={false}
+          dynamic
           // onNavChange={this.handleNavChange}
           defaultActiveIndex={activeIndex}
-          dynamic
           // colored
         />
       </Router>

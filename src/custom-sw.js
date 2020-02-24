@@ -1,10 +1,10 @@
 /* eslint-disable no-undef,no-restricted-globals */
 
-importScripts("/third_party/workbox/workbox-v5.0.0/workbox-sw.js");
+importScripts(process.env.PUBLIC_URL+"/third_party/workbox/workbox-v5.0.0/workbox-sw.js");
 // importScripts("/third_party/workbox/workbox-v5.0.0/workbox-background-sync.prod.js");
 
 workbox.setConfig({
-  modulePathPrefix: "/third_party/workbox/workbox-v5.0.0"
+  modulePathPrefix: process.env.PUBLIC_URL+"/third_party/workbox/workbox-v5.0.0"
 });
 
 const queue = new workbox.backgroundSync.Queue("myQueueName");
