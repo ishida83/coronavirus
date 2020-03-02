@@ -121,7 +121,7 @@ class App extends Component {
     const closeBtn = <Button icon onClick={()=>this.handleVisibility(false)}>arrow_back</Button>;
 
     return (
-      <Router>
+      <Router basename={process.env.NODE_ENV==='production' ? '/new' : ''}>
         <AppToolbar
           searching={searching}
           handleNavClick={this.handleNavClick}

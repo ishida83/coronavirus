@@ -2,7 +2,7 @@
   "name": "星志时间轴",
   "short_name": "星志",
   "theme_color": "#2196f3",
-  "background_color": "#2196f3",
+  "background_color": "#ffffff",
   "display": "standalone",
   "Scope": "/new",
   "start_url": "index.html",
