@@ -59,6 +59,30 @@ const AppToolbar = ({
 		w = width;
 		h = height;
 	}
+
+  const onMenuClick = (...args) => {
+    console.log(args);
+    if(args && args[0]) {
+      switch(args[0].target.textContent){
+        case '分享':
+          if (navigator.share) {
+            let url = document.location.href;
+            const canonicalElement = document.querySelector('link[rel=canonical]');
+            if (canonicalElement !== null) {
+                url = canonicalElement.href;
+            }
+            navigator.share({
+              title: process.env.REACT_APP_WEBSITE_NAME,
+              text: 'Check it out.',
+              url: url || 'https://starlog.cn/new',
+            })
+              .then(() => console.log('Successful share'))
+              .catch((error) => console.log('Error sharing', error));
+          }
+          break;
+      }
+    }
+  }
   return (
 		<>
 			<Toolbar
@@ -79,7 +103,7 @@ const AppToolbar = ({
 						{searching ? "keyboard_voice" : "search"}
 					</Button>,
 					// <Button icon>send</Button>,
-					<KebabMenu id="toolbar-prominent-kebab-menu" />
+					<KebabMenu id="toolbar-prominent-kebab-menu" onMenuClick={onMenuClick} />
 				]}
 			/>
 			<ResizeObserver watchWidth watchHeight onResize={handleResize} />

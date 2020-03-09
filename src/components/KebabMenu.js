@@ -3,10 +3,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { MenuButton } from 'react-md';
 
-const KebabMenu = ({ id, className, menuItems }) => (
+const KebabMenu = ({ id, className, menuItems, onMenuClick }) => (
   <MenuButton
     id={id}
     icon
+    onMenuClick={onMenuClick}
     className={className}
     menuItems={menuItems}
   >
@@ -21,7 +22,7 @@ KebabMenu.propTypes = {
 };
 
 KebabMenu.defaultProps = {
-  menuItems: ['设置', '反馈'],
+  menuItems: ['设置', '刷新', '反馈', '分享'],
 };
 
 export default KebabMenu;
