@@ -41,3 +41,23 @@
   font-family: Roboto,Helvetica,Arial,sans-serif;
   font-weight: light;
 }
+
+@media screen and (min-width: 48em){
+  #layout-header{
+    left: 0;
+    width: 100vw;
+  }
+
+  #layout-nav-container{
+    display: none;
+  }
+  #layout-main {
+    margin-left: 0;
+  }
+}
+
+#root{
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: none;
+  scroll-behavior: smooth;
+}
