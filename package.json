@@ -2,18 +2,21 @@
   "name": "coronavirus",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://ishida83.github.io/coronavirus",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "leaflet": "^1.6.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
+    "react-leaflet": "^2.7.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "^3.4.1"
   },
   "scripts": {
     "start": "react-scripts start",
-    "dev": "serve -s build",
+    "dev": "serve -s build -l 4000",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
@@ -21,7 +24,31 @@
     "styleguide:build": "styleguidist build",
     "analyze": "source-map-explorer 'build/static/js/*.js'",
     "storybook": "start-storybook -p 9009 -s public,static,build",
-    "build-storybook": "build-storybook -s public -o stories"
+    "build-storybook": "build-storybook -s public -o stories",
+    "flow": "flow",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -b vlogmap -d build",
+    "preserve": "npm run build",
+    "serve": "nodemon server"
+  },
+  "babel": {
+    "plugins": [
+      [
+        "@babel/plugin-proposal-decorators",
+        {
+          "legacy": true
+        }
+      ],
+      [
+        "@babel/plugin-proposal-class-properties",
+        {
+          "loose": true
+        }
+      ]
+    ],
+    "presets": [
+      "react-app"
+    ]
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -39,12 +66,23 @@
     ]
   },
   "devDependencies": {
+    "@babel/core": "^7.1.6",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/plugin-proposal-decorators": "^7.1.6",
+    "@babel/preset-env": "^7.1.6",
     "@storybook/addon-actions": "^5.3.12",
     "@storybook/addon-links": "^5.3.12",
     "@storybook/addons": "^5.3.12",
     "@storybook/preset-create-react-app": "^1.5.2",
     "@storybook/react": "^5.3.12",
+    "express": "^4.17.1",
+    "flow-bin": "^0.130.0",
+    "gh-pages": "^3.1.0",
+    "graphql": "^15.3.0",
+    "graphql.macro": "^1.4.2",
     "node-sass": "^4.13.1",
+    "nodemon": "^2.0.4",
+    "react-app-rewired": "^2.1.6",
     "react-styleguidist": "^10.6.1",
     "serve": "^11.3.0",
     "source-map-explorer": "^2.2.2"

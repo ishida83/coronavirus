@@ -1,6 +1,6 @@
 {
-  "short_name": "星疫",
-  "name": "星疫肺炎小区速查",
+  "short_name": "Mapology",
+  "name": "Vlog Map",
   "icons": [
     {
       "src": "favicon.ico",
@@ -18,7 +18,7 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "index.html",
+  "start_url": ".",
   "display": "standalone",
   "theme_color": "#3367D6",
   "background_color": "#3367D6"
