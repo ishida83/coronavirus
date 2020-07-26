@@ -11,6 +11,7 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-leaflet": "^2.7.0",
+    "react-map-gl": "^5.2.7",
     "react-router-dom": "^5.1.2",
     "react-scripts": "^3.4.1"
   },
@@ -27,7 +28,7 @@
     "build-storybook": "build-storybook -s public -o stories",
     "flow": "flow",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -b vlogmap -d build",
+    "deploy": "gh-pages -b gh-pages -d build",
     "preserve": "npm run build",
     "serve": "nodemon server"
   },
