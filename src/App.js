@@ -3,8 +3,9 @@ import React from "react";
 import logo from "./logo.svg";
 import "./App.scss";
 
-import SimpleExample from './LeafletMap';
+// import SimpleExample from './LeafletMap';
 import MapGlMap from './MapGlMap';
+// import AMap from './AMap';
 
 function App() {
   const handleClick = () => {
@@ -35,6 +36,7 @@ function App() {
         </a>
       </header> */}
       <MapGlMap />
+      {/* <AMap /> */}
     </div>
     // <SimpleExample />
   );

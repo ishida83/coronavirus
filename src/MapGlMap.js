@@ -68,7 +68,7 @@ export default class MapGlMap extends Component {
           onClose={() => this.setState({popupInfo: null})}
         >
           {/* <CityInfo info={popupInfo} /> */}
-					<video class="video-react-video" preload="auto" playsinline="" poster="/assets/poster.png" src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" tabindex="-1"></video>
+					<video className="video-react-video" preload="auto" playsInline={true} src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" tabIndex="-1" crossOrigin="anonymous" style={{width: 200, height: 150}}></video>
         </Popup>
       )
     );
