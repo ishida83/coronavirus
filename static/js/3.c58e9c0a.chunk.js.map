@@ -1,0 +1,1 @@
+{"version":3,"sources":["components/moduleA.js"],"names":["moduleA"],"mappings":"4GAAA,mDAAMA,EAAU","file":"static/js/3.c58e9c0a.chunk.js","sourcesContent":["const moduleA = 'Hello';\nexport { moduleA };"],"sourceRoot":""}
