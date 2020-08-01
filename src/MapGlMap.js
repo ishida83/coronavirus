@@ -34,6 +34,13 @@ const scaleControlStyle = {
   padding: '10px'
 };
 
+export const mapSwitcherStyle = {
+  textAlign: "left",
+  fontSize: "12px",
+  fontFamily: "'Hiragino Sans W3', Roboto",
+  top: "170px",
+};
+
 export default class MapGlMap extends Component {
   state = {
 		viewport: {
@@ -53,6 +60,57 @@ export default class MapGlMap extends Component {
 
   _onClickMarker = city => {
     this.setState({popupInfo: city});
+  };
+
+  _changeMapType = (mapType) => {
+    // console.log(this, mapType);
+    this.props.switchMapEngine(mapType.nativeEvent.target.value);
+  }
+
+  _renderMapSwitcher = () => {
+    // copy from mapbox
+    return (
+      <div className="mapboxgl-ctrl-top-left" style={mapSwitcherStyle}>
+        <div className="mapboxgl-ctrl-group mapboxgl-ctrl">
+          <label>
+            <div>
+              <input type="radio" className="leaflet-control-layers-selector" name="leaflet-base-layers_66" value="Leaflet" onChange={this._changeMapType}/>
+              <span> Leaflet</span>
+            </div>
+          </label>
+          <label>
+            <div>
+              <input type="radio" className="leaflet-control-layers-selector" name="leaflet-base-layers_66" value="MapGl" checked="checked" onChange={this._changeMapType} />
+              <span> MapGl</span>
+            </div>
+          </label>
+          <label>
+            <div>
+              <input type="radio" className="leaflet-control-layers-selector" name="leaflet-base-layers_66" value="AMap" onChange={this._changeMapType} />
+              <span> 高德</span>
+            </div>
+          </label>
+
+          <label>
+            <div>
+              <input type="radio" className="leaflet-control-layers-selector" name="leaflet-base-layers_66" value="Google" onChange={this._changeMapType} />
+              <span> Google</span>
+            </div>
+          </label>
+          <label>
+            <div>
+              <input type="radio" className="leaflet-control-layers-selector" name="leaflet-base-layers_66" value="Tencent" onChange={this._changeMapType} />
+              <span> 腾讯</span>
+            </div>
+          </label>
+          {/* <button
+            className="mapbox-gl-draw_ctrl-draw-btn mapbox-gl-draw_trash"
+            title="Delete"
+            onClick={this._onDelete}
+          /> */}
+        </div>
+      </div>
+    );
   };
 
   _renderPopup() {
@@ -93,6 +151,8 @@ export default class MapGlMap extends Component {
         <Pins data={CITIES} onClick={this._onClickMarker} />
 
         {this._renderPopup()}
+
+        {this._renderMapSwitcher()}
 
         <div style={geolocateStyle}>
           <GeolocateControl />

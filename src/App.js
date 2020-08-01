@@ -5,11 +5,11 @@ import "./App.scss";
 
 import LeafletMap from "./LeafletMap";
 import MapGlMap from "./MapGlMap";
-// import AMap from './AMap';
+import AMap from './AMap';
 
 class App extends React.Component {
   state = {
-    mapType: 'Leaflet'
+    mapType: 'AMap'
   };
   handleClick = () => {
     import("./components/moduleA")
@@ -35,7 +35,7 @@ class App extends React.Component {
       case 'MapGl':
         return <MapGlMap switchMapEngine={this.switchMapEngine}/>;
       case 'AMap':
-        return;
+        return <AMap switchMapEngine={this.switchMapEngine}/>;
       default:
         return null;
     }

@@ -18,7 +18,8 @@ export class LMap extends Component {
 
   SwitchMap = (arg) => {
     // console.log(arg);
-    this.props.switchMapEngine && this.props.switchMapEngine(arg.name);
+    this.props.switchMapEngine &&
+      this.props.switchMapEngine(arg.name === "高德" ? "AMap" : arg.name);
   }
 
   render() {
@@ -40,6 +41,19 @@ export class LMap extends Component {
             />
           </LayersControl.BaseLayer>
           <LayersControl.BaseLayer name="高德">
+            <TileLayer
+              attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+          </LayersControl.BaseLayer>
+
+          <LayersControl.BaseLayer name="Google">
+            <TileLayer
+              attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+          </LayersControl.BaseLayer>
+          <LayersControl.BaseLayer name="腾讯">
             <TileLayer
               attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
