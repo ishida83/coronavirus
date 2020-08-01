@@ -3,25 +3,48 @@ import React from "react";
 import logo from "./logo.svg";
 import "./App.scss";
 
-// import SimpleExample from './LeafletMap';
-import MapGlMap from './MapGlMap';
+import LeafletMap from "./LeafletMap";
+import MapGlMap from "./MapGlMap";
 // import AMap from './AMap';
 
-function App() {
-  const handleClick = () => {
+class App extends React.Component {
+  state = {
+    mapType: 'Leaflet'
+  };
+  handleClick = () => {
     import("./components/moduleA")
       .then(({ moduleA }) => {
         // Use moduleA
         alert(moduleA);
       })
-      .catch(err => {
+      .catch((err) => {
         // Handle failure
       });
   };
 
-  return (
-    <div className="App">
-      {/* <header className="App-header">
+  switchMapEngine = (mapType) => {
+    this.setState({
+      mapType
+    })
+  }
+
+  renderMap = () => {
+    switch(this.state.mapType) {
+      case 'Leaflet': 
+        return <LeafletMap switchMapEngine={this.switchMapEngine} />;
+      case 'MapGl':
+        return <MapGlMap switchMapEngine={this.switchMapEngine}/>;
+      case 'AMap':
+        return;
+      default:
+        return null;
+    }
+  };
+
+  render() {
+    return (
+      <div className="App">
+        {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" onClick={handleClick} />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -35,11 +58,10 @@ function App() {
           Learn React
         </a>
       </header> */}
-      <MapGlMap />
-      {/* <AMap /> */}
-    </div>
-    // <SimpleExample />
-  );
+        {this.renderMap()}
+      </div>
+    );
+  }
 }
 
 export default App;

@@ -1,28 +1,74 @@
 import React, { Component } from 'react';
-import { Map as LeafletMap, TileLayer, Marker, Popup } from 'react-leaflet';
+import { Map as LeafletMap, TileLayer, Marker, Popup, 
+  LayersControl, FeatureGroup, Circle
+} from 'react-leaflet';
 
-export default class SimpleExample extends Component {
+import './LeafletMap.scss';
+
+import withLeafletPane from './withLeafletPane';
+import withLeafletMapType from './withLeafletMapType';
+import withMapData from './withMapData';
+
+export class LMap extends Component {
   state = {
-    lat: 51.505,
-    lng: -0.09,
-    zoom: 13
+    lat: 37.785164,
+    lng: -100,
+    zoom: 3.5
+  }
+
+  SwitchMap = (arg) => {
+    // console.log(arg);
+    this.props.switchMapEngine && this.props.switchMapEngine(arg.name);
   }
 
   render() {
     const position = [this.state.lat, this.state.lng];
-
+    const {children, ...restProps} = this.props;
     return (
-      <LeafletMap center={position} zoom={this.state.zoom}>
+      <LeafletMap center={position} zoom={this.state.zoom} {...restProps} onBaselayerchange={this.SwitchMap}>
+        <LayersControl position="topleft">
+          <LayersControl.BaseLayer name="Leaflet" checked>
+            <TileLayer
+              attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+              url="https://{s}.tile.osm.org/{z}/{x}/{y}.png"
+            />
+          </LayersControl.BaseLayer>
+          <LayersControl.BaseLayer name="MapGl">
+            <TileLayer
+              attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+              url="https://tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png"
+            />
+          </LayersControl.BaseLayer>
+          <LayersControl.BaseLayer name="高德">
+            <TileLayer
+              attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+          </LayersControl.BaseLayer>
+          {/* <LayersControl.Overlay name="Marker with popup" checked>
+            <Marker position={position}>
+              <Popup>
+                A pretty CSS3 popup. <br /> Easily customizable.
+              </Popup>
+            </Marker>
+          </LayersControl.Overlay>
+          <LayersControl.Overlay name="Feature group">
+            <FeatureGroup color="purple">
+              <Popup>
+                <span>Popup in FeatureGroup</span>
+              </Popup>
+              <Circle center={[51.51, -0.06]} radius={200} />
+            </FeatureGroup>
+          </LayersControl.Overlay> */}
+        </LayersControl>
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-          url='https://{s}.tile.osm.org/{z}/{x}/{y}.png'
+          url="https://{s}.tile.osm.org/{z}/{x}/{y}.png"
         />
-        <Marker position={position}>
-          <Popup>
-            A pretty CSS3 popup. <br/> Easily customizable.
-          </Popup>
-        </Marker>
+        {children}
       </LeafletMap>
     );
   }
 }
+
+export default withMapData(LMap);

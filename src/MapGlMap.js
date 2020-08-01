@@ -4,6 +4,7 @@ import MapGL, {Popup, Marker, NavigationControl, ScaleControl, FullscreenControl
 import Pins from './pins';
 import CityInfo from './city-info';
 import CITIES from './data/cities.json';
+import VideoPlayer from './VideoPlayer';
 
 const geolocateStyle = {
   position: 'absolute',
@@ -62,13 +63,16 @@ export default class MapGlMap extends Component {
         <Popup
           tipSize={5}
           anchor="top"
+          offsetLeft={30}
+          offsetTop={50}
           longitude={popupInfo.longitude}
           latitude={popupInfo.latitude}
           closeOnClick={false}
           onClose={() => this.setState({popupInfo: null})}
         >
           {/* <CityInfo info={popupInfo} /> */}
-					<video className="video-react-video" preload="auto" playsInline={true} src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" tabIndex="-1" crossOrigin="anonymous" style={{width: 200, height: 150}}></video>
+					{/* <video className="video-react-video" preload="auto" playsInline={true} src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" tabIndex="-1" crossOrigin="anonymous" style={{width: 200, height: 150}}></video> */}
+          <VideoPlayer />
         </Popup>
       )
     );
@@ -82,7 +86,7 @@ export default class MapGlMap extends Component {
         {...viewport}
         width="100vw"
         height="100vh"
-        mapStyle="mapbox://styles/mapbox/dark-v9"
+        // mapStyle="mapbox://styles/mapbox/dark-v9"
         onViewportChange={this._updateViewport}
         mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}
       >
