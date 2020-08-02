@@ -209,7 +209,7 @@ class QMap extends Component {
                         click: this.handleMarkerClick
                     }}
                 /> */}
-                <MarkerList animation={config.ANIMATION_DROP} data={this.heatData} icons={this.heatData.map(it=>it.image)} events={{
+                <MarkerList size={60} animation={config.ANIMATION_DROP} data={this.heatData} icons={this.heatData.map(it=>it.image)} events={{
                     click: this.handleMarkerClick
                 }} visible={true} />
                 <Info content={content} visible={showInfo} position={infoPosition} events={{
