@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 // import { Map } from 'react-amap';
 import Map from "react-amap/lib/map";
+import InfoWindow from 'react-amap/lib/infowindow';
 import Marker from "react-amap/lib/marker";
 import Markers from "react-amap/lib/markers";
+
+import gifshot from 'gifshot';
 
 import { mapSwitcherStyle } from "./MapGlMap";
 import CITIES from "./data/cities.json";
@@ -164,7 +167,7 @@ export default class AMap extends Component {
 	constructor(props) {
 		super(props);
 		this.markers=getMarkers();
-		this.markersEvents = {
+		this.markerEvents = {
       created:(allMarkers) => { 
         console.log('All Markers Instance Are Below');
         console.log(allMarkers);
@@ -174,6 +177,12 @@ export default class AMap extends Component {
         console.log(MapsOption);
         console.log('marker:');
         console.log(marker);
+      },
+      mouseover:(e, marker) => {
+        marker.render(this.renderMarkerOverLayout);
+      },
+      mouseout: (e, marker) => {
+        // marker.render(this.renderMarkerLayout);
       },
       dragend: (MapsOption, marker) => { /* ... */ }
     };
@@ -188,14 +197,55 @@ export default class AMap extends Component {
 	renderMarkerLayout = (extData) => {
     return <div style={styleC(extData)}>{extData.myLabel}</div>
   }
+  renderMarkerOverLayout = (extData) => {
+    console.log(gifshot.VERSION);
+    gifshot.createGIF({
+        gifWidth: 200,
+        gifHeight: 200,
+        video: [
+            // 'https://media.w3.org/2010/05/sintel/trailer_hd.mp4',
+            require('./assets/example.mp4'),
+            require('./assets/example.ogv')
+        ],
+        interval: 0.1,
+        numFrames: 10,
+        frameDuration: 1,
+        fontWeight: 'normal',
+        fontSize: '16px',
+        fontFamily: 'sans-serif',
+        fontColor: '#ffffff',
+        textAlign: 'center',
+        textBaseline: 'bottom',
+        sampleInterval: 10,
+        numWorkers: 2
+    }, function (obj) {
+        if (!obj.error) {
+            var image = obj.image, 
+            animatedImage = document.createElement('img');
+            animatedImage.src = image;
+            document.querySelector(`[name="aMapPhoto-${extData.myLabel}"]`).src = image;
+            // document.body.appendChild(animatedImage);
+        }
+    });
+    return (
+      <div>
+        <img
+          src={extData.image}
+          name={"aMapPhoto-" + extData.myLabel}
+          alt={extData.myLabel}
+        />
+      </div>
+    );
+
+  }
   render() {
     return (
       <Map
         amapkey={process.env.YOUR_AMAP_KEY}
         version={VERSION}
         viewMode="3D"
-				center={this.state.center}
-				zoom={this.state.zoom}
+        center={this.state.center}
+        zoom={this.state.zoom}
         plugins={plugins}
       >
         {/* <Marker position={{ longitude: 120, latitude: 34 }}>
@@ -207,6 +257,15 @@ export default class AMap extends Component {
           // useCluster={this.state.useCluster}
           render={this.renderMarkerLayout}
         />
+        {/* <InfoWindow
+          position={this.state.position}
+          visible={this.state.visible}
+          isCustom={false}
+          content={html}
+          size={this.state.size}
+          offset={this.state.offset}
+          events={this.windowEvents}
+        /> */}
         <MyMapComponent {...this.props} />
       </Map>
     );
