@@ -181,6 +181,9 @@ export default class AMap extends Component {
       mouseover:(e, marker) => {
         marker.render(this.renderMarkerOverLayout);
       },
+      touchstart:(e, marker) => {
+        e.target.render(this.renderMarkerOverLayout);
+      },
       mouseout: (e, marker) => {
         // marker.render(this.renderMarkerLayout);
       },
@@ -200,15 +203,15 @@ export default class AMap extends Component {
   renderMarkerOverLayout = (extData) => {
     console.log(gifshot.VERSION);
     gifshot.createGIF({
-        gifWidth: 200,
-        gifHeight: 200,
+        gifWidth: 68,
+        gifHeight: 42,
         video: [
             // 'https://media.w3.org/2010/05/sintel/trailer_hd.mp4',
             require('./assets/example.mp4'),
             require('./assets/example.ogv')
         ],
         interval: 0.1,
-        numFrames: 10,
+        numFrames: 30,
         frameDuration: 1,
         fontWeight: 'normal',
         fontSize: '16px',
@@ -217,7 +220,7 @@ export default class AMap extends Component {
         textAlign: 'center',
         textBaseline: 'bottom',
         sampleInterval: 10,
-        numWorkers: 2
+        numWorkers: 4
     }, function (obj) {
         if (!obj.error) {
             var image = obj.image, 
