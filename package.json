@@ -15,6 +15,7 @@
     "react-map-gl": "^5.2.7",
     "react-router-dom": "^5.1.2",
     "react-scripts": "^3.4.1",
+    "react-tmap": "^1.0.1",
     "video-react": "^0.14.1"
   },
   "scripts": {

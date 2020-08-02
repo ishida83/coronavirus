@@ -18,8 +18,16 @@ export class LMap extends Component {
 
   SwitchMap = (arg) => {
     // console.log(arg);
+    let name;
+    if(arg.name === "高德") {
+      name = "AMap";
+    }
+    else if(arg.name === "腾讯") {
+      name = "Tencent";
+    }
+    else name = arg.name;
     this.props.switchMapEngine &&
-      this.props.switchMapEngine(arg.name === "高德" ? "AMap" : arg.name);
+      this.props.switchMapEngine(name);
   }
 
   render() {

@@ -6,6 +6,7 @@ import "./App.scss";
 import LeafletMap from "./LeafletMap";
 import MapGlMap from "./MapGlMap";
 import AMap from './AMap';
+import QMap from './QMap';
 
 class App extends React.Component {
   state = {
@@ -36,6 +37,8 @@ class App extends React.Component {
         return <MapGlMap switchMapEngine={this.switchMapEngine}/>;
       case 'AMap':
         return <AMap switchMapEngine={this.switchMapEngine}/>;
+      case 'Tencent': 
+        return <QMap switchMapEngine={this.switchMapEngine}/>
       default:
         return null;
     }
