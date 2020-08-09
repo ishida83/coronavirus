@@ -145,7 +145,20 @@ const MyMapComponent = (props) => {
             value="Tencent"
             onChange={_changeMapType}
           />
-          <span> 腾讯</span>
+          <span> 腾讯地图</span>
+        </div>
+      </label>
+
+      <label>
+        <div>
+          <input
+            type="radio"
+            className="leaflet-control-layers-selector"
+            name="leaflet-base-layers_66"
+            value="Baidu"
+            onChange={_changeMapType}
+          />
+          <span> 百度地图</span>
         </div>
       </label>
     </div>
@@ -244,7 +257,7 @@ export default class AMap extends Component {
   render() {
     return (
       <Map
-        amapkey={process.env.YOUR_AMAP_KEY}
+        amapkey={process.env.REACT_APP_AMAP_KEY}
         version={VERSION}
         viewMode="3D"
         center={this.state.center}

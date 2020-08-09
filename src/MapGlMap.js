@@ -100,7 +100,13 @@ export default class MapGlMap extends Component {
           <label>
             <div>
               <input type="radio" className="leaflet-control-layers-selector" name="leaflet-base-layers_66" value="Tencent" onChange={this._changeMapType} />
-              <span> 腾讯</span>
+              <span> 腾讯地图</span>
+            </div>
+          </label>
+          <label>
+            <div>
+              <input type="radio" className="leaflet-control-layers-selector" name="leaflet-base-layers_66" value="Baidu" onChange={this._changeMapType} />
+              <span> 百度地图</span>
             </div>
           </label>
           {/* <button

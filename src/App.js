@@ -7,10 +7,12 @@ import LeafletMap from "./LeafletMap";
 import MapGlMap from "./MapGlMap";
 import AMap from './AMap';
 import QMap from './QMap';
+import BaiduMap from './BaiduMap';
+
 
 class App extends React.Component {
   state = {
-    mapType: 'AMap'
+    mapType: 'Baidu'
   };
   handleClick = () => {
     import("./components/moduleA")
@@ -39,6 +41,8 @@ class App extends React.Component {
         return <AMap switchMapEngine={this.switchMapEngine}/>;
       case 'Tencent': 
         return <QMap switchMapEngine={this.switchMapEngine}/>
+      case 'Baidu': 
+        return <BaiduMap switchMapEngine={this.switchMapEngine}/>
       default:
         return null;
     }

@@ -22,8 +22,11 @@ export class LMap extends Component {
     if(arg.name === "高德") {
       name = "AMap";
     }
-    else if(arg.name === "腾讯") {
+    else if(arg.name === "腾讯地图") {
       name = "Tencent";
+    }
+    else if(arg.name === "百度地图") {
+      name = "Baidu";
     }
     else name = arg.name;
     this.props.switchMapEngine &&
@@ -61,7 +64,13 @@ export class LMap extends Component {
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
           </LayersControl.BaseLayer>
-          <LayersControl.BaseLayer name="腾讯">
+          <LayersControl.BaseLayer name="腾讯地图">
+            <TileLayer
+              attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+          </LayersControl.BaseLayer>
+          <LayersControl.BaseLayer name="百度地图">
             <TileLayer
               attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

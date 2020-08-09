@@ -77,7 +77,20 @@ export default class CustomControl extends Control {
                     defaultChecked="checked"
                     onChange={_changeMapType}
                 />
-                <span> 腾讯</span>
+                <span> 腾讯地图</span>
+            </div>
+        </label>
+
+        <label>
+            <div>
+                <input
+                    type="radio"
+                    className="leaflet-control-layers-selector"
+                    name="leaflet-base-layers_66"
+                    value="Baidu"
+                    onChange={_changeMapType}
+                />
+                <span> 百度地图</span>
             </div>
         </label>
       </div>
