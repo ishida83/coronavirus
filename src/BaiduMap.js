@@ -49,6 +49,7 @@ for (let i = 0; i < MAX; i++) {
   });
 }
 
+
 export default class BaiduMap extends Component {
   onTilesloaded = () => {
 
@@ -56,10 +57,17 @@ export default class BaiduMap extends Component {
   onClick = () => {
 
   }
-  _changeMapType = (arg) => {
-    console.log(arg);
-    window.arg = arg;
+
+  _changeMapType = (mapType) => {
+    this.props.switchMapEngine(mapType.value);
   }
+
+  componentWillMount() {
+    if (typeof document === 'object') {
+      window._changeMapType = this._changeMapType;
+    }
+  }
+
   // getMyIcon = () => {
   //   if(this.map){
   //     const BMap = this.map.getWrappedInstance().getBMap();
@@ -70,6 +78,7 @@ export default class BaiduMap extends Component {
 
   render() {
     // debugger;
+
     return (
       <AsyncMap
         mapUrl={`http://api.map.baidu.com/api?v=3.0&ak=${process.env.REACT_APP_BMAP_KEY}`}
@@ -132,12 +141,14 @@ export default class BaiduMap extends Component {
               new BMap.Point(116.321768, 39.88748), // eslint-disable-line no-undef
               new BMap.Point(116.494243, 39.956539), // eslint-disable-line no-undef
             ];
+            
             for (let i = 0, len = data.length; i < len; i++) {
-              const pixel = this.map
-                .getWrappedInstance()
-                .getBMap()
-                .pointToPixel(data[i]);
-              ctx.fillRect(pixel.x, pixel.y, 30, 30);
+              if (this.map) {
+                const pixel = this.map
+                  .getWrappedInstance()
+                  .getBMap().pointToPixel(data[i]);
+                ctx.fillRect(pixel.x, pixel.y, 30, 30);
+              }
             }
           }}
         />
@@ -174,10 +185,10 @@ export default class BaiduMap extends Component {
                     <div>
                         <input
                             type="radio"
-                            className="leaflet-control-layers-selector"
+                            class="leaflet-control-layers-selector"
                             name="leaflet-base-layers_66"
                             value="Leaflet"
-                            onChange={this._changeMapType}
+                            onchange="_changeMapType(this)"
                         />
                         <span> Leaflet</span>
                     </div>
@@ -186,10 +197,10 @@ export default class BaiduMap extends Component {
                     <div>
                         <input
                             type="radio"
-                            className="leaflet-control-layers-selector"
+                            class="leaflet-control-layers-selector"
                             name="leaflet-base-layers_66"
                             value="MapGl"
-                            onChange={this._changeMapType}
+                            onchange="_changeMapType(this)"
                         />
                         <span> MapGl</span>
                     </div>
@@ -198,10 +209,10 @@ export default class BaiduMap extends Component {
                     <div>
                         <input
                             type="radio"
-                            className="leaflet-control-layers-selector"
+                            class="leaflet-control-layers-selector"
                             name="leaflet-base-layers_66"
                             value="AMap"
-                            onChange={this._changeMapType}
+                            onchange="_changeMapType(this)"
                         />
                         <span> 高德</span>
                     </div>
@@ -211,10 +222,10 @@ export default class BaiduMap extends Component {
                     <div>
                         <input
                             type="radio"
-                            className="leaflet-control-layers-selector"
+                            class="leaflet-control-layers-selector"
                             name="leaflet-base-layers_66"
                             value="Google"
-                            onChange={this._changeMapType}
+                            onchange="_changeMapType(this)"
                         />
                         <span> Google</span>
                     </div>
@@ -224,10 +235,10 @@ export default class BaiduMap extends Component {
                     <div>
                         <input
                             type="radio"
-                            className="leaflet-control-layers-selector"
+                            class="leaflet-control-layers-selector"
                             name="leaflet-base-layers_66"
                             value="Tencent"
-                            onChange={this._changeMapType}
+                            onchange="_changeMapType(this)"
                         />
                         <span> 腾讯地图</span>
                     </div>
@@ -237,11 +248,11 @@ export default class BaiduMap extends Component {
                     <div>
                         <input
                             type="radio"
-                            className="leaflet-control-layers-selector"
+                            class="leaflet-control-layers-selector"
                             name="leaflet-base-layers_66"
                             value="Baidu"
                             checked="checked"
-                            onChange={this._changeMapType}
+                            onchange="_changeMapType(this)"
                         />
                         <span> 百度地图</span>
                     </div>
