@@ -122,8 +122,8 @@ export default class BaiduMap extends Component {
         <Polygon path={polygon} strokeWeight={2} />
         <Polyline path={polygon} strokeWeight={2} strokeColor="green" />
         <MarkerClusterer>
-          {markerClusterer.map((position) => (
-            <Marker position={position} />
+          {markerClusterer.map((position, idx) => (
+            <Marker position={position} key={idx}/>
           ))}
         </MarkerClusterer>
         <CanvasLayer
