@@ -150,7 +150,7 @@ export default class MapGlMap extends Component {
         {...viewport}
         width="100vw"
         height="100vh"
-        // mapStyle="mapbox://styles/mapbox/dark-v9"
+        mapStyle="mapbox://styles/mapbox/dark-v9"
         onViewportChange={this._updateViewport}
         mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}
       >

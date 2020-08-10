@@ -50,7 +50,7 @@ for (let i = 0; i < MAX; i++) {
 }
 
 
-export default class BaiduMap extends Component {
+export default class BaiduMapGL extends Component {
   onTilesloaded = () => {
 
   }
@@ -65,6 +65,14 @@ export default class BaiduMap extends Component {
   componentDidMount() {
     if (typeof document === 'object') {
       window._changeMapType = this._changeMapType;
+
+      if(!window.BMapGL) {
+        document.querySelector('[src^="http://api.map.baidu.com/api?v=1.0&type=webgl&ak="]').addEventListener('load', () => {
+          window.BMap = window.BMapGL;
+        });
+      } else {
+        window.BMap = window.BMapGL;
+      }
     }
   }
 
@@ -81,14 +89,14 @@ export default class BaiduMap extends Component {
 
     return (
       <AsyncMap
-        mapUrl={`http://api.map.baidu.com/api?v=3.0&ak=${process.env.REACT_APP_BMAP_KEY}`}
+        mapUrl={`http://api.map.baidu.com/api?v=1.0&type=webgl&ak=${process.env.REACT_APP_BMAP_KEY}`}
         loadingElement={<div>Loading.....</div>}
         onTilesloaded={this.onTilesloaded}
         onClick={this.onClick}
+        ref={(instance) => (this.map = instance)}
         enableScrollWheelZoom={true}
         heading={64.5}
         tilt={73}
-        ref={(instance) => (this.map = instance)}
         mapContainer={<div style={{ height: "100%" }} />}
       >
         <Marker
@@ -125,11 +133,11 @@ export default class BaiduMap extends Component {
         <Polygon path={polygon} strokeWeight={2} />
         <Polyline path={polygon} strokeWeight={2} strokeColor="green" />
         <MarkerClusterer>
-          {markerClusterer.map((position, idx) => (
-            <Marker position={position} key={idx}/>
+          {markerClusterer.map((position) => (
+            <Marker position={position} />
           ))}
         </MarkerClusterer>
-        <CanvasLayer
+        {/* <CanvasLayer
           zIndex={10}
           update={(canvas) => {
             const ctx = canvas.getContext("2d");
@@ -154,16 +162,17 @@ export default class BaiduMap extends Component {
               }
             }
           }}
-        />
+        /> */}
         <NavigationControl
           type="small"
           anchor="top_right"
-          offset={{ width: 10, height: 40 }}
+          offset={{ width: 0, height: 150 }}
+          // offset={{ width: 10, height: 40 }}
         />
         <ScaleControl />
         <MapTypeControl />
-        <OverviewMapControl />
-        <GeolocationControl
+        {/* <OverviewMapControl /> */}
+        {/* <GeolocationControl
           anchor="top_right"
           offset={{ width: 10, height: 135 }}
           onLocationSuccess={(e) => {
@@ -175,8 +184,8 @@ export default class BaiduMap extends Component {
             address += e.addressComponent.streetNumber;
             console.warn(`Current Location: ${address}`);
           }}
-        />
-        <CopyrightControl
+        /> */}
+        {/* <CopyrightControl
           anchor="top_right"
           offset={{ width: 10, height: 180 }}
           copyrights={[
@@ -273,7 +282,7 @@ export default class BaiduMap extends Component {
               },
             },
           ]}
-        />
+        /> */}
       </AsyncMap>
     );
   }
