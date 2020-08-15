@@ -67,7 +67,7 @@ export default class BaiduMapGL extends Component {
       window._changeMapType = this._changeMapType;
 
       if(!window.BMapGL) {
-        document.querySelector('[src^="http://api.map.baidu.com/api?v=1.0&type=webgl&ak="]').addEventListener('load', () => {
+        document.querySelector('[src*="//api.map.baidu.com/api?v=1.0&type=webgl&ak="]').addEventListener('load', () => {
           window.BMap = window.BMapGL;
         });
       } else {
@@ -89,7 +89,7 @@ export default class BaiduMapGL extends Component {
 
     return (
       <AsyncMap
-        mapUrl={`http://api.map.baidu.com/api?v=1.0&type=webgl&ak=${process.env.REACT_APP_BMAP_KEY}`}
+        mapUrl={`//api.map.baidu.com/api?v=1.0&type=webgl&ak=${process.env.REACT_APP_BMAP_KEY}`}
         loadingElement={<div>Loading.....</div>}
         onTilesloaded={this.onTilesloaded}
         onClick={this.onClick}
@@ -102,7 +102,7 @@ export default class BaiduMapGL extends Component {
         <Marker
           position={{ lng: 116.404, lat: 39.915 }}
           icon={{
-            imageUrl: "http://lbsyun.baidu.com/jsdemo/img/fox.gif",
+            imageUrl: "//lbsyun.baidu.com/jsdemo/img/fox.gif",
             size: { width: 300, height: 157 },
           }}
         >
@@ -123,7 +123,7 @@ export default class BaiduMapGL extends Component {
             sw: { lng: 116.424319, lat: 39.907408 },
             ne: { lng: 116.442285, lat: 39.914714 },
           }}
-          imageUrl="http://lbsyun.baidu.com/jsdemo/img/si-huan.png"
+          imageUrl="//lbsyun.baidu.com/jsdemo/img/si-huan.png"
         />
         <Label
           position={{ lng: 116.365139, lat: 39.916595 }}

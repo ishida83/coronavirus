@@ -60,7 +60,8 @@ video, .BMap_Marker > div > img {
   // display: flex;
   // align-items: center;
   // //width: 50vw;
-  // width: 90%;
+  width: 90px;
+  height: 90px;
   // margin: auto;
   // max-width: 22em;
 
@@ -81,7 +82,7 @@ video, .BMap_Marker > div > img {
   
 }
 
-div[style*="width: 120px"]{
+div[style*="width: 90px"]{
   $border: 5px;
   overflow: visible !important;
 
@@ -90,8 +91,10 @@ div[style*="width: 120px"]{
     position: absolute;
     top: 0; right: 0; bottom: 0; left: 0;
     z-index: -1;
-    margin: -$border; /* !importanté */
+    margin: -3px; /* !importanté */
     border-radius: 50%; /* !importanté */
-    background: linear-gradient(to right, red, orange);
+    // background: linear-gradient(to right, red, orange);
+    background-color: white;
+    box-shadow: 0 0 15px black;
   }
 }

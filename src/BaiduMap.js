@@ -86,7 +86,7 @@ export default class BaiduMap extends Component {
 
     return (
       <AsyncMap
-        mapUrl={`http://api.map.baidu.com/api?v=3.0&ak=${process.env.REACT_APP_BMAP_KEY}`}
+        mapUrl={`//api.map.baidu.com/api?v=3.0&ak=${process.env.REACT_APP_BMAP_KEY}`}
         loadingElement={<div>Loading.....</div>}
         onTilesloaded={this.onTilesloaded}
         onClick={this.onClick}
@@ -102,7 +102,7 @@ export default class BaiduMap extends Component {
           position={{ lng: 116.404, lat: 39.915 }}
           icon={{
             imageUrl: "http://v.s1ar.cc/v/08.webm", // "http://lbsyun.baidu.com/jsdemo/img/fox.gif",
-            size: { width: 120, height: 120 },
+            size: { width: 90, height: 90 },
           }}
         >
           <InfoWindow
@@ -135,7 +135,7 @@ export default class BaiduMap extends Component {
         {markerClusterer.map((position, idx) => (
           <BaiduMarker position={position} key={idx} icon={{
           imageUrl: position.imageUrl,
-          size: { width: 120, height: 120 },
+          size: { width: 90, height: 90 },
         }}>
             {/* <InfoWindow
               content="marker infoWindow"
@@ -199,7 +199,7 @@ export default class BaiduMap extends Component {
           copyrights={[
             {
               id: 1,
-              content: `<div href='#' style='-moz-box-shadow: 0 0 2px rgba(0,0,0,.1); -webkit-box-shadow: 0 0 2px rgba(0,0,0,.1); box-shadow: 0 0 0 2px rgba(0,0,0,.1);border-radius: 4px; padding: 5px; background: #fff; font-size: 12px; font-family: "Hiragino Sans W3", Roboto;'>
+              content: `<div href='#' style='color: #333; -moz-box-shadow: 0 0 2px rgba(0,0,0,.1); -webkit-box-shadow: 0 0 2px rgba(0,0,0,.1); box-shadow: 0 0 0 2px rgba(0,0,0,.1);border-radius: 4px; padding: 5px; background: #fff; font-size: 12px; font-family: "Hiragino Sans W3", Roboto;'>
                   <label>
                     <div>
                         <input
