@@ -1,0 +1,2 @@
+(this.webpackJsonpcoronavirus=this.webpackJsonpcoronavirus||[]).push([[3],{182:function(o,n,r){"use strict";r.r(n),r.d(n,"moduleA",(function(){return s}));var s="Hello"}}]);
+//# sourceMappingURL=3.da203b0c.chunk.js.map
