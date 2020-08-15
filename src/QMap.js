@@ -147,7 +147,7 @@ class QMap extends Component {
     // }
 
     handleMapIdle = map => {
-        console.log('map idle')
+        // console.log('map idle')
         const { gridOptions } = this.state
 
         this.map = map
@@ -155,7 +155,7 @@ class QMap extends Component {
     }
 
     handleChange = val => {
-        console.log(val)
+        // console.log(val)
     }
 
     handleEdit = () => {
@@ -167,7 +167,7 @@ class QMap extends Component {
     }
 
     handleOverlayClick = () => {
-        console.log('overlay click')
+        // console.log('overlay click')
     }
 
     _changeMapType = (arg) => {

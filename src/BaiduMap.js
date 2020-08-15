@@ -18,8 +18,12 @@ import {
   MapTypeControl,
   OverviewMapControl,
   GeolocationControl,
-  CopyrightControl
+  CopyrightControl,
+  BMAP_NORMAL_MAP,
+  BMAP_HYBRID_MAP
 } from "react-baidu-maps";
+
+import BaiduMarker from "./BaiduMarker";
 
 const AsyncMap = asyncWrapper(Map);
 const polygon = [
@@ -40,12 +44,13 @@ const polygon = [
     lat: 39.927893
   }
 ];
-const MAX = 30;
+const MAX = 7;
 const markerClusterer = [];
 for (let i = 0; i < MAX; i++) {
   markerClusterer.push({
     lng: (Math.random() * 40) + 85,
-    lat: (Math.random() * 30) + 21
+    lat: (Math.random() * 30) + 21,
+    imageUrl: `http://v.s1ar.cc/v/0${i+1}.mp4`
   });
 }
 
@@ -86,24 +91,26 @@ export default class BaiduMap extends Component {
         onTilesloaded={this.onTilesloaded}
         onClick={this.onClick}
         enableScrollWheelZoom={true}
+        enableMapClick={false}
         heading={64.5}
         tilt={73}
+        zoom={6}
         ref={(instance) => (this.map = instance)}
         mapContainer={<div style={{ height: "100%" }} />}
       >
-        <Marker
+        <BaiduMarker
           position={{ lng: 116.404, lat: 39.915 }}
           icon={{
-            imageUrl: "http://lbsyun.baidu.com/jsdemo/img/fox.gif",
-            size: { width: 300, height: 157 },
+            imageUrl: "http://v.s1ar.cc/v/08.webm", // "http://lbsyun.baidu.com/jsdemo/img/fox.gif",
+            size: { width: 120, height: 120 },
           }}
         >
           <InfoWindow
             content="marker infoWindow"
             offset={{ width: 0, height: -20 }}
           />
-        </Marker>
-        <Circle
+        </BaiduMarker>
+        {/* <Circle
           center={{ lng: 116.404, lat: 39.915 }}
           radius={500}
           strokeColor="red"
@@ -123,13 +130,21 @@ export default class BaiduMap extends Component {
           offset={{ width: 30, height: -30 }}
         />
         <Polygon path={polygon} strokeWeight={2} />
-        <Polyline path={polygon} strokeWeight={2} strokeColor="green" />
-        <MarkerClusterer>
-          {markerClusterer.map((position, idx) => (
-            <Marker position={position} key={idx}/>
-          ))}
-        </MarkerClusterer>
-        <CanvasLayer
+        <Polyline path={polygon} strokeWeight={2} strokeColor="green" /> */}
+        {/* <MarkerClusterer> */}
+        {markerClusterer.map((position, idx) => (
+          <BaiduMarker position={position} key={idx} icon={{
+          imageUrl: position.imageUrl,
+          size: { width: 120, height: 120 },
+        }}>
+            {/* <InfoWindow
+              content="marker infoWindow"
+              offset={{ width: 0, height: -20 }}
+            /> */}
+          </BaiduMarker>
+        ))}
+        {/* </MarkerClusterer> */}
+        {/* <CanvasLayer
           zIndex={10}
           update={(canvas) => {
             const ctx = canvas.getContext("2d");
@@ -144,24 +159,26 @@ export default class BaiduMap extends Component {
               new BMap.Point(116.321768, 39.88748), // eslint-disable-line no-undef
               new BMap.Point(116.494243, 39.956539), // eslint-disable-line no-undef
             ];
-            
-            for (let i = 0, len = data.length; i < len; i++) {
+
+            for (let i = 0, len = markerClusterer.length; i < len; i++) {
               if (this.map) {
                 const pixel = this.map
                   .getWrappedInstance()
-                  .getBMap().pointToPixel(data[i]);
+                  .getBMap()
+                  .pointToPixel(markerClusterer[i]);
                 ctx.fillRect(pixel.x, pixel.y, 30, 30);
               }
             }
           }}
-        />
+        /> */}
         <NavigationControl
           type="small"
           anchor="top_right"
           offset={{ width: 10, height: 40 }}
         />
         <ScaleControl />
-        <MapTypeControl />
+        <MapTypeControl 
+        />
         <OverviewMapControl />
         <GeolocationControl
           anchor="top_right"
@@ -182,8 +199,7 @@ export default class BaiduMap extends Component {
           copyrights={[
             {
               id: 1,
-              content:
-                `<div href='#' style='-moz-box-shadow: 0 0 2px rgba(0,0,0,.1); -webkit-box-shadow: 0 0 2px rgba(0,0,0,.1); box-shadow: 0 0 0 2px rgba(0,0,0,.1);border-radius: 4px; padding: 5px; background: #fff; font-size: 12px; font-family: "Hiragino Sans W3", Roboto;'>
+              content: `<div href='#' style='-moz-box-shadow: 0 0 2px rgba(0,0,0,.1); -webkit-box-shadow: 0 0 2px rgba(0,0,0,.1); box-shadow: 0 0 0 2px rgba(0,0,0,.1);border-radius: 4px; padding: 5px; background: #fff; font-size: 12px; font-family: "Hiragino Sans W3", Roboto;'>
                   <label>
                     <div>
                         <input

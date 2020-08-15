@@ -22,7 +22,7 @@ const plugins = [
     options: {
       visible: true, // 不设置该属性默认就是 true
       onCreated(ins) {
-        console.log(ins);
+        // console.log(ins);
       },
     },
   },
@@ -45,7 +45,7 @@ const styleC = (data) => ({
 const MyMapComponent = (props) => {
   const map = props.__map__;
   if (!map) {
-    console.log("组件必须作为 Map 的子组件使用");
+    // console.log("组件必须作为 Map 的子组件使用");
     return;
   }
   const wrapperStyle = {
@@ -182,14 +182,14 @@ export default class AMap extends Component {
 		this.markers=getMarkers();
 		this.markerEvents = {
       created:(allMarkers) => { 
-        console.log('All Markers Instance Are Below');
-        console.log(allMarkers);
+        // console.log('All Markers Instance Are Below');
+        // console.log(allMarkers);
       },
       click: (MapsOption, marker) => {
-        console.log('MapsOptions:');
-        console.log(MapsOption);
-        console.log('marker:');
-        console.log(marker);
+        // console.log('MapsOptions:');
+        // console.log(MapsOption);
+        // console.log('marker:');
+        // console.log(marker);
       },
       mouseover:(e, marker) => {
         marker.render(this.renderMarkerOverLayout);
@@ -214,7 +214,7 @@ export default class AMap extends Component {
     return <div style={styleC(extData)}>{extData.myLabel}</div>
   }
   renderMarkerOverLayout = (extData) => {
-    console.log(gifshot.VERSION);
+    // console.log(gifshot.VERSION);
     gifshot.createGIF({
         gifWidth: 68,
         gifHeight: 42,

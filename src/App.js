@@ -12,7 +12,7 @@ import BaiduMap from './BaiduMap';
 
 class App extends React.Component {
   state = {
-    mapType: 'Leaflet'
+    mapType: 'Baidu'
   };
   handleClick = () => {
     import("./components/moduleA")
