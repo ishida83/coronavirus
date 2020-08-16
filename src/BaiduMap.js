@@ -53,6 +53,7 @@ for (let i = 0; i < MAX; i++) {
     imageUrl: `http://v.s1ar.cc/v/0${i+1}.mp4`
   });
 }
+const videoAttr = { 'autoplay': true, 'loop': true, 'mute': true, 'playsinline': true };
 
 
 export default class BaiduMap extends Component {
@@ -70,6 +71,8 @@ export default class BaiduMap extends Component {
   componentDidMount() {
     if (typeof document === 'object') {
       window._changeMapType = this._changeMapType;
+
+      markerClusterer.forEach(it => this._renderVideos(it));
     }
   }
 
@@ -80,6 +83,75 @@ export default class BaiduMap extends Component {
   //     return myIcon;
   //   }
   // }
+
+  _renderVideos = (marker) => {
+      const {imageUrl} = marker;
+      if(imageUrl && (imageUrl.indexOf('.mp4') !== -1 || imageUrl.indexOf('.webm') !== -1)) {
+        marker.ti = window.setInterval(() => {
+          if(document.querySelector(`img[src="${imageUrl}"`)){
+            clearInterval(marker.ti);
+            let img = document.querySelector(`img[src="${imageUrl}"`);
+            let src = img.src;
+            img.src = null;
+
+            img.addEventListener("error", function (e) {
+              // console.log("MP4 in image not supported. Replacing with video", e);
+              let video = document.createElement("video");
+
+              for (let key in videoAttr) {
+                video.setAttribute(key, videoAttr[key]);
+              }
+
+              for (
+                let imgAttr = img.attributes, len = imgAttr.length, i = 0;
+                i < len;
+                i++
+              ) {
+                video.setAttribute(imgAttr[i].name, imgAttr[i].value);
+              }
+
+              img.parentNode.insertBefore(video, img);
+              img.parentNode.removeChild(img);
+            });
+
+            img.src = src;
+
+            // const imgMP4s = Array.prototype.map.call(
+            //   document.querySelectorAll(
+            //     'img[src*=".mp4"]',
+            //     'img[src*=".webm"]'
+            //   ),
+            //   (img) => {
+            //     let src = img.src;
+            //     img.src = null;
+
+            //     img.addEventListener("error", function (e) {
+            //       // console.log("MP4 in image not supported. Replacing with video", e);
+            //       let video = document.createElement("video");
+
+            //       for (let key in videoAttr) {
+            //         video.setAttribute(key, videoAttr[key]);
+            //       }
+
+            //       for (
+            //         let imgAttr = img.attributes, len = imgAttr.length, i = 0;
+            //         i < len;
+            //         i++
+            //       ) {
+            //         video.setAttribute(imgAttr[i].name, imgAttr[i].value);
+            //       }
+
+            //       img.parentNode.insertBefore(video, img);
+            //       img.parentNode.removeChild(img);
+            //     });
+
+            //     img.src = src;
+            //   }
+            // );
+          }
+        }, 500);
+      }
+  }
 
   render() {
     // debugger;
@@ -98,7 +170,7 @@ export default class BaiduMap extends Component {
         ref={(instance) => (this.map = instance)}
         mapContainer={<div style={{ height: "100%" }} />}
       >
-        <BaiduMarker
+        {/* <Marker
           position={{ lng: 116.404, lat: 39.915 }}
           icon={{
             imageUrl: "http://v.s1ar.cc/v/08.webm", // "http://lbsyun.baidu.com/jsdemo/img/fox.gif",
@@ -109,7 +181,7 @@ export default class BaiduMap extends Component {
             content="marker infoWindow"
             offset={{ width: 0, height: -20 }}
           />
-        </BaiduMarker>
+        </Marker> */}
         {/* <Circle
           center={{ lng: 116.404, lat: 39.915 }}
           radius={500}
@@ -133,15 +205,15 @@ export default class BaiduMap extends Component {
         <Polyline path={polygon} strokeWeight={2} strokeColor="green" /> */}
         {/* <MarkerClusterer> */}
         {markerClusterer.map((position, idx) => (
-          <BaiduMarker position={position} key={idx} icon={{
+          <Marker position={position} key={idx} icon={{
           imageUrl: position.imageUrl,
           size: { width: 90, height: 90 },
         }}>
-            {/* <InfoWindow
+            <InfoWindow
               content="marker infoWindow"
               offset={{ width: 0, height: -20 }}
-            /> */}
-          </BaiduMarker>
+            />
+          </Marker>
         ))}
         {/* </MarkerClusterer> */}
         {/* <CanvasLayer
