@@ -35,7 +35,7 @@ jobs:
 #       run: |
 #         echo Add other actions to build,
 #         echo test, and deploy your project.
-  
+
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
@@ -44,4 +44,14 @@ jobs:
     - run: npm run build --if-present --silent
 #     - run: npm test
       env:
-        CI: true
+        CI: false
+
+    - name: deploy-via-scp
+      uses: horochx/deploy-via-scp@v1.0.1
+      with:
+        local: build # eg: dist
+        remote: ${{ secrets.REMOTE }} # eg: /home/github-action
+        host: ${{ secrets.HOST }} # eg: example.com
+        port: ${{ secrets.PORT }} # eg: 22
+        user: ${{ secrets.USER }} # eg: github-action
+        key: ${{ secrets.KEY }}
