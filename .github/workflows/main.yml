@@ -58,9 +58,11 @@
 name: MapCI
 
 on:
-  push:
-    branches:
-      - vlogmap
+#   push:
+#     branches:
+#       - vlogmap
+    pull_request:
+        branches: [ vlogmap ]
 
 jobs:
   build:
