@@ -76,6 +76,8 @@ jobs:
           node-version: 10
       - run: npm i --no-optional
       - run: npm run build
+        env:
+            CI: false
       
       - name: Publish
         uses: nogsantos/scp-deploy@master
