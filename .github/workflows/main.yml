@@ -49,7 +49,7 @@ jobs:
     - name: deploy-via-scp
       uses: horochx/deploy-via-scp@v1.0.1
       with:
-        local: build # eg: dist
+        local: ./build # eg: dist
         remote: ${{ secrets.REMOTE }} # eg: /home/github-action
         host: ${{ secrets.HOST }} # eg: example.com
         port: ${{ secrets.PORT }} # eg: 22
