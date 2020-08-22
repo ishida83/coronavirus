@@ -62,8 +62,8 @@ class App extends React.Component {
   showMarkerInfo = (e) => {
     console.log(e);
     this.setState({
-      video: e.videoUrl,
-      showMarkerInfo: !!e.videoUrl
+      video: e?.videoUrl,
+      showMarkerInfo: !!e?.videoUrl
     });
   };
 

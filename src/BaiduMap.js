@@ -61,8 +61,10 @@ export default class BaiduMap extends React.PureComponent {
   onTilesloaded = () => {
 
   }
-  onClick = () => {
-
+  onClick = (e) => {
+    e.domEvent.preventDefault();
+    e.domEvent.stopPropagation();
+    this.props.showMarkerInfo && this.props.showMarkerInfo();
   }
 
   _changeMapType = (mapType) => {
@@ -75,6 +77,12 @@ export default class BaiduMap extends React.PureComponent {
 
       CITIES.forEach(it => this._renderVideos(it));
     }
+  }
+
+  showMarkerInfo = (e, pos) => {
+    this.props.showMarkerInfo && this.props.showMarkerInfo(pos);
+    e.domEvent.preventDefault();
+    e.domEvent.stopPropagation();
   }
 
 
@@ -216,7 +224,7 @@ export default class BaiduMap extends React.PureComponent {
             <Marker
               position={position}
               key={idx}
-              onClick={(e)=>this.props.showMarkerInfo.call(e, position)}
+              onClick={(e)=>this.showMarkerInfo.call(this, e, position)}
               icon={position.imageUrl && {
                 imageUrl: position.imageUrl,
                 size: { width: 90, height: 90 },
