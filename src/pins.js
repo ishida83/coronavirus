@@ -52,8 +52,8 @@ export default class Pins extends React.PureComponent {
     const {data, onClick} = this.props;
 
     return data.map((city, index) => (
-      <Marker key={`marker-${index}`} longitude={city.longitude} latitude={city.latitude}>
-				<div style={{backgroundImage: `url(${city.image})`,backgroundSize: 'cover', width: '60px', height: '45px', cursor: 'pointer'}}
+      <Marker key={`marker-${index}`} longitude={city.longitude || city.lng} latitude={city.latitude || city.lat}>
+				<div style={{backgroundImage: `url(${city.image || city.imageUrl})`,backgroundSize: 'cover', width: '60px', height: '45px', cursor: 'pointer'}}
 					onClick={() => onClick(city)}
 				></div>
         {/* <svg

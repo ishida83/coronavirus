@@ -129,8 +129,8 @@ export default class MapGlMap extends Component {
           anchor="top"
           offsetLeft={30}
           offsetTop={50}
-          longitude={popupInfo.longitude}
-          latitude={popupInfo.latitude}
+          longitude={popupInfo.longitude || popupInfo.lng}
+          latitude={popupInfo.latitude || popupInfo.lat}
           closeOnClick={false}
           onClose={() => this.setState({popupInfo: null})}
         >

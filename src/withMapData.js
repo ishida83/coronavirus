@@ -30,7 +30,7 @@ export default function withMapData(MapComponent) {
   const MyPopupMarker = ({ content, position, image }) => (
     <Marker
       position={position}
-      icon={content.indexOf(" ") !== -1 ? pointerIcon(image) : suitcasePoint(image)}
+      icon={content && content.indexOf(" ") !== -1 ? pointerIcon(image) : suitcasePoint(image)}
     >
       <Popup>{content}</Popup>
     </Marker>
@@ -46,10 +46,11 @@ export default function withMapData(MapComponent) {
   class withMapData extends Component {
     constructor(props) {
       super(props);
-      let markers = CITIES.map((it) => {
-        it.position = [it.latitude, it.longitude];
-        it.content = it.city;
-        it.key = it.city;
+      let markers = CITIES.map((it, idx) => {
+        it.position = [it.latitude || it.lat, it.longitude || it.lng];
+        it.content = it.city || ' ';
+        it.image = it.image || it.imageUrl;
+        it.key = it.city || idx;
         return it;
       });
       this.state = {

@@ -167,8 +167,8 @@ const MyMapComponent = (props) => {
 const getMarkers = () => (
   CITIES.map((e, idx) => ({
     position: {
-      longitude: e.longitude,
-      latitude: e.latitude,
+      longitude: e.longitude || e.lng,
+      latitude: e.latitude || e.lat,
     },
 		image: e.image,
     myLabel: e.city,
