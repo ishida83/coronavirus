@@ -24,6 +24,7 @@ import {
 } from "react-baidu-maps";
 
 import BaiduMarker from "./BaiduMarker";
+import CITIES from "./data/cities.json";
 
 const AsyncMap = asyncWrapper(Map);
 const polygon = [
@@ -56,7 +57,7 @@ for (let i = 0; i < MAX; i++) {
 const videoAttr = { 'autoplay': true, 'loop': true, 'mute': true, 'playsinline': true };
 
 
-export default class BaiduMap extends Component {
+export default class BaiduMap extends React.PureComponent {
   onTilesloaded = () => {
 
   }
@@ -72,9 +73,10 @@ export default class BaiduMap extends Component {
     if (typeof document === 'object') {
       window._changeMapType = this._changeMapType;
 
-      markerClusterer.forEach(it => this._renderVideos(it));
+      CITIES.forEach(it => this._renderVideos(it));
     }
   }
+
 
   // getMyIcon = () => {
   //   if(this.map){
@@ -204,17 +206,29 @@ export default class BaiduMap extends Component {
         <Polygon path={polygon} strokeWeight={2} />
         <Polyline path={polygon} strokeWeight={2} strokeColor="green" /> */}
         {/* <MarkerClusterer> */}
-        {markerClusterer.map((position, idx) => (
-          <Marker position={position} key={idx} icon={{
-          imageUrl: position.imageUrl,
-          size: { width: 90, height: 90 },
-        }}>
-            <InfoWindow
-              content="marker infoWindow"
-              offset={{ width: 0, height: -20 }}
-            />
-          </Marker>
-        ))}
+        {CITIES.map((position, idx) => {
+          position={ 
+            ...position,
+            lat: position.lat || position.latitude,
+            lng: position.lng || position.longitude
+          };
+          return (
+            <Marker
+              position={position}
+              key={idx}
+              onClick={(e)=>this.props.showMarkerInfo.call(e, position)}
+              icon={position.imageUrl && {
+                imageUrl: position.imageUrl,
+                size: { width: 90, height: 90 },
+              }}
+            >
+              {/* <InfoWindow
+                content="marker infoWindow"
+                offset={{ width: 0, height: -20 }}
+              /> */}
+            </Marker>
+          );
+        })}
         {/* </MarkerClusterer> */}
         {/* <CanvasLayer
           zIndex={10}
@@ -249,8 +263,7 @@ export default class BaiduMap extends Component {
           offset={{ width: 10, height: 40 }}
         />
         <ScaleControl />
-        <MapTypeControl 
-        />
+        <MapTypeControl />
         <OverviewMapControl />
         <GeolocationControl
           anchor="top_right"
@@ -351,12 +364,12 @@ export default class BaiduMap extends Component {
                 </div>`,
               bounds: {
                 sw: {
-                  lng: 116.055026,
-                  lat: 39.591042,
+                  lng: -180,
+                  lat: -90,
                 },
                 ne: {
-                  lng: 116.752974,
-                  lat: 40.237421,
+                  lng: 180,
+                  lat: 90,
                 },
               },
             },

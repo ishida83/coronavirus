@@ -39,8 +39,8 @@ class QMap extends Component {
     constructor(props) {
         super(props);
         this.heatData = CITIES.map(it => {
-            it.lat = it.latitude;
-            it.lng = it.longitude;
+            it.lat = it.latitude || it.lat;
+            it.lng = it.longitude || it.lng;
             return it;
         })
         this.state = {
@@ -58,10 +58,10 @@ class QMap extends Component {
             //     { lat: roundFun(22.538247172738405), lng: roundFun(113.93028937994002) },
             //     { lat: roundFun(22.53778185230437), lng: roundFun(113.93348019014356) }
             // ],
-            heatMapData: {
-                max: 100,
-                data: []
-            },
+            // heatMapData: {
+            //     max: 100,
+            //     data: []
+            // },
             heatData: this.heatData,
             radius: 100,
             zoom: 4,
@@ -94,10 +94,10 @@ class QMap extends Component {
                 //     lat: item.lat + 0.002,
                 //     lng: item.lng + 0.002
                 // })),
-                heatMapData: {
-                    max: 100,
-                    data: generalRadius(this.heatData)
-                }
+                // heatMapData: {
+                //     max: 100,
+                //     data: generalRadius(this.heatData)
+                // }
             })
         }, 3000)
     }
@@ -215,7 +215,7 @@ class QMap extends Component {
                 <Info content={content} visible={showInfo} position={infoPosition} events={{
                     closeclick: () => this.handleInfoClose()
                 }} />
-                <HeatMap heatData={heatMapData} options={heatMapOptions} />
+                {/* <HeatMap heatData={heatMapData} options={heatMapOptions} /> */}
                 <CustomerControl
                     position={ControlPosition.LEFT_TOP}
                     style={{
