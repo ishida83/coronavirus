@@ -199,6 +199,7 @@
     "lng": 86.88486414223553,
     "lat": 23.4817939972002,
     "imageUrl": "http://v.s1ar.cc/v/07.mp4",
-    "ti": 9
+    "ti": 9,
+    "videoUrl": "<iframe src='//player.bilibili.com/player.html?aid=841786906&bvid=BV1x54y1e7zf&cid=226204073&page=1' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true'> </iframe>"
   }
 ]
