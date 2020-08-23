@@ -1,4 +1,6 @@
 @import "~video-react/styles/scss/video-react";
+@import '~@material/react-card/index.scss';
+@import '~@material/react-button/index.scss';
 
 .App {
   text-align: center;
@@ -101,7 +103,7 @@ div[style*="width: 90px"]{
   }
 }
 aside{
-  & > iframe {
+  & iframe {
     width: 100%;
     height: 100%;
   }

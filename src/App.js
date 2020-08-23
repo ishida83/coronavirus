@@ -7,8 +7,17 @@ import {
   MobileView,
   isBrowser,
   isMobile,
-  withOrientationChange
+  withOrientationChange,
 } from "react-device-detect";
+
+import Card, {
+  CardPrimaryContent,
+  CardMedia,
+  CardActions,
+  CardActionButtons,
+  CardActionIcons,
+} from "@material/react-card";
+import Button from "@material/react-button";
 
 import logo from "./logo.svg";
 import "./App.scss";
@@ -24,7 +33,10 @@ const sidePanelStyle = {
   width: "50%",
   height: "100vh",
   zIndex: 1,
-  backgroundColor: "white",
+  alignItems: 'center',
+  display: 'flex',
+  pointerEvents: 'none'
+  // backgroundColor: "white",
 };
 
 const sidePanelMobileStyle = {
@@ -33,14 +45,29 @@ const sidePanelMobileStyle = {
   width: "100%",
   zIndex: 1,
   bottom: 0,
-  backgroundColor: "white",
+  // backgroundColor: "white",
 };
+
+const InvokeApp = (props) => {
+  if(document.querySelector(`iframe[src*="${props.deeplink}"]`)) {
+
+  } else {
+    let iframe = document.createElement('iframe');
+    iframe.style.display = 'none';
+    iframe.style.width = 0;
+    iframe.style.height = 0;
+
+    iframe.src = props.deeplink;
+    document.body.appendChild(iframe);
+  }
+  return null;
+}
 
 class App extends React.Component {
   state = {
     mapType: "Baidu",
     video: null,
-    showMarkerInfo: false
+    showMarkerInfo: false,
   };
   handleClick = () => {
     import("./components/moduleA")
@@ -63,7 +90,8 @@ class App extends React.Component {
     console.log(e);
     this.setState({
       video: e?.videoUrl,
-      showMarkerInfo: !!e?.videoUrl
+      deeplink: e?.deeplink,
+      showMarkerInfo: !!e?.videoUrl,
     });
   };
 
@@ -121,30 +149,87 @@ class App extends React.Component {
         <BrowserView>
           <Motion
             defaultStyle={{ x: -100, opacity: 0 }}
-            style={{ x: spring(this.state.showMarkerInfo ? 0 : -100), opacity: spring(this.state.showMarkerInfo ? 1 : 0) }}
+            style={{
+              x: spring(this.state.showMarkerInfo ? 0 : -100),
+              opacity: spring(this.state.showMarkerInfo ? 1 : 0),
+            }}
           >
             {(style) => (
               <aside
-                style={{...sidePanelStyle, transform: `translateX(${style.x}%)`, opacity: style.opacity }}
-                dangerouslySetInnerHTML={{
-                  __html: this.state.video,
+                style={{
+                  ...sidePanelStyle,
+                  transform: `translateX(${style.x}%)`,
+                  opacity: style.opacity,
                 }}
-              ></aside>
+              >
+                <Card style={{flex: 1, pointerEvents: 'auto'}}>
+                  {/* <CardPrimaryContent>
+                    <h1>Header</h1>
+                    <CardMedia square imageUrl={require("./logo.svg")}>
+                      <span>Fancy Image</span>
+                    </CardMedia>
+                  </CardPrimaryContent> */}
+
+                  {/* <h1>Title</h1> */}
+                  <p
+                    style={{height: '50vh'}}
+                    dangerouslySetInnerHTML={{
+                      __html: this.state.video,
+                    }}
+                  ></p>
+
+                  <CardActions>
+                    <CardActionButtons>
+                      <Button outlined><a href={this.state.deeplink || process.env.PUBLIC_URL}>直达链接</a></Button>
+                    </CardActionButtons>
+
+                    {/* <CardActionIcons>
+                      <i>Click Me Too!</i>
+                    </CardActionIcons> */}
+                  </CardActions>
+                </Card>
+
+              </aside>
             )}
           </Motion>
         </BrowserView>
         <MobileView>
           <Motion
             defaultStyle={{ y: 100, opacity: 0 }}
-            style={{ y: spring(this.state.showMarkerInfo ? 0 : 100), opacity: spring(this.state.showMarkerInfo ? 1 : 0) }}
+            style={{
+              y: spring(this.state.showMarkerInfo ? 0 : 100),
+              opacity: spring(this.state.showMarkerInfo ? 1 : 0),
+            }}
           >
             {(style) => (
               <aside
-                style={{...sidePanelMobileStyle, transform: `translateY(${style.y}%)`, opacity: style.opacity }}
-                dangerouslySetInnerHTML={{
-                  __html: this.state.video,
+                style={{
+                  ...sidePanelMobileStyle,
+                  transform: `translateY(${style.y}%)`,
+                  opacity: style.opacity,
                 }}
-              ></aside>
+                // dangerouslySetInnerHTML={{
+                //   __html: this.state.video,
+                // }}
+              >
+
+                <Card style={{height: '100%'}}>
+                  <p
+                    style={{flex: 1}}
+                    dangerouslySetInnerHTML={{
+                      __html: this.state.video,
+                    }}
+                  ></p>
+
+                  <CardActions>
+                    <CardActionButtons>
+                      <Button outlined><a href={this.state.deeplink || process.env.PUBLIC_URL}>直达链接</a></Button>
+                    </CardActionButtons>
+                    {this.state.deeplink && <InvokeApp deeplink={this.state.deeplink} />}
+
+                  </CardActions>
+                </Card>
+              </aside>
             )}
           </Motion>
         </MobileView>

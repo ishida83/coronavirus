@@ -51,7 +51,7 @@ for (let i = 0; i < MAX; i++) {
   markerClusterer.push({
     lng: (Math.random() * 40) + 85,
     lat: (Math.random() * 30) + 21,
-    imageUrl: `http://v.s1ar.cc/v/0${i+1}.mp4`
+    imageUrl: `//v.s1ar.cc/v/0${i+1}.mp4`
   });
 }
 const videoAttr = { 'autoplay': true, 'loop': true, 'mute': true, 'playsinline': true };
@@ -62,8 +62,10 @@ export default class BaiduMap extends React.PureComponent {
 
   }
   onClick = (e) => {
-    e.domEvent.preventDefault();
-    e.domEvent.stopPropagation();
+    if(e.domEvent){
+      e.domEvent.preventDefault();
+      e.domEvent.stopPropagation();
+    }
     this.props.showMarkerInfo && this.props.showMarkerInfo();
   }
 
