@@ -19,6 +19,8 @@ import Card, {
 } from "@material/react-card";
 import Button from "@material/react-button";
 
+import { motion, AnimatePresence } from 'framer-motion';
+
 import logo from "./logo.svg";
 import "./App.scss";
 
@@ -202,7 +204,7 @@ class App extends React.Component {
             }}
           >
             {(style) => (
-              <aside
+              <motion.aside
                 style={{
                   ...sidePanelMobileStyle,
                   transform: `translateY(${style.y}%)`,
@@ -229,7 +231,7 @@ class App extends React.Component {
 
                   </CardActions>
                 </Card>
-              </aside>
+              </motion.aside>
             )}
           </Motion>
         </MobileView>
