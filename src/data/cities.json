@@ -162,44 +162,54 @@
   {
     "lng": 123.76786781648548,
     "lat": 43.85019212407748,
-    "imageUrl": "http://v.s1ar.cc/v/01.mp4",
-    "ti": 3
+    "imageUrl": "//v.s1ar.cc/v/01.mp4",
+    "ti": 3,
+    "videoUrl": "<iframe frameborder='0' src='//v.qq.com/txp/iframe/player.html?vid=r3135gxdhof' allowFullScreen='true'></iframe>"
   },
   {
     "lng": 115.21678916203807,
     "lat": 22.918344773618983,
-    "imageUrl": "http://v.s1ar.cc/v/02.mp4",
-    "ti": 4
+    "imageUrl": "//v.s1ar.cc/v/02.mp4",
+    "ti": 4,
+    "videoUrl": "<iframe src='//open.iqiyi.com/developer/player_js/coopPlayerIndex.html?vid=f96277d750426cd82dcd7f2eeb4fd617&tvId=2589892710210400&accessToken=2.ef9c39d6c7f1d5b44768e38e5243157d&appKey=8c634248790d4343bcae1f66129c1010&appId=1368&height=100%&width=100%' frameborder='0' allowfullscreen='true' width='100%' height='100%'></iframe>"
   },
   {
     "lng": 97.53072979042778,
     "lat": 30.14677997653039,
-    "imageUrl": "http://v.s1ar.cc/v/03.mp4",
-    "ti": 5
+    "imageUrl": "//v.s1ar.cc/v/03.mp4",
+    "ti": 5,
+    "videoUrl": "<iframe src='//open.iqiyi.com/developer/player_js/coopPlayerIndex.html?vid=1c6c4f69f61b77120ee97b51d94e72e3&tvId=6022360372519800&accessToken=2.ef9c39d6c7f1d5b44768e38e5243157d&appKey=8c634248790d4343bcae1f66129c1010&appId=1368&height=100%&width=100%' frameborder='0' allowfullscreen='true' width='100%' height='100%'></iframe>"
   },
   {
     "lng": 116.03186534061012,
     "lat": 35.435148067657806,
-    "imageUrl": "http://v.s1ar.cc/v/04.mp4",
-    "ti": 6
+    "imageUrl": "//v.s1ar.cc/v/04.mp4",
+    "ti": 6,
+    "videoUrl": "<iframe src='//player.bilibili.com/player.html?aid=73992449&bvid=BV1XE411b7ar&cid=126575243&page=1' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true'> </iframe>",
+    "deeplink": "//m.bilibili.com/video/BV1XE411b7ar"
   },
   {
     "lng": 107.78332316120009,
     "lat": 31.92266577936134,
-    "imageUrl": "http://v.s1ar.cc/v/05.mp4",
-    "ti": 7
+    "imageUrl": "//v.s1ar.cc/v/05.mp4",
+    "ti": 7,
+    "videoUrl": "<iframe src='//player.bilibili.com/player.html?aid=6757313&bvid=BV1Qs41147Qm&cid=11003583&page=1' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true'> </iframe>",
+    "deeplink": "//m.bilibili.com/video/BV1Qs41147Qm"
   },
   {
     "lng": 99.07115263708546,
     "lat": 50.8849974979034,
-    "imageUrl": "http://v.s1ar.cc/v/06.mp4",
-    "ti": 8
+    "imageUrl": "//v.s1ar.cc/v/06.mp4",
+    "ti": 8,
+    "videoUrl": "<iframe src='//player.bilibili.com/player.html?aid=286775114&bvid=BV1mf4y197VW&cid=226634802&page=1' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true'> </iframe>",
+    "deeplink": "//m.bilibili.com/video/BV1mf4y197VW"
   },
   {
     "lng": 86.88486414223553,
     "lat": 23.4817939972002,
-    "imageUrl": "http://v.s1ar.cc/v/07.mp4",
+    "imageUrl": "//v.s1ar.cc/v/07.mp4",
     "ti": 9,
-    "videoUrl": "<iframe src='//player.bilibili.com/player.html?aid=841786906&bvid=BV1x54y1e7zf&cid=226204073&page=1' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true'> </iframe>"
+    "videoUrl": "<iframe src='//player.bilibili.com/player.html?aid=841786906&bvid=BV1x54y1e7zf&cid=226204073&page=1' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true'> </iframe>",
+    "deeplink": "//m.bilibili.com/video/BV1x54y1e7zf"
   }
 ]
