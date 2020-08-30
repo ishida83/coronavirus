@@ -6,9 +6,9 @@ const Player = ({ isToggled, setToggle, children }) => {
     <AnimatePresence>
       {isToggled && (
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
+          initial={{ opacity: 0, }}
+          animate={{ opacity: 1, }}
+          exit={{ opacity: 0, }}
           style={{
             position: "fixed",
             top: "50%",
@@ -17,7 +17,7 @@ const Player = ({ isToggled, setToggle, children }) => {
             transform: `translate3d(-50%, -50%, 0)`,
           }}
         >
-          <motion.div initial={{ x: 50 }} animate={{x: 0 }} exit={{ x: 30 }}>
+          <motion.div initial={{ x: 50, rotate: -180 }} animate={{x: 0, rotate: 0 }} exit={{ x: 30, rotate: -180 }}>
             {/* <button onClick={() => setToggle(false)}>Close</button> */}
             {children}
           </motion.div>

@@ -6,6 +6,8 @@
   "dependencies": {
     "@material/react-button": "^0.15.0",
     "@material/react-card": "^0.15.0",
+    "@material/react-icon-button": "^0.15.0",
+    "@material/react-material-icon": "^0.15.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
