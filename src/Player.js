@@ -11,13 +11,14 @@ const Player = ({ isToggled, setToggle, children }) => {
           exit={{ opacity: 0 }}
           style={{
             position: "fixed",
-            top: "30px",
+            top: "50%",
             left: "50%",
-            transform: `translate3d(-50%, 0, 0)`,
+            zIndex: 1,
+            transform: `translate3d(-50%, -50%, 0)`,
           }}
         >
-          <motion.div initial={{ y: 50 }} animate={{ y: 0 }} exit={{ y: 30 }}>
-            <button onClick={() => setToggle(false)}>Close</button>
+          <motion.div initial={{ x: 50 }} animate={{x: 0 }} exit={{ x: 30 }}>
+            {/* <button onClick={() => setToggle(false)}>Close</button> */}
             {children}
           </motion.div>
         </motion.div>
