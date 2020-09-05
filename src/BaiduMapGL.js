@@ -89,7 +89,7 @@ export default class BaiduMapGL extends Component {
 
     return (
       <AsyncMap
-        mapUrl={`//api.map.baidu.com/api?v=1.0&type=webgl&ak=${process.env.REACT_APP_BMAP_KEY}`}
+        mapUrl={`http://api.map.baidu.com/api?v=1.0&type=webgl&ak=${process.env.REACT_APP_BMAP_KEY}`}
         loadingElement={<div>Loading.....</div>}
         onTilesloaded={this.onTilesloaded}
         onClick={this.onClick}

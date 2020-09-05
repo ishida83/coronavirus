@@ -51,7 +51,7 @@ for (let i = 0; i < MAX; i++) {
   markerClusterer.push({
     lng: (Math.random() * 40) + 85,
     lat: (Math.random() * 30) + 21,
-    imageUrl: `//v.s1ar.cc/v/0${i+1}.mp4`
+    imageUrl: `http://v.s1ar.cc/v/0${i+1}.mp4`
   });
 }
 const videoAttr = { 'autoplay': true, 'loop': true, 'mute': true, 'playsinline': true };
@@ -170,7 +170,7 @@ export default class BaiduMap extends React.PureComponent {
 
     return (
       <AsyncMap
-        mapUrl={`//api.map.baidu.com/api?v=3.0&ak=${process.env.REACT_APP_BMAP_KEY}`}
+        mapUrl={`http://api.map.baidu.com/api?v=3.0&ak=${process.env.REACT_APP_BMAP_KEY}`}
         loadingElement={<div>Loading.....</div>}
         onTilesloaded={this.onTilesloaded}
         onClick={this.onClick}
