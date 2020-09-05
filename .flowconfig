@@ -1,6 +1,11 @@
 [ignore]
+.*/node_modules/.*
+.*/test/.*
+.*/build/.*
+.*/config/.*
 
 [include]
+./libdefs.js
 
 [libs]
 

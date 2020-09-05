@@ -1,6 +1,7 @@
 // @flow
 import React from "react";
 import { Motion, spring } from "react-motion";
+import PropTypes from 'prop-types';
 
 import {
   BrowserView,
@@ -59,8 +60,8 @@ const InvokeApp = (props) => {
   } else {
     let iframe = document.createElement("iframe");
     iframe.style.display = "none";
-    iframe.style.width = 0;
-    iframe.style.height = 0;
+    iframe.style.width = "0";
+    iframe.style.height = "0";
 
     iframe.src = props.deeplink;
     document.body.appendChild(iframe);
@@ -68,12 +69,21 @@ const InvokeApp = (props) => {
   return null;
 };
 
+InvokeApp.propTypes = {
+  deeplink: PropTypes.string,
+}
+
 class App extends React.Component {
   state = {
     mapType: "Baidu",
     video: null,
     showMarkerInfo: false,
+    deeplink: null
   };
+  static propTypes = {
+    isLandscape: PropTypes.bool,
+    isPortrait: PropTypes.bool
+  }
   handleClick = () => {
     import("./components/moduleA")
       .then(({ moduleA }) => {
