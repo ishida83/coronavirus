@@ -1,6 +1,7 @@
 // @flow
 import React from "react";
 import { Motion, spring } from "react-motion";
+import PropTypes from 'prop-types';
 
 import {
   BrowserView,
@@ -18,8 +19,10 @@ import Card, {
   CardActionIcons,
 } from "@material/react-card";
 import Button from "@material/react-button";
+import IconButton from "@material/react-icon-button";
+import MaterialIcon from "@material/react-material-icon";
 
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from "framer-motion";
 
 import logo from "./logo.svg";
 import "./App.scss";
@@ -30,14 +33,16 @@ import AMap from "./AMap";
 import QMap from "./QMap";
 import BaiduMap from "./BaiduMap";
 
+import Player from "./Player";
+
 const sidePanelStyle = {
   position: "fixed",
   width: "50%",
   height: "100vh",
   zIndex: 1,
-  alignItems: 'center',
-  display: 'flex',
-  pointerEvents: 'none'
+  alignItems: "center",
+  display: "flex",
+  pointerEvents: "none",
   // backgroundColor: "white",
 };
 
@@ -51,18 +56,21 @@ const sidePanelMobileStyle = {
 };
 
 const InvokeApp = (props) => {
-  if(document.querySelector(`iframe[src*="${props.deeplink}"]`)) {
-
+  if (document.querySelector(`iframe[src*="${props.deeplink}"]`)) {
   } else {
-    let iframe = document.createElement('iframe');
-    iframe.style.display = 'none';
-    iframe.style.width = 0;
-    iframe.style.height = 0;
+    let iframe = document.createElement("iframe");
+    iframe.style.display = "none";
+    iframe.style.width = "0";
+    iframe.style.height = "0";
 
     iframe.src = props.deeplink;
     document.body.appendChild(iframe);
   }
   return null;
+};
+
+InvokeApp.propTypes = {
+  deeplink: PropTypes.string,
 }
 
 class App extends React.Component {
@@ -70,7 +78,12 @@ class App extends React.Component {
     mapType: "Baidu",
     video: null,
     showMarkerInfo: false,
+    deeplink: null
   };
+  static propTypes = {
+    isLandscape: PropTypes.bool,
+    isPortrait: PropTypes.bool
+  }
   handleClick = () => {
     import("./components/moduleA")
       .then(({ moduleA }) => {
@@ -149,51 +162,35 @@ class App extends React.Component {
           )}
         </Motion> */}
         <BrowserView>
-          <Motion
-            defaultStyle={{ x: -100, opacity: 0 }}
-            style={{
-              x: spring(this.state.showMarkerInfo ? 0 : -100),
-              opacity: spring(this.state.showMarkerInfo ? 1 : 0),
-            }}
-          >
-            {(style) => (
-              <aside
-                style={{
-                  ...sidePanelStyle,
-                  transform: `translateX(${style.x}%)`,
-                  opacity: style.opacity,
-                }}
-              >
-                <Card style={{flex: 1, pointerEvents: 'auto'}}>
-                  {/* <CardPrimaryContent>
-                    <h1>Header</h1>
-                    <CardMedia square imageUrl={require("./logo.svg")}>
-                      <span>Fancy Image</span>
-                    </CardMedia>
-                  </CardPrimaryContent> */}
+          <Player isToggled={this.state.showMarkerInfo}>
+            <Card
+              className="mdc-card demo-card"
+              style={{ flex: 1, pointerEvents: "auto", width: "80vw", height: "auto" }}
+            >
+              <CardPrimaryContent className="demo-card__primary-action">
+                <CardMedia
+                  wide
+                  className="demo-card__media"
+                  dangerouslySetInnerHTML={{
+                    __html: this.state.video,
+                  }}
+                />
+              </CardPrimaryContent>
 
-                  {/* <h1>Title</h1> */}
-                  <p
-                    style={{height: '50vh'}}
-                    dangerouslySetInnerHTML={{
-                      __html: this.state.video,
-                    }}
-                  ></p>
-
-                  <CardActions>
-                    <CardActionButtons>
-                      <Button outlined><a href={this.state.deeplink || process.env.PUBLIC_URL}>直达链接</a></Button>
-                    </CardActionButtons>
-
-                    {/* <CardActionIcons>
-                      <i>Click Me Too!</i>
-                    </CardActionIcons> */}
-                  </CardActions>
-                </Card>
-
-              </aside>
-            )}
-          </Motion>
+              <CardActions>
+                <CardActionIcons>
+                  <a href={this.state.deeplink || process.env.PUBLIC_URL} title="直达链接">
+                    <IconButton>
+                      <MaterialIcon icon="launch" />
+                    </IconButton>
+                  </a>
+                  <IconButton>
+                    <MaterialIcon icon="share" />
+                  </IconButton>
+                </CardActionIcons>
+              </CardActions>
+            </Card>
+          </Player>
         </BrowserView>
         <MobileView>
           <Motion
@@ -210,25 +207,32 @@ class App extends React.Component {
                   transform: `translateY(${style.y}%)`,
                   opacity: style.opacity,
                 }}
-                // dangerouslySetInnerHTML={{
-                //   __html: this.state.video,
-                // }}
               >
-
-                <Card style={{height: '100%'}}>
+                <Card style={{ height: "100%", pointerEvents: "auto" }}>
                   <p
-                    style={{flex: 1}}
+                    style={{ flex: 1 }}
                     dangerouslySetInnerHTML={{
                       __html: this.state.video,
                     }}
                   ></p>
 
                   <CardActions>
-                    <CardActionButtons>
-                      <Button outlined><a href={this.state.deeplink || process.env.PUBLIC_URL}>直达链接</a></Button>
-                    </CardActionButtons>
-                    {this.state.deeplink && <InvokeApp deeplink={this.state.deeplink} />}
-
+                    <CardActionIcons>
+                      <a
+                        href={this.state.deeplink || process.env.PUBLIC_URL}
+                        title="直达链接"
+                      >
+                        <IconButton>
+                          <MaterialIcon icon="launch" />
+                        </IconButton>
+                      </a>
+                      <IconButton>
+                        <MaterialIcon icon="share" />
+                      </IconButton>
+                    </CardActionIcons>
+                    {this.state.deeplink && (
+                      <InvokeApp deeplink={this.state.deeplink} />
+                    )}
                   </CardActions>
                 </Card>
               </motion.aside>
