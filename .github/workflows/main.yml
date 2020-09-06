@@ -86,7 +86,7 @@ jobs:
         with:
           src: ./build/*
           host: ${{ secrets.HOST }}
-          remote: ${{ secrets.REMOTE }}
+          remote: ${{ secrets.REMOTE2 }}
           port: ${{ secrets.PORT }}
           user: ${{ secrets.USER }}
           key: ${{ secrets.KEY }}

@@ -294,7 +294,7 @@ export default class BaiduMap extends React.PureComponent {
           copyrights={[
             {
               id: 1,
-              content: `<div href='#' style='color: #333; -moz-box-shadow: 0 0 2px rgba(0,0,0,.1); -webkit-box-shadow: 0 0 2px rgba(0,0,0,.1); box-shadow: 0 0 0 2px rgba(0,0,0,.1);border-radius: 4px; padding: 5px; background: #fff; font-size: 12px; font-family: "Hiragino Sans W3", Roboto;'>
+              content: `<div href='#' style='color: #333; -moz-box-shadow: 0 0 2px rgba(0,0,0,.1); -webkit-box-shadow: 0 0 2px rgba(0,0,0,.1); box-shadow: 0 0 0 2px rgba(0,0,0,.1);border-radius: 4px; padding: 5px; backdrop-filter: blur(1px); background-color: rgba(255,255,255,0.5); font-size: 12px; font-family: "Hiragino Sans W3", Roboto;'>
                   <label>
                     <div>
                         <input
