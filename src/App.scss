@@ -3,10 +3,15 @@
 @import '~@material/react-button/index.scss';
 @import '~@material/react-icon-button/index.scss';
 @import '~@material/react-material-icon/index.scss';
+@import '~@material/react-top-app-bar/index.scss';
+@import '~@material/react-drawer/index.scss';
+@import '~@material/react-list/index.scss';
 
 .App {
   text-align: center;
   height: 100vh;
+  margin-top: -64px;
+  overflow: hidden;
 
   will-change: transform, opacity;
 }
@@ -120,4 +125,17 @@ aside iframe {
   position: absolute;
   top: 0;
   left: 0;
+}
+
+
+.drawer-container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.drawer-app-content {
+  flex: auto;
+  overflow: auto;
 }

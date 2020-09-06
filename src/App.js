@@ -1,8 +1,8 @@
 // @flow
 import React from "react";
 import { Motion, spring } from "react-motion";
-import PropTypes from 'prop-types';
-import { Capacitor } from '@capacitor/core';
+import PropTypes from "prop-types";
+import { Capacitor } from "@capacitor/core";
 
 import {
   BrowserView,
@@ -22,6 +22,25 @@ import Card, {
 import Button from "@material/react-button";
 import IconButton from "@material/react-icon-button";
 import MaterialIcon from "@material/react-material-icon";
+import Drawer, {
+  DrawerAppContent,
+  DrawerContent,
+  DrawerHeader,
+  DrawerTitle,
+} from "@material/react-drawer";
+import List, {
+  ListItem,
+  ListItemGraphic,
+  ListItemText,
+} from "@material/react-list";
+
+import TopAppBar, {
+  TopAppBarFixedAdjust,
+  TopAppBarIcon,
+  TopAppBarRow,
+  TopAppBarSection,
+  TopAppBarTitle,
+} from "@material/react-top-app-bar";
 
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -72,19 +91,21 @@ const InvokeApp = (props) => {
 
 InvokeApp.propTypes = {
   deeplink: PropTypes.string,
-}
+};
 
 class App extends React.Component {
   state = {
     mapType: Capacitor.isNative ? "Leaflet" : "Baidu",
     video: null,
     showMarkerInfo: false,
-    deeplink: null
+    deeplink: null,
+    hoverAppBar: false,
+    selectedIndex: 0,
   };
   static propTypes = {
     isLandscape: PropTypes.bool,
-    isPortrait: PropTypes.bool
-  }
+    isPortrait: PropTypes.bool,
+  };
   handleClick = () => {
     import("./components/moduleA")
       .then(({ moduleA }) => {
@@ -132,115 +153,153 @@ class App extends React.Component {
     }
   };
 
+  toggleHoverAppBar = () => {
+    this.setState({
+      hoverAppBar: !this.state.hoverAppBar,
+    });
+  };
+
   render() {
     const { isLandscape, isPortrait } = this.props;
     return (
-      <div className="App">
-        {/* <Motion
-          defaultStyle={{ x: -200, opacity: 0 }}
-          style={{ x: spring(0), opacity: spring(1) }}
+      <div className="drawer-container">
+        <Drawer
+          dismissible
+          // open={this.state.hoverAppBar}
         >
-          {(style) => (
-            <header className="App-header" style={{ transform: `translateX(${style.x}px)`, opacity: style.opacity }}>
-              <img
-                src={logo}
-                className="App-logo"
-                alt="logo"
-                onClick={this.handleClick}
-              />
-              <p>
-                Edit <code>src/App.js</code> and save to reload.
-              </p>
-              <a
-                className="App-link"
-                href="https://reactjs.org"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Learn React
-              </a>
-            </header>
-          )}
-        </Motion> */}
-        <BrowserView>
-          <Player isToggled={this.state.showMarkerInfo}>
-            <Card
-              className="mdc-card demo-card"
-              style={{ flex: 1, pointerEvents: "auto", width: "80vw", height: "auto" }}
-            >
-              <CardPrimaryContent className="demo-card__primary-action">
-                <CardMedia
-                  wide
-                  className="demo-card__media"
-                  dangerouslySetInnerHTML={{
-                    __html: this.state.video,
-                  }}
-                />
-              </CardPrimaryContent>
+          <DrawerHeader>
+            <DrawerTitle tag="h2">{/* jane.smith@gmail.com */}</DrawerTitle>
+          </DrawerHeader>
 
-              <CardActions>
-                <CardActionIcons>
-                  <a href={this.state.deeplink || process.env.PUBLIC_URL} title="直达链接">
-                    <IconButton>
-                      <MaterialIcon icon="launch" />
-                    </IconButton>
-                  </a>
-                  <IconButton>
-                    <MaterialIcon icon="share" />
-                  </IconButton>
-                </CardActionIcons>
-              </CardActions>
-            </Card>
-          </Player>
-        </BrowserView>
-        <MobileView>
-          <Motion
-            defaultStyle={{ y: 100, opacity: 0 }}
-            style={{
-              y: spring(this.state.showMarkerInfo ? 0 : 100),
-              opacity: spring(this.state.showMarkerInfo ? 1 : 0),
-            }}
-          >
-            {(style) => (
-              <motion.aside
-                style={{
-                  ...sidePanelMobileStyle,
-                  transform: `translateY(${style.y}%)`,
-                  opacity: style.opacity,
-                }}
-              >
-                <Card style={{ height: "100%", pointerEvents: "auto" }}>
-                  <p
-                    style={{ flex: 1 }}
-                    dangerouslySetInnerHTML={{
-                      __html: this.state.video,
+          <DrawerContent>
+            <List singleSelection selectedIndex={this.state.selectedIndex}>
+              <ListItem>
+                <ListItemGraphic graphic={<MaterialIcon icon="folder" />} />
+                <ListItemText primaryText="首页" />
+              </ListItem>
+            </List>
+          </DrawerContent>
+        </Drawer>
+
+        <DrawerAppContent className="drawer-app-content">
+          <TopAppBar shortCollapsed={!this.state.hoverAppBar}>
+            <TopAppBarRow>
+              <TopAppBarSection align="start">
+                <TopAppBarIcon navIcon tabIndex={0}>
+                  <MaterialIcon
+                    hasRipple
+                    icon="menu"
+                    onClick={this.toggleHoverAppBar}
+                  />
+                </TopAppBarIcon>
+                <TopAppBarTitle>Magic Map</TopAppBarTitle>
+              </TopAppBarSection>
+              <TopAppBarSection align="end" role="toolbar">
+                <TopAppBarIcon actionItem tabIndex={0}>
+                  <MaterialIcon
+                    aria-label="share page"
+                    hasRipple
+                    icon="share"
+                    onClick={() => console.log("share")}
+                  />
+                </TopAppBarIcon>
+              </TopAppBarSection>
+            </TopAppBarRow>
+          </TopAppBar>
+          <TopAppBarFixedAdjust>
+            <div className="App">
+              <BrowserView>
+                <Player isToggled={this.state.showMarkerInfo}>
+                  <Card
+                    className="mdc-card demo-card"
+                    style={{
+                      flex: 1,
+                      pointerEvents: "auto",
+                      width: "80vw",
+                      height: "auto",
                     }}
-                  ></p>
+                  >
+                    <CardPrimaryContent className="demo-card__primary-action">
+                      <CardMedia
+                        wide
+                        className="demo-card__media"
+                        dangerouslySetInnerHTML={{
+                          __html: this.state.video,
+                        }}
+                      />
+                    </CardPrimaryContent>
 
-                  <CardActions>
-                    <CardActionIcons>
-                      <a
-                        href={this.state.deeplink || process.env.PUBLIC_URL}
-                        title="直达链接"
-                      >
+                    <CardActions>
+                      <CardActionIcons>
+                        <a
+                          href={this.state.deeplink || process.env.PUBLIC_URL}
+                          title="直达链接"
+                        >
+                          <IconButton>
+                            <MaterialIcon icon="launch" />
+                          </IconButton>
+                        </a>
                         <IconButton>
-                          <MaterialIcon icon="launch" />
+                          <MaterialIcon icon="share" />
                         </IconButton>
-                      </a>
-                      <IconButton>
-                        <MaterialIcon icon="share" />
-                      </IconButton>
-                    </CardActionIcons>
-                    {this.state.deeplink && (
-                      <InvokeApp deeplink={this.state.deeplink} />
-                    )}
-                  </CardActions>
-                </Card>
-              </motion.aside>
-            )}
-          </Motion>
-        </MobileView>
-        {this.renderMap()}
+                      </CardActionIcons>
+                    </CardActions>
+                  </Card>
+                </Player>
+              </BrowserView>
+              <MobileView>
+                <Motion
+                  defaultStyle={{ y: 100, opacity: 0 }}
+                  style={{
+                    y: spring(this.state.showMarkerInfo ? 0 : 100),
+                    opacity: spring(this.state.showMarkerInfo ? 1 : 0),
+                  }}
+                >
+                  {(style) => (
+                    <motion.aside
+                      style={{
+                        ...sidePanelMobileStyle,
+                        transform: `translateY(${style.y}%)`,
+                        opacity: style.opacity,
+                      }}
+                    >
+                      <Card style={{ height: "100%", pointerEvents: "auto" }}>
+                        <p
+                          style={{ flex: 1 }}
+                          dangerouslySetInnerHTML={{
+                            __html: this.state.video,
+                          }}
+                        ></p>
+
+                        <CardActions>
+                          <CardActionIcons>
+                            <a
+                              href={
+                                this.state.deeplink || process.env.PUBLIC_URL
+                              }
+                              title="直达链接"
+                            >
+                              <IconButton>
+                                <MaterialIcon icon="launch" />
+                              </IconButton>
+                            </a>
+                            <IconButton>
+                              <MaterialIcon icon="share" />
+                            </IconButton>
+                          </CardActionIcons>
+                          {this.state.deeplink && (
+                            <InvokeApp deeplink={this.state.deeplink} />
+                          )}
+                        </CardActions>
+                      </Card>
+                    </motion.aside>
+                  )}
+                </Motion>
+              </MobileView>
+              {this.renderMap()}
+            </div>
+          </TopAppBarFixedAdjust>
+        </DrawerAppContent>
       </div>
     );
   }
