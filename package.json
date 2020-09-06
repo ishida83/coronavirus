@@ -4,6 +4,7 @@
   "private": true,
   "homepage": ".",
   "dependencies": {
+    "@capacitor/android": "^2.4.0",
     "@capacitor/core": "^2.4.0",
     "@capacitor/ios": "^2.4.0",
     "@material/react-button": "^0.15.0",
@@ -44,7 +45,11 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -b gh-pages -d build",
     "preserve": "npm run build",
-    "serve": "nodemon server"
+    "serve": "nodemon server",
+    "ios": "npm run build && npx cap copy && npx cap open ios",
+    "android": "npm run build && npx cap copy && npx cap open android",
+    "electron": "npm run build && npx cap copy && npx cap open electron",
+    "pwa": "npm run build && npx cap copy && npx cap serve"
   },
   "babel": {
     "comments": false,

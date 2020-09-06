@@ -11,7 +11,7 @@ export default class CityInfo extends React.PureComponent {
           {displayName} |{' '}
           <a
             target="_new"
-            href={`http://en.wikipedia.org/w/index.php?title=Special:Search&search=${displayName}`}
+            href={`https://en.wikipedia.org/w/index.php?title=Special:Search&search=${displayName}`}
           >
             Wikipedia
           </a>

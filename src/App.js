@@ -2,6 +2,7 @@
 import React from "react";
 import { Motion, spring } from "react-motion";
 import PropTypes from 'prop-types';
+import { Capacitor } from '@capacitor/core';
 
 import {
   BrowserView,
@@ -75,7 +76,7 @@ InvokeApp.propTypes = {
 
 class App extends React.Component {
   state = {
-    mapType: "Baidu",
+    mapType: Capacitor.isNative ? "Leaflet" : "Baidu",
     video: null,
     showMarkerInfo: false,
     deeplink: null

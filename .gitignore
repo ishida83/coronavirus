@@ -27,3 +27,4 @@ stories
 ios/
 android/
 electron/
+.gradle/

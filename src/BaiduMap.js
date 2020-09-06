@@ -51,7 +51,7 @@ for (let i = 0; i < MAX; i++) {
   markerClusterer.push({
     lng: (Math.random() * 40) + 85,
     lat: (Math.random() * 30) + 21,
-    imageUrl: `http://v.s1ar.cc/v/0${i+1}.mp4`
+    imageUrl: `https://v.s1ar.cc/v/0${i+1}.mp4`
   });
 }
 const videoAttr = { 'autoplay': true, 'loop': true, 'mute': true, 'playsinline': true };
@@ -91,7 +91,7 @@ export default class BaiduMap extends React.PureComponent {
   // getMyIcon = () => {
   //   if(this.map){
   //     const BMap = this.map.getWrappedInstance().getBMap();
-  //     let myIcon = new BMap.Icon("http://lbsyun.baidu.com/jsdemo/img/fox.gif", new BMap.Size(300,157));
+  //     let myIcon = new BMap.Icon("https://lbsyun.baidu.com/jsdemo/img/fox.gif", new BMap.Size(300,157));
   //     return myIcon;
   //   }
   // }
@@ -170,7 +170,7 @@ export default class BaiduMap extends React.PureComponent {
 
     return (
       <AsyncMap
-        mapUrl={`http://api.map.baidu.com/api?v=3.0&ak=${process.env.REACT_APP_BMAP_KEY}`}
+        mapUrl={`https://api.map.baidu.com/api?v=3.0&ak=${process.env.REACT_APP_BMAP_KEY}`}
         loadingElement={<div>Loading.....</div>}
         onTilesloaded={this.onTilesloaded}
         onClick={this.onClick}
@@ -185,7 +185,7 @@ export default class BaiduMap extends React.PureComponent {
         {/* <Marker
           position={{ lng: 116.404, lat: 39.915 }}
           icon={{
-            imageUrl: "http://v.s1ar.cc/v/08.webm", // "http://lbsyun.baidu.com/jsdemo/img/fox.gif",
+            imageUrl: "https://v.s1ar.cc/v/08.webm", // "https://lbsyun.baidu.com/jsdemo/img/fox.gif",
             size: { width: 90, height: 90 },
           }}
         >
@@ -206,7 +206,7 @@ export default class BaiduMap extends React.PureComponent {
             sw: { lng: 116.424319, lat: 39.907408 },
             ne: { lng: 116.442285, lat: 39.914714 },
           }}
-          imageUrl="http://lbsyun.baidu.com/jsdemo/img/si-huan.png"
+          imageUrl="https://lbsyun.baidu.com/jsdemo/img/si-huan.png"
         />
         <Label
           position={{ lng: 116.365139, lat: 39.916595 }}
