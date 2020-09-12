@@ -41,6 +41,7 @@ import TopAppBar, {
   TopAppBarSection,
   TopAppBarTitle,
 } from "@material/react-top-app-bar";
+import {Snackbar} from '@material/react-snackbar';
 
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -95,6 +96,15 @@ InvokeApp.propTypes = {
   deeplink: PropTypes.string,
 };
 
+const checkOnlineStatus = async () => {
+  try {
+    const online = await fetch("./logo192.png");
+    return online.status >= 200 && online.status < 300; // either true or false
+  } catch (err) {
+    return false; // definitely offline
+  }
+};
+
 class App extends React.PureComponent {
   state = {
     mapType: Capacitor.isNative ? "Leaflet" : "Baidu",
@@ -103,6 +113,7 @@ class App extends React.PureComponent {
     deeplink: null,
     hoverAppBar: false,
     selectedIndex: 0,
+    snackbarMessage: '',
   };
   static propTypes = {
     isLandscape: PropTypes.bool,
@@ -163,8 +174,8 @@ class App extends React.PureComponent {
   };
 
   refreshWindow = () => {
-
-  }
+    this.forceUpdate();
+  };
 
   shareIt = async () => {
     const canonicalElement = document?.querySelector("link[rel=canonical]");
@@ -183,14 +194,49 @@ class App extends React.PureComponent {
         .share(opts)
         .then(() => console.log("Successful share"))
         .catch((error) => {
-          console.log("Error sharing", error)
+          console.log("Error sharing", error);
         });
     } else {
       try {
-          let shareRet = await Share.share(opts);
-      } catch(error) {
-          console.log("Error sharing", error)
+        let shareRet = await Share.share(opts);
+      } catch (error) {
+        console.log("Error sharing", error);
       }
+    }
+  };
+
+  hintOnlineStatus = () => {
+    return (
+      this.state.snackbarMessage && <Snackbar
+        onClose={()=>this.setState({snackbarMessage: null})}
+        message={this.state.snackbarMessage}
+        actionText="确认"
+      />
+    );
+  };
+
+  toggleOnlineStatus = (status) => {
+    this.setState({
+      snackbarMessage: status === 'online' ? '网络已恢复' : '你已离线，请稍后重拾'
+    });
+  }
+
+  componentDidMount() {
+    if (typeof window !== "undefined") {
+      // this.onlineTimer = window.setInterval(async () => {
+      //   const result = await checkOnlineStatus();
+      //   console.log(result);
+      // }, 3000);
+      window.addEventListener("offline", this.toggleOnlineStatus.bind(this, "offline"));
+      window.addEventListener("online", this.toggleOnlineStatus.bind(this, "online"));
+    }
+  }
+
+  componentWillUnmount() {
+    if(typeof window !== 'undefined'){
+      // window.removeInterval(this.onlineTimer);
+      window.removeEventListener("offline", this.toggleOnlineStatus);
+      window.removeEventListener("online", this.toggleOnlineStatus);
     }
   }
 
@@ -633,6 +679,7 @@ class App extends React.PureComponent {
             </TopAppBarRow>
           </TopAppBar>
           <TopAppBarFixedAdjust>
+            {this.hintOnlineStatus()}
             <div className="App">
               <BrowserView>
                 <Player isToggled={this.state.showMarkerInfo}>
