@@ -1,5 +1,5 @@
 /* global BMap */
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import {
   BaiduMap as Map,
   asyncWrapper,
@@ -50,7 +50,7 @@ for (let i = 0; i < MAX; i++) {
 }
 
 
-export default class BaiduMapGL extends Component {
+export default class BaiduMapGL extends PureComponent {
   onTilesloaded = () => {
 
   }

@@ -1,5 +1,5 @@
 /* global qq */
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { QMap as Map, Overlay, HeatMap, Marker, Info, Polygon, utils, config, Circle, ControlPosition, GridHeatmap } from 'react-tmap';
 
 import MarkerList from './QMapMarkerList';
@@ -7,6 +7,8 @@ import MarkerList from './QMapMarkerList';
 // import heatData from './data';
 import CITIES from "./data/cities.json";
 import CustomerControl from './QMapControl';
+
+import './QMap.scss';
 
 const generalRadius = (source, r = 4) => {
     return source.map(curData => {
@@ -35,7 +37,7 @@ const roundFun = (value, n = 5) => {
     return parseFloat(value.toFixed(n))
 }
 
-class QMap extends Component {
+class QMap extends PureComponent {
     constructor(props) {
         super(props);
         this.heatData = CITIES.map(it => {
@@ -85,21 +87,21 @@ class QMap extends Component {
 
     componentDidMount() {
         // const { polygonPoints } = this.state
-        setTimeout(() => {
-            this.setState({
-                polylineVisible: false,
-                radius: 1000,
-                // strokeDashStyle: 'dash',
-                // polygonPoints: polygonPoints.map(item => ({
-                //     lat: item.lat + 0.002,
-                //     lng: item.lng + 0.002
-                // })),
-                // heatMapData: {
-                //     max: 100,
-                //     data: generalRadius(this.heatData)
-                // }
-            })
-        }, 3000)
+        // setTimeout(() => {
+        //     this.setState({
+        //         polylineVisible: false,
+        //         radius: 1000,
+        //         // strokeDashStyle: 'dash',
+        //         // polygonPoints: polygonPoints.map(item => ({
+        //         //     lat: item.lat + 0.002,
+        //         //     lng: item.lng + 0.002
+        //         // })),
+        //         // heatMapData: {
+        //         //     max: 100,
+        //         //     data: generalRadius(this.heatData)
+        //         // }
+        //     })
+        // }, 3000)
     }
 
     handleMarkerClick = marker => {
@@ -114,7 +116,7 @@ class QMap extends Component {
         })
         this.setState({
             content: '<div style="width:200px;padding-top:10px;">' +
-                '<img style="float:left;" src="https://mapapi.qq.com/web/lbs/javascriptV2/demo/img/infowindow-img.jpg"/> ' +
+                '<img style="float:left;" src="https://mapapi.qq.com/web/lbs/javascriptV2/demo/img/infowindow-img.jpg" load="lazy" /> ' +
                 '我是个可爱的小孩子</div>',
             showInfo: true,
             infoPosition: { ...position }
@@ -222,7 +224,17 @@ class QMap extends Component {
                         zIndex: 999,
                         textAlign: 'left',
                         fontSize: '10px',
-                        fontFamily: 'Roboto, "Hiragino Sans W3"'
+                        fontFamily: 'Roboto, "Hiragino Sans W3"',
+
+                        padding: "5px",
+                        color: "#333",
+                        MozBoxShadow: "0 0 2px rgba(0,0,0,.1)",
+                        WebkitBoxShadow: "0 0 2px rgba(0,0,0,.1)",
+                        boxShadow: "0 0 0 2px rgba(0,0,0,.1)",
+                        borderRadius: "4px",
+                        backdropFilter: "blur(1px)",
+                        backgroundColor: "rgba(255,255,255,0.5)",
+                        marginTop: "70px"
                     }}
                     _changeMapType={this._changeMapType}
                     onEdit={this.handleEdit}

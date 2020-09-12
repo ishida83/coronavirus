@@ -16,7 +16,7 @@ export default class CityInfo extends React.PureComponent {
             Wikipedia
           </a>
         </div>
-        <img width={240} src={info.image} alt={`${info.city} ${info.state}`} />
+        <img width={240} src={info.image} alt={`${info.city} ${info.state}`} load="lazy" />
       </div>
     );
   }

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Map as LeafletMap, TileLayer, Marker, Popup, 
   LayersControl, FeatureGroup, Circle
 } from 'react-leaflet';
@@ -9,7 +9,7 @@ import withLeafletPane from './withLeafletPane';
 import withLeafletMapType from './withLeafletMapType';
 import withMapData from './withMapData';
 
-export class LMap extends Component {
+export class LMap extends PureComponent {
   state = {
     lat: 37.785164,
     lng: -100,

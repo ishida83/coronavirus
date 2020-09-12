@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import { Pane, Rectangle} from 'react-leaflet';
 
 const outer = [
@@ -11,7 +11,7 @@ const inner = [
 ]
 
 export default function withLeafletPane(MapComponent) {
-  return class PaneComponent extends Component {
+  return class PaneComponent extends PureComponent {
     state = {
       render: true,
     };

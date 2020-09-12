@@ -1,3 +1,9 @@
 .leaflet-control-layers-list{
 	text-align: left;
 }
+
+.leaflet-control-container{
+	.leaflet-top.leaflet-left {
+		top: 60px;
+	}
+}

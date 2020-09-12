@@ -76,7 +76,7 @@ const eventMap = [
 
 const videoAttr = { 'autoplay': true, 'loop': true, 'mute': true, 'playsinline': true };
 
-class Marker extends React.Component {
+class Marker extends React.PureComponent {
   static propTypes = {
     [MAP]: PropTypes.object, // eslint-disable-line react/no-unused-prop-types
     [MARKER_CLUSTERER]: PropTypes.object // eslint-disable-line react/no-unused-prop-types

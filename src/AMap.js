@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 // import { Map } from 'react-amap';
 import Map from "react-amap/lib/map";
 import InfoWindow from 'react-amap/lib/infowindow';
@@ -54,7 +54,15 @@ const MyMapComponent = (props) => {
     right: "10px",
     background: "#fff",
     padding: "5px",
-    border: "1px solid #333",
+    // border: "1px solid #333",
+
+    color: "#333",
+    MozBoxShadow: "0 0 2px rgba(0,0,0,.1)",
+    WebkitBoxShadow: "0 0 2px rgba(0,0,0,.1)",
+    boxShadow: "0 0 0 2px rgba(0,0,0,.1)",
+    borderRadius: "4px",
+    backdropFilter: "blur(1px)",
+    backgroundColor: "rgba(255,255,255,0.5)"
   };
   const spanStyle = {
     display: "inline-block",
@@ -176,7 +184,7 @@ const getMarkers = () => (
   }))
 );
 
-export default class AMap extends Component {
+export default class AMap extends PureComponent {
 	constructor(props) {
 		super(props);
 		this.markers=getMarkers();
@@ -239,7 +247,9 @@ export default class AMap extends Component {
             var image = obj.image, 
             animatedImage = document.createElement('img');
             animatedImage.src = image;
-            document.querySelector(`[name="aMapPhoto-${extData.myLabel}"]`).src = image;
+            if(document.querySelector(`[name="aMapPhoto-${extData.myLabel}"]`)) {
+              document.querySelector(`[name="aMapPhoto-${extData.myLabel}"]`).src = image;
+            }
             // document.body.appendChild(animatedImage);
         }
     });
@@ -249,6 +259,7 @@ export default class AMap extends Component {
           src={extData.image}
           name={"aMapPhoto-" + extData.myLabel}
           alt={extData.myLabel}
+          load="lazy"
         />
       </div>
     );

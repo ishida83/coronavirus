@@ -163,3 +163,11 @@ li.mdc-list-item{
 .mdc-drawer.mdc-drawer--open:not(.mdc-drawer--closing) + .mdc-drawer-app-content{
   margin-left: 8rem;
 }
+
+.mdc-top-app-bar{
+  width: calc(100% - 8rem);
+}
+
+.mdc-top-app-bar--short-collapsed.mdc-top-app-bar--short-has-action-item{
+  width: auto;
+}

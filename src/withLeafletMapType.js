@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function withLeafletMapType(MapComponent) {
-  return class componentName extends React.Component {
+  return class componentName extends React.PureComponent {
     state = {
       animate: false,
       latlng: {

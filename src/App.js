@@ -95,7 +95,7 @@ InvokeApp.propTypes = {
   deeplink: PropTypes.string,
 };
 
-class App extends React.Component {
+class App extends React.PureComponent {
   state = {
     mapType: Capacitor.isNative ? "Leaflet" : "Baidu",
     video: null,
@@ -120,6 +120,7 @@ class App extends React.Component {
   };
 
   switchMapEngine = (mapType) => {
+    this.showMarkerInfo();
     this.setState({
       mapType,
     });
@@ -160,6 +161,10 @@ class App extends React.Component {
       hoverAppBar: !this.state.hoverAppBar,
     });
   };
+
+  refreshWindow = () => {
+
+  }
 
   shareIt = async () => {
     const canonicalElement = document?.querySelector("link[rel=canonical]");
@@ -607,6 +612,15 @@ class App extends React.Component {
                 <TopAppBarTitle>Magic Map</TopAppBarTitle>
               </TopAppBarSection>
               <TopAppBarSection align="end" role="toolbar">
+                <TopAppBarIcon actionItem tabIndex={1}>
+                  <MaterialIcon
+                    aria-label="refresh page"
+                    hasRipple
+                    icon="refresh"
+                    onClick={this.refreshWindow}
+                  />
+                </TopAppBarIcon>
+
                 <TopAppBarIcon actionItem tabIndex={0}>
                   <MaterialIcon
                     aria-label="share page"
