@@ -58,26 +58,24 @@ const videoAttr = { 'autoplay': true, 'loop': true, 'mute': true, 'playsinline':
 
 
 export default class BaiduMap extends React.PureComponent {
-  onTilesloaded = () => {
-
-  }
+  onTilesloaded = () => {};
   onClick = (e) => {
-    if(e.domEvent){
+    if (e.domEvent) {
       e.domEvent.preventDefault();
       e.domEvent.stopPropagation();
     }
     this.props.showMarkerInfo && this.props.showMarkerInfo();
-  }
+  };
 
   _changeMapType = (mapType) => {
     this.props.switchMapEngine(mapType.value);
-  }
+  };
 
   componentDidMount() {
-    if (typeof document === 'object') {
+    if (typeof document === "object") {
       window._changeMapType = this._changeMapType;
 
-      CITIES.forEach(it => this._renderVideos(it));
+      CITIES.forEach((it) => this._renderVideos(it));
     }
   }
 
@@ -85,8 +83,33 @@ export default class BaiduMap extends React.PureComponent {
     this.props.showMarkerInfo && this.props.showMarkerInfo(pos);
     e.domEvent.preventDefault();
     e.domEvent.stopPropagation();
-  }
+  };
 
+  videoMarkers = CITIES.map((position, idx) => {
+    position = {
+      ...position,
+      lat: position.lat || position.latitude,
+      lng: position.lng || position.longitude,
+    };
+    return (
+      <Marker
+        position={position}
+        key={idx}
+        onClick={(e) => this.showMarkerInfo.call(this, e, position)}
+        icon={
+          position.imageUrl && {
+            imageUrl: position.imageUrl,
+            size: { width: 90, height: 90 },
+          }
+        }
+      >
+        {/* <InfoWindow
+                content="marker infoWindow"
+                offset={{ width: 0, height: -20 }}
+              /> */}
+      </Marker>
+    );
+  });
 
   // getMyIcon = () => {
   //   if(this.map){
@@ -97,73 +120,76 @@ export default class BaiduMap extends React.PureComponent {
   // }
 
   _renderVideos = (marker) => {
-      const {imageUrl} = marker;
-      if(imageUrl && (imageUrl.indexOf('.mp4') !== -1 || imageUrl.indexOf('.webm') !== -1)) {
-        marker.ti = window.setInterval(() => {
-          if(document.querySelector(`img[src="${imageUrl}"`)){
-            clearInterval(marker.ti);
-            let img = document.querySelector(`img[src="${imageUrl}"`);
-            let src = img.src;
-            img.src = null;
+    const { imageUrl } = marker;
+    if (
+      imageUrl &&
+      (imageUrl.indexOf(".mp4") !== -1 || imageUrl.indexOf(".webm") !== -1)
+    ) {
+      marker.ti = window.setInterval(() => {
+        if (document.querySelector(`img[src="${imageUrl}"`)) {
+          clearInterval(marker.ti);
+          let img = document.querySelector(`img[src="${imageUrl}"`);
+          let src = img.src;
+          img.src = null;
 
-            img.addEventListener("error", function (e) {
-              // console.log("MP4 in image not supported. Replacing with video", e);
-              let video = document.createElement("video");
+          img.addEventListener("error", function (e) {
+            // console.log("MP4 in image not supported. Replacing with video", e);
+            let video = document.createElement("video");
 
-              for (let key in videoAttr) {
-                video.setAttribute(key, videoAttr[key]);
-              }
+            for (let key in videoAttr) {
+              video.setAttribute(key, videoAttr[key]);
+            }
 
-              for (
-                let imgAttr = img.attributes, len = imgAttr.length, i = 0;
-                i < len;
-                i++
-              ) {
-                video.setAttribute(imgAttr[i].name, imgAttr[i].value);
-              }
+            for (
+              let imgAttr = img.attributes, len = imgAttr.length, i = 0;
+              i < len;
+              i++
+            ) {
+              video.setAttribute(imgAttr[i].name, imgAttr[i].value);
+            }
 
-              img.parentNode.insertBefore(video, img);
-              img.parentNode.removeChild(img);
-            });
+            img.parentNode.insertBefore(video, img);
+            img.parentNode.removeChild(img);
+          });
 
-            img.src = src;
+          img.src = src;
 
-            // const imgMP4s = Array.prototype.map.call(
-            //   document.querySelectorAll(
-            //     'img[src*=".mp4"]',
-            //     'img[src*=".webm"]'
-            //   ),
-            //   (img) => {
-            //     let src = img.src;
-            //     img.src = null;
+          // const imgMP4s = Array.prototype.map.call(
+          //   document.querySelectorAll(
+          //     'img[src*=".mp4"]',
+          //     'img[src*=".webm"]'
+          //   ),
+          //   (img) => {
+          //     let src = img.src;
+          //     img.src = null;
 
-            //     img.addEventListener("error", function (e) {
-            //       // console.log("MP4 in image not supported. Replacing with video", e);
-            //       let video = document.createElement("video");
+          //     img.addEventListener("error", function (e) {
+          //       // console.log("MP4 in image not supported. Replacing with video", e);
+          //       let video = document.createElement("video");
 
-            //       for (let key in videoAttr) {
-            //         video.setAttribute(key, videoAttr[key]);
-            //       }
+          //       for (let key in videoAttr) {
+          //         video.setAttribute(key, videoAttr[key]);
+          //       }
 
-            //       for (
-            //         let imgAttr = img.attributes, len = imgAttr.length, i = 0;
-            //         i < len;
-            //         i++
-            //       ) {
-            //         video.setAttribute(imgAttr[i].name, imgAttr[i].value);
-            //       }
+          //       for (
+          //         let imgAttr = img.attributes, len = imgAttr.length, i = 0;
+          //         i < len;
+          //         i++
+          //       ) {
+          //         video.setAttribute(imgAttr[i].name, imgAttr[i].value);
+          //       }
 
-            //       img.parentNode.insertBefore(video, img);
-            //       img.parentNode.removeChild(img);
-            //     });
+          //       img.parentNode.insertBefore(video, img);
+          //       img.parentNode.removeChild(img);
+          //     });
 
-            //     img.src = src;
-            //   }
-            // );
-          }
-        }, 500);
-      }
-  }
+          //     img.src = src;
+          //   }
+          // );
+        }
+      }, 500);
+    }
+  };
 
   render() {
     // debugger;
@@ -216,29 +242,7 @@ export default class BaiduMap extends React.PureComponent {
         <Polygon path={polygon} strokeWeight={2} />
         <Polyline path={polygon} strokeWeight={2} strokeColor="green" /> */}
         {/* <MarkerClusterer> */}
-        {CITIES.map((position, idx) => {
-          position={ 
-            ...position,
-            lat: position.lat || position.latitude,
-            lng: position.lng || position.longitude
-          };
-          return (
-            <Marker
-              position={position}
-              key={idx}
-              onClick={(e)=>this.showMarkerInfo.call(this, e, position)}
-              icon={position.imageUrl && {
-                imageUrl: position.imageUrl,
-                size: { width: 90, height: 90 },
-              }}
-            >
-              {/* <InfoWindow
-                content="marker infoWindow"
-                offset={{ width: 0, height: -20 }}
-              /> */}
-            </Marker>
-          );
-        })}
+        {this.videoMarkers}
         {/* </MarkerClusterer> */}
         {/* <CanvasLayer
           zIndex={10}
