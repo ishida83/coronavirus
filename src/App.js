@@ -213,7 +213,7 @@ class App extends React.Component {
                 <ListItemGraphic
                   graphic={
                     <>
-                      <video autoPlay="" loop="" muted="" playsInline="">
+                      <video autoPlay loop muted playsInline>
                         <source
                           src="https://v.s1ar.cc/v/01.mp4"
                           type="video/mp4"
@@ -227,7 +227,7 @@ class App extends React.Component {
                 <ListItemGraphic
                   graphic={
                     <>
-                      <video autoPlay="" loop="" muted="" playsInline="">
+                      <video autoPlay loop muted playsInline>
                         <source
                           src="https://v.s1ar.cc/v/02.mp4"
                           type="video/mp4"
@@ -241,7 +241,7 @@ class App extends React.Component {
                 <ListItemGraphic
                   graphic={
                     <>
-                      <video autoPlay="" loop="" muted="" playsInline="">
+                      <video autoPlay loop muted playsInline>
                         <source
                           src="https://v.s1ar.cc/v/03.mp4"
                           type="video/mp4"
@@ -255,7 +255,7 @@ class App extends React.Component {
                 <ListItemGraphic
                   graphic={
                     <>
-                      <video autoPlay="" loop="" muted="" playsInline="">
+                      <video autoPlay loop muted playsInline>
                         <source
                           src="https://v.s1ar.cc/v/04.mp4"
                           type="video/mp4"
@@ -269,7 +269,7 @@ class App extends React.Component {
                 <ListItemGraphic
                   graphic={
                     <>
-                      <video autoPlay="" loop="" muted="" playsInline="">
+                      <video autoPlay loop muted playsInline>
                         <source
                           src="https://v.s1ar.cc/v/05.mp4"
                           type="video/mp4"
@@ -283,7 +283,7 @@ class App extends React.Component {
                 <ListItemGraphic
                   graphic={
                     <>
-                      <video autoPlay="" loop="" muted="" playsInline="">
+                      <video autoPlay loop muted playsInline>
                         <source
                           src="https://v.s1ar.cc/v/06.mp4"
                           type="video/mp4"
@@ -297,7 +297,7 @@ class App extends React.Component {
                 <ListItemGraphic
                   graphic={
                     <>
-                      <video autoPlay="" loop="" muted="" playsInline="">
+                      <video autoPlay loop muted playsInline>
                         <source
                           src="https://v.s1ar.cc/v/07.mp4"
                           type="video/mp4"
@@ -311,7 +311,7 @@ class App extends React.Component {
                 <ListItemGraphic
                   graphic={
                     <>
-                      <video autoPlay="" loop="" muted="" playsInline="">
+                      <video autoPlay loop muted playsInline>
                         <source
                           src="https://v.s1ar.cc/v/08.mp4"
                           type="video/mp4"
@@ -325,7 +325,7 @@ class App extends React.Component {
                 <ListItemGraphic
                   graphic={
                     <>
-                      <video autoPlay="" loop="" muted="" playsInline="">
+                      <video autoPlay loop muted playsInline>
                         <source
                           src="https://v.s1ar.cc/v/08.webm"
                           type="video/webm"
@@ -340,7 +340,7 @@ class App extends React.Component {
                 <ListItemGraphic
                   graphic={
                     <>
-                      <video autoPlay="" loop="" muted="" playsInline="">
+                      <video autoPlay loop muted playsInline>
                         <source
                           src="https://v.s1ar.cc/v/01.mp4"
                           type="video/mp4"
@@ -354,7 +354,7 @@ class App extends React.Component {
                 <ListItemGraphic
                   graphic={
                     <>
-                      <video autoPlay="" loop="" muted="" playsInline="">
+                      <video autoPlay loop muted playsInline>
                         <source
                           src="https://v.s1ar.cc/v/02.mp4"
                           type="video/mp4"
@@ -368,7 +368,7 @@ class App extends React.Component {
                 <ListItemGraphic
                   graphic={
                     <>
-                      <video autoPlay="" loop="" muted="" playsInline="">
+                      <video autoPlay loop muted playsInline>
                         <source
                           src="https://v.s1ar.cc/v/03.mp4"
                           type="video/mp4"
@@ -382,7 +382,7 @@ class App extends React.Component {
                 <ListItemGraphic
                   graphic={
                     <>
-                      <video autoPlay="" loop="" muted="" playsInline="">
+                      <video autoPlay loop muted playsInline>
                         <source
                           src="https://v.s1ar.cc/v/04.mp4"
                           type="video/mp4"
@@ -396,7 +396,7 @@ class App extends React.Component {
                 <ListItemGraphic
                   graphic={
                     <>
-                      <video autoPlay="" loop="" muted="" playsInline="">
+                      <video autoPlay loop muted playsInline>
                         <source
                           src="https://v.s1ar.cc/v/05.mp4"
                           type="video/mp4"
@@ -410,7 +410,7 @@ class App extends React.Component {
                 <ListItemGraphic
                   graphic={
                     <>
-                      <video autoPlay="" loop="" muted="" playsInline="">
+                      <video autoPlay loop muted playsInline>
                         <source
                           src="https://v.s1ar.cc/v/06.mp4"
                           type="video/mp4"
@@ -424,7 +424,7 @@ class App extends React.Component {
                 <ListItemGraphic
                   graphic={
                     <>
-                      <video autoPlay="" loop="" muted="" playsInline="">
+                      <video autoPlay loop muted playsInline>
                         <source
                           src="https://v.s1ar.cc/v/07.mp4"
                           type="video/mp4"
@@ -438,7 +438,7 @@ class App extends React.Component {
                 <ListItemGraphic
                   graphic={
                     <>
-                      <video autoPlay="" loop="" muted="" playsInline="">
+                      <video autoPlay loop muted playsInline>
                         <source
                           src="https://v.s1ar.cc/v/08.mp4"
                           type="video/mp4"
@@ -452,7 +452,7 @@ class App extends React.Component {
                 <ListItemGraphic
                   graphic={
                     <>
-                      <video autoPlay="" loop="" muted="" playsInline="">
+                      <video autoPlay loop muted playsInline>
                         <source
                           src="https://v.s1ar.cc/v/08.webm"
                           type="video/webm"
@@ -467,7 +467,7 @@ class App extends React.Component {
                 <ListItemGraphic
                   graphic={
                     <>
-                      <video autoPlay="" loop="" muted="" playsInline="">
+                      <video autoPlay loop muted playsInline>
                         <source
                           src="https://v.s1ar.cc/v/01.mp4"
                           type="video/mp4"
@@ -481,7 +481,7 @@ class App extends React.Component {
                 <ListItemGraphic
                   graphic={
                     <>
-                      <video autoPlay="" loop="" muted="" playsInline="">
+                      <video autoPlay loop muted playsInline>
                         <source
                           src="https://v.s1ar.cc/v/02.mp4"
                           type="video/mp4"
@@ -495,7 +495,7 @@ class App extends React.Component {
                 <ListItemGraphic
                   graphic={
                     <>
-                      <video autoPlay="" loop="" muted="" playsInline="">
+                      <video autoPlay loop muted playsInline>
                         <source
                           src="https://v.s1ar.cc/v/03.mp4"
                           type="video/mp4"
@@ -509,7 +509,7 @@ class App extends React.Component {
                 <ListItemGraphic
                   graphic={
                     <>
-                      <video autoPlay="" loop="" muted="" playsInline="">
+                      <video autoPlay loop muted playsInline>
                         <source
                           src="https://v.s1ar.cc/v/04.mp4"
                           type="video/mp4"
@@ -523,7 +523,7 @@ class App extends React.Component {
                 <ListItemGraphic
                   graphic={
                     <>
-                      <video autoPlay="" loop="" muted="" playsInline="">
+                      <video autoPlay loop muted playsInline>
                         <source
                           src="https://v.s1ar.cc/v/05.mp4"
                           type="video/mp4"
@@ -537,7 +537,7 @@ class App extends React.Component {
                 <ListItemGraphic
                   graphic={
                     <>
-                      <video autoPlay="" loop="" muted="" playsInline="">
+                      <video autoPlay loop muted playsInline>
                         <source
                           src="https://v.s1ar.cc/v/06.mp4"
                           type="video/mp4"
@@ -551,7 +551,7 @@ class App extends React.Component {
                 <ListItemGraphic
                   graphic={
                     <>
-                      <video autoPlay="" loop="" muted="" playsInline="">
+                      <video autoPlay loop muted playsInline>
                         <source
                           src="https://v.s1ar.cc/v/07.mp4"
                           type="video/mp4"
@@ -565,7 +565,7 @@ class App extends React.Component {
                 <ListItemGraphic
                   graphic={
                     <>
-                      <video autoPlay="" loop="" muted="" playsInline="">
+                      <video autoPlay loop muted playsInline>
                         <source
                           src="https://v.s1ar.cc/v/08.mp4"
                           type="video/mp4"
@@ -579,7 +579,7 @@ class App extends React.Component {
                 <ListItemGraphic
                   graphic={
                     <>
-                      <video autoPlay="" loop="" muted="" playsInline="">
+                      <video autoPlay loop muted playsInline>
                         <source
                           src="https://v.s1ar.cc/v/08.webm"
                           type="video/webm"
