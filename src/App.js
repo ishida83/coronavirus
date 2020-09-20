@@ -56,6 +56,9 @@ import BaiduMap from "./BaiduMap";
 
 import Player from "./Player";
 
+import Hammer from 'react-hammerjs';
+
+
 const { Share } = Plugins;
 
 const sidePanelStyle = {
@@ -174,7 +177,9 @@ class App extends React.PureComponent {
   };
 
   refreshWindow = () => {
-    this.forceUpdate();
+    if(typeof window !== 'undefined'){
+      window.location.reload();
+    }
   };
 
   shareIt = async () => {
@@ -240,139 +245,399 @@ class App extends React.PureComponent {
     }
   }
 
+  handleSwipe = (e) => {
+    this.toggleHoverAppBar();
+  }
+
   render() {
     const { isLandscape, isPortrait } = this.props;
     return (
       <div className="drawer-container">
         <Drawer dismissible open={this.state.hoverAppBar}>
+          {/* <Hammer onSwipe={this.handleSwipe}>
+          <div> */}
           <DrawerHeader>
             <DrawerTitle tag="h2">{/* jane.smith@gmail.com */}</DrawerTitle>
           </DrawerHeader>
 
           <DrawerContent>
-            <List
-              singleSelection
-              avatarList
-              selectedIndex={this.state.selectedIndex}
-            >
-              {/* <ListItem>
-                <ListItemGraphic graphic={<MaterialIcon icon="folder" />} />
-                <ListItemText primaryText="首页" />
-              </ListItem> */}
+              <List
+                singleSelection
+                avatarList
+                selectedIndex={this.state.selectedIndex}
+              >
+                {/* <ListItem>
+                  <ListItemGraphic graphic={<MaterialIcon icon="folder" />} />
+                  <ListItemText primaryText="首页" />
+                </ListItem> */}
 
-              <ListItem>
-                <ListItemGraphic
-                  graphic={
-                    <>
-                      <video autoPlay loop muted playsInline>
-                        <source
-                          src="https://v.s1ar.cc/v/01.mp4"
-                          type="video/mp4"
-                        />
-                      </video>
-                    </>
-                  }
-                />
-              </ListItem>
-              <ListItem>
-                <ListItemGraphic
-                  graphic={
-                    <>
-                      <video autoPlay loop muted playsInline>
-                        <source
-                          src="https://v.s1ar.cc/v/02.mp4"
-                          type="video/mp4"
-                        />
-                      </video>
-                    </>
-                  }
-                />
-              </ListItem>
-              <ListItem>
-                <ListItemGraphic
-                  graphic={
-                    <>
-                      <video autoPlay loop muted playsInline>
-                        <source
-                          src="https://v.s1ar.cc/v/03.mp4"
-                          type="video/mp4"
-                        />
-                      </video>
-                    </>
-                  }
-                />
-              </ListItem>
-              <ListItem>
-                <ListItemGraphic
-                  graphic={
-                    <>
-                      <video autoPlay loop muted playsInline>
-                        <source
-                          src="https://v.s1ar.cc/v/04.mp4"
-                          type="video/mp4"
-                        />
-                      </video>
-                    </>
-                  }
-                />
-              </ListItem>
-              <ListItem>
-                <ListItemGraphic
-                  graphic={
-                    <>
-                      <video autoPlay loop muted playsInline>
-                        <source
-                          src="https://v.s1ar.cc/v/05.mp4"
-                          type="video/mp4"
-                        />
-                      </video>
-                    </>
-                  }
-                />
-              </ListItem>
-              <ListItem>
-                <ListItemGraphic
-                  graphic={
-                    <>
-                      <video autoPlay loop muted playsInline>
-                        <source
-                          src="https://v.s1ar.cc/v/06.mp4"
-                          type="video/mp4"
-                        />
-                      </video>
-                    </>
-                  }
-                />
-              </ListItem>
-              <ListItem>
-                <ListItemGraphic
-                  graphic={
-                    <>
-                      <video autoPlay loop muted playsInline>
-                        <source
-                          src="https://v.s1ar.cc/v/07.mp4"
-                          type="video/mp4"
-                        />
-                      </video>
-                    </>
-                  }
-                />
-              </ListItem>
-              <ListItem>
-                <ListItemGraphic
-                  graphic={
-                    <>
-                      <video autoPlay loop muted playsInline>
-                        <source
-                          src="https://v.s1ar.cc/v/08.mp4"
-                          type="video/mp4"
-                        />
-                      </video>
-                    </>
-                  }
-                />
-              </ListItem>
-              <ListItem>
+                <ListItem>
+                  <ListItemGraphic
+                    graphic={
+                      <>
+                        <video autoPlay loop muted playsInline>
+                          <source
+                            src="https://v.s1ar.cc/v/01.mp4"
+                            type="video/mp4"
+                          />
+                        </video>
+                      </>
+                    }
+                  />
+                </ListItem>
+                <ListItem>
+                  <ListItemGraphic
+                    graphic={
+                      <>
+                        <video autoPlay loop muted playsInline>
+                          <source
+                            src="https://v.s1ar.cc/v/02.mp4"
+                            type="video/mp4"
+                          />
+                        </video>
+                      </>
+                    }
+                  />
+                </ListItem>
+                <ListItem>
+                  <ListItemGraphic
+                    graphic={
+                      <>
+                        <video autoPlay loop muted playsInline>
+                          <source
+                            src="https://v.s1ar.cc/v/03.mp4"
+                            type="video/mp4"
+                          />
+                        </video>
+                      </>
+                    }
+                  />
+                </ListItem>
+                <ListItem>
+                  <ListItemGraphic
+                    graphic={
+                      <>
+                        <video autoPlay loop muted playsInline>
+                          <source
+                            src="https://v.s1ar.cc/v/04.mp4"
+                            type="video/mp4"
+                          />
+                        </video>
+                      </>
+                    }
+                  />
+                </ListItem>
+                <ListItem>
+                  <ListItemGraphic
+                    graphic={
+                      <>
+                        <video autoPlay loop muted playsInline>
+                          <source
+                            src="https://v.s1ar.cc/v/05.mp4"
+                            type="video/mp4"
+                          />
+                        </video>
+                      </>
+                    }
+                  />
+                </ListItem>
+                <ListItem>
+                  <ListItemGraphic
+                    graphic={
+                      <>
+                        <video autoPlay loop muted playsInline>
+                          <source
+                            src="https://v.s1ar.cc/v/06.mp4"
+                            type="video/mp4"
+                          />
+                        </video>
+                      </>
+                    }
+                  />
+                </ListItem>
+                <ListItem>
+                  <ListItemGraphic
+                    graphic={
+                      <>
+                        <video autoPlay loop muted playsInline>
+                          <source
+                            src="https://v.s1ar.cc/v/07.mp4"
+                            type="video/mp4"
+                          />
+                        </video>
+                      </>
+                    }
+                  />
+                </ListItem>
+                <ListItem>
+                  <ListItemGraphic
+                    graphic={
+                      <>
+                        <video autoPlay loop muted playsInline>
+                          <source
+                            src="https://v.s1ar.cc/v/08.mp4"
+                            type="video/mp4"
+                          />
+                        </video>
+                      </>
+                    }
+                  />
+                </ListItem>
+                <ListItem>
+                  <ListItemGraphic
+                    graphic={
+                      <>
+                        <video autoPlay loop muted playsInline>
+                          <source
+                            src="https://v.s1ar.cc/v/08.webm"
+                            type="video/webm"
+                          />
+                        </video>
+                      </>
+                    }
+                  />
+                </ListItem>
+
+                <ListItem>
+                  <ListItemGraphic
+                    graphic={
+                      <>
+                        <video autoPlay loop muted playsInline>
+                          <source
+                            src="https://v.s1ar.cc/v/01.mp4"
+                            type="video/mp4"
+                          />
+                        </video>
+                      </>
+                    }
+                  />
+                </ListItem>
+                <ListItem>
+                  <ListItemGraphic
+                    graphic={
+                      <>
+                        <video autoPlay loop muted playsInline>
+                          <source
+                            src="https://v.s1ar.cc/v/02.mp4"
+                            type="video/mp4"
+                          />
+                        </video>
+                      </>
+                    }
+                  />
+                </ListItem>
+                <ListItem>
+                  <ListItemGraphic
+                    graphic={
+                      <>
+                        <video autoPlay loop muted playsInline>
+                          <source
+                            src="https://v.s1ar.cc/v/03.mp4"
+                            type="video/mp4"
+                          />
+                        </video>
+                      </>
+                    }
+                  />
+                </ListItem>
+                <ListItem>
+                  <ListItemGraphic
+                    graphic={
+                      <>
+                        <video autoPlay loop muted playsInline>
+                          <source
+                            src="https://v.s1ar.cc/v/04.mp4"
+                            type="video/mp4"
+                          />
+                        </video>
+                      </>
+                    }
+                  />
+                </ListItem>
+                <ListItem>
+                  <ListItemGraphic
+                    graphic={
+                      <>
+                        <video autoPlay loop muted playsInline>
+                          <source
+                            src="https://v.s1ar.cc/v/05.mp4"
+                            type="video/mp4"
+                          />
+                        </video>
+                      </>
+                    }
+                  />
+                </ListItem>
+                <ListItem>
+                  <ListItemGraphic
+                    graphic={
+                      <>
+                        <video autoPlay loop muted playsInline>
+                          <source
+                            src="https://v.s1ar.cc/v/06.mp4"
+                            type="video/mp4"
+                          />
+                        </video>
+                      </>
+                    }
+                  />
+                </ListItem>
+                <ListItem>
+                  <ListItemGraphic
+                    graphic={
+                      <>
+                        <video autoPlay loop muted playsInline>
+                          <source
+                            src="https://v.s1ar.cc/v/07.mp4"
+                            type="video/mp4"
+                          />
+                        </video>
+                      </>
+                    }
+                  />
+                </ListItem>
+                <ListItem>
+                  <ListItemGraphic
+                    graphic={
+                      <>
+                        <video autoPlay loop muted playsInline>
+                          <source
+                            src="https://v.s1ar.cc/v/08.mp4"
+                            type="video/mp4"
+                          />
+                        </video>
+                      </>
+                    }
+                  />
+                </ListItem>
+                <ListItem>
+                  <ListItemGraphic
+                    graphic={
+                      <>
+                        <video autoPlay loop muted playsInline>
+                          <source
+                            src="https://v.s1ar.cc/v/08.webm"
+                            type="video/webm"
+                          />
+                        </video>
+                      </>
+                    }
+                  />
+                </ListItem>
+
+                <ListItem>
+                  <ListItemGraphic
+                    graphic={
+                      <>
+                        <video autoPlay loop muted playsInline>
+                          <source
+                            src="https://v.s1ar.cc/v/01.mp4"
+                            type="video/mp4"
+                          />
+                        </video>
+                      </>
+                    }
+                  />
+                </ListItem>
+                <ListItem>
+                  <ListItemGraphic
+                    graphic={
+                      <>
+                        <video autoPlay loop muted playsInline>
+                          <source
+                            src="https://v.s1ar.cc/v/02.mp4"
+                            type="video/mp4"
+                          />
+                        </video>
+                      </>
+                    }
+                  />
+                </ListItem>
+                <ListItem>
+                  <ListItemGraphic
+                    graphic={
+                      <>
+                        <video autoPlay loop muted playsInline>
+                          <source
+                            src="https://v.s1ar.cc/v/03.mp4"
+                            type="video/mp4"
+                          />
+                        </video>
+                      </>
+                    }
+                  />
+                </ListItem>
+                <ListItem>
+                  <ListItemGraphic
+                    graphic={
+                      <>
+                        <video autoPlay loop muted playsInline>
+                          <source
+                            src="https://v.s1ar.cc/v/04.mp4"
+                            type="video/mp4"
+                          />
+                        </video>
+                      </>
+                    }
+                  />
+                </ListItem>
+                <ListItem>
+                  <ListItemGraphic
+                    graphic={
+                      <>
+                        <video autoPlay loop muted playsInline>
+                          <source
+                            src="https://v.s1ar.cc/v/05.mp4"
+                            type="video/mp4"
+                          />
+                        </video>
+                      </>
+                    }
+                  />
+                </ListItem>
+                <ListItem>
+                  <ListItemGraphic
+                    graphic={
+                      <>
+                        <video autoPlay loop muted playsInline>
+                          <source
+                            src="https://v.s1ar.cc/v/06.mp4"
+                            type="video/mp4"
+                          />
+                        </video>
+                      </>
+                    }
+                  />
+                </ListItem>
+                <ListItem>
+                  <ListItemGraphic
+                    graphic={
+                      <>
+                        <video autoPlay loop muted playsInline>
+                          <source
+                            src="https://v.s1ar.cc/v/07.mp4"
+                            type="video/mp4"
+                          />
+                        </video>
+                      </>
+                    }
+                  />
+                </ListItem>
+                <ListItem>
+                  <ListItemGraphic
+                    graphic={
+                      <>
+                        <video autoPlay loop muted playsInline>
+                          <source
+                            src="https://v.s1ar.cc/v/08.mp4"
+                            type="video/mp4"
+                          />
+                        </video>
+                      </>
+                    }
+                  />
+                </ListItem>
+                <ListItem>
                 <ListItemGraphic
                   graphic={
                     <>
@@ -386,262 +651,10 @@ class App extends React.PureComponent {
                   }
                 />
               </ListItem>
-
-              <ListItem>
-                <ListItemGraphic
-                  graphic={
-                    <>
-                      <video autoPlay loop muted playsInline>
-                        <source
-                          src="https://v.s1ar.cc/v/01.mp4"
-                          type="video/mp4"
-                        />
-                      </video>
-                    </>
-                  }
-                />
-              </ListItem>
-              <ListItem>
-                <ListItemGraphic
-                  graphic={
-                    <>
-                      <video autoPlay loop muted playsInline>
-                        <source
-                          src="https://v.s1ar.cc/v/02.mp4"
-                          type="video/mp4"
-                        />
-                      </video>
-                    </>
-                  }
-                />
-              </ListItem>
-              <ListItem>
-                <ListItemGraphic
-                  graphic={
-                    <>
-                      <video autoPlay loop muted playsInline>
-                        <source
-                          src="https://v.s1ar.cc/v/03.mp4"
-                          type="video/mp4"
-                        />
-                      </video>
-                    </>
-                  }
-                />
-              </ListItem>
-              <ListItem>
-                <ListItemGraphic
-                  graphic={
-                    <>
-                      <video autoPlay loop muted playsInline>
-                        <source
-                          src="https://v.s1ar.cc/v/04.mp4"
-                          type="video/mp4"
-                        />
-                      </video>
-                    </>
-                  }
-                />
-              </ListItem>
-              <ListItem>
-                <ListItemGraphic
-                  graphic={
-                    <>
-                      <video autoPlay loop muted playsInline>
-                        <source
-                          src="https://v.s1ar.cc/v/05.mp4"
-                          type="video/mp4"
-                        />
-                      </video>
-                    </>
-                  }
-                />
-              </ListItem>
-              <ListItem>
-                <ListItemGraphic
-                  graphic={
-                    <>
-                      <video autoPlay loop muted playsInline>
-                        <source
-                          src="https://v.s1ar.cc/v/06.mp4"
-                          type="video/mp4"
-                        />
-                      </video>
-                    </>
-                  }
-                />
-              </ListItem>
-              <ListItem>
-                <ListItemGraphic
-                  graphic={
-                    <>
-                      <video autoPlay loop muted playsInline>
-                        <source
-                          src="https://v.s1ar.cc/v/07.mp4"
-                          type="video/mp4"
-                        />
-                      </video>
-                    </>
-                  }
-                />
-              </ListItem>
-              <ListItem>
-                <ListItemGraphic
-                  graphic={
-                    <>
-                      <video autoPlay loop muted playsInline>
-                        <source
-                          src="https://v.s1ar.cc/v/08.mp4"
-                          type="video/mp4"
-                        />
-                      </video>
-                    </>
-                  }
-                />
-              </ListItem>
-              <ListItem>
-                <ListItemGraphic
-                  graphic={
-                    <>
-                      <video autoPlay loop muted playsInline>
-                        <source
-                          src="https://v.s1ar.cc/v/08.webm"
-                          type="video/webm"
-                        />
-                      </video>
-                    </>
-                  }
-                />
-              </ListItem>
-
-              <ListItem>
-                <ListItemGraphic
-                  graphic={
-                    <>
-                      <video autoPlay loop muted playsInline>
-                        <source
-                          src="https://v.s1ar.cc/v/01.mp4"
-                          type="video/mp4"
-                        />
-                      </video>
-                    </>
-                  }
-                />
-              </ListItem>
-              <ListItem>
-                <ListItemGraphic
-                  graphic={
-                    <>
-                      <video autoPlay loop muted playsInline>
-                        <source
-                          src="https://v.s1ar.cc/v/02.mp4"
-                          type="video/mp4"
-                        />
-                      </video>
-                    </>
-                  }
-                />
-              </ListItem>
-              <ListItem>
-                <ListItemGraphic
-                  graphic={
-                    <>
-                      <video autoPlay loop muted playsInline>
-                        <source
-                          src="https://v.s1ar.cc/v/03.mp4"
-                          type="video/mp4"
-                        />
-                      </video>
-                    </>
-                  }
-                />
-              </ListItem>
-              <ListItem>
-                <ListItemGraphic
-                  graphic={
-                    <>
-                      <video autoPlay loop muted playsInline>
-                        <source
-                          src="https://v.s1ar.cc/v/04.mp4"
-                          type="video/mp4"
-                        />
-                      </video>
-                    </>
-                  }
-                />
-              </ListItem>
-              <ListItem>
-                <ListItemGraphic
-                  graphic={
-                    <>
-                      <video autoPlay loop muted playsInline>
-                        <source
-                          src="https://v.s1ar.cc/v/05.mp4"
-                          type="video/mp4"
-                        />
-                      </video>
-                    </>
-                  }
-                />
-              </ListItem>
-              <ListItem>
-                <ListItemGraphic
-                  graphic={
-                    <>
-                      <video autoPlay loop muted playsInline>
-                        <source
-                          src="https://v.s1ar.cc/v/06.mp4"
-                          type="video/mp4"
-                        />
-                      </video>
-                    </>
-                  }
-                />
-              </ListItem>
-              <ListItem>
-                <ListItemGraphic
-                  graphic={
-                    <>
-                      <video autoPlay loop muted playsInline>
-                        <source
-                          src="https://v.s1ar.cc/v/07.mp4"
-                          type="video/mp4"
-                        />
-                      </video>
-                    </>
-                  }
-                />
-              </ListItem>
-              <ListItem>
-                <ListItemGraphic
-                  graphic={
-                    <>
-                      <video autoPlay loop muted playsInline>
-                        <source
-                          src="https://v.s1ar.cc/v/08.mp4"
-                          type="video/mp4"
-                        />
-                      </video>
-                    </>
-                  }
-                />
-              </ListItem>
-              <ListItem>
-                <ListItemGraphic
-                  graphic={
-                    <>
-                      <video autoPlay loop muted playsInline>
-                        <source
-                          src="https://v.s1ar.cc/v/08.webm"
-                          type="video/webm"
-                        />
-                      </video>
-                    </>
-                  }
-                />
-              </ListItem>
-            </List>
+              </List>
           </DrawerContent>
+          {/* </div>
+          </Hammer> */}
         </Drawer>
 
         <DrawerAppContent className="drawer-app-content">
@@ -667,14 +680,14 @@ class App extends React.PureComponent {
                   />
                 </TopAppBarIcon>
 
-                <TopAppBarIcon actionItem tabIndex={0}>
+                {isMobile && <TopAppBarIcon actionItem tabIndex={0}>
                   <MaterialIcon
                     aria-label="share page"
                     hasRipple
                     icon="share"
                     onClick={this.shareIt}
                   />
-                </TopAppBarIcon>
+                </TopAppBarIcon>}
               </TopAppBarSection>
             </TopAppBarRow>
           </TopAppBar>
