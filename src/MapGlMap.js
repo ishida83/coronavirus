@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import MapGL, {Popup, Marker, NavigationControl, ScaleControl, FullscreenControl, GeolocateControl} from "react-map-gl";
 
 import Pins from './pins';
@@ -41,7 +41,7 @@ export const mapSwitcherStyle = {
   top: "170px",
 };
 
-export default class MapGlMap extends Component {
+export default class MapGlMap extends PureComponent {
   state = {
 		viewport: {
 			latitude: 37.785164,

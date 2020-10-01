@@ -1,5 +1,5 @@
 /* global BMap */
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import {
   BaiduMap as Map,
   asyncWrapper,
@@ -50,7 +50,7 @@ for (let i = 0; i < MAX; i++) {
 }
 
 
-export default class BaiduMapGL extends Component {
+export default class BaiduMapGL extends PureComponent {
   onTilesloaded = () => {
 
   }
@@ -79,7 +79,7 @@ export default class BaiduMapGL extends Component {
   // getMyIcon = () => {
   //   if(this.map){
   //     const BMap = this.map.getWrappedInstance().getBMap();
-  //     let myIcon = new BMap.Icon("http://lbsyun.baidu.com/jsdemo/img/fox.gif", new BMap.Size(300,157));
+  //     let myIcon = new BMap.Icon("https://lbsyun.baidu.com/jsdemo/img/fox.gif", new BMap.Size(300,157));
   //     return myIcon;
   //   }
   // }
@@ -89,7 +89,7 @@ export default class BaiduMapGL extends Component {
 
     return (
       <AsyncMap
-        mapUrl={`//api.map.baidu.com/api?v=1.0&type=webgl&ak=${process.env.REACT_APP_BMAP_KEY}`}
+        mapUrl={`https://api.map.baidu.com/api?v=1.0&type=webgl&ak=${process.env.REACT_APP_BMAP_KEY}`}
         loadingElement={<div>Loading.....</div>}
         onTilesloaded={this.onTilesloaded}
         onClick={this.onClick}

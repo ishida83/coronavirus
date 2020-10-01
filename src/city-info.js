@@ -11,12 +11,12 @@ export default class CityInfo extends React.PureComponent {
           {displayName} |{' '}
           <a
             target="_new"
-            href={`//en.wikipedia.org/w/index.php?title=Special:Search&search=${displayName}`}
+            href={`https://en.wikipedia.org/w/index.php?title=Special:Search&search=${displayName}`}
           >
             Wikipedia
           </a>
         </div>
-        <img width={240} src={info.image} alt={`${info.city} ${info.state}`} />
+        <img width={240} src={info.image} alt={`${info.city} ${info.state}`} load="lazy" />
       </div>
     );
   }

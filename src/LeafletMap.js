@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Map as LeafletMap, TileLayer, Marker, Popup, 
   LayersControl, FeatureGroup, Circle
 } from 'react-leaflet';
@@ -9,7 +9,7 @@ import withLeafletPane from './withLeafletPane';
 import withLeafletMapType from './withLeafletMapType';
 import withMapData from './withMapData';
 
-export class LMap extends Component {
+export class LMap extends PureComponent {
   state = {
     lat: 37.785164,
     lng: -100,
@@ -41,38 +41,38 @@ export class LMap extends Component {
         <LayersControl position="topleft">
           <LayersControl.BaseLayer name="Leaflet" checked>
             <TileLayer
-              attribution='&copy; <a href="//osm.org/copyright">OpenStreetMap</a> contributors'
+              attribution='&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.tile.osm.org/{z}/{x}/{y}.png"
             />
           </LayersControl.BaseLayer>
           <LayersControl.BaseLayer name="MapGl">
             <TileLayer
-              attribution='&copy; <a href="//osm.org/copyright">OpenStreetMap</a> contributors'
+              attribution='&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
               url="https://tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png"
             />
           </LayersControl.BaseLayer>
           <LayersControl.BaseLayer name="高德">
             <TileLayer
-              attribution='&copy; <a href="//osm.org/copyright">OpenStreetMap</a> contributors'
+              attribution='&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
           </LayersControl.BaseLayer>
 
           <LayersControl.BaseLayer name="Google">
             <TileLayer
-              attribution='&copy; <a href="//osm.org/copyright">OpenStreetMap</a> contributors'
+              attribution='&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
           </LayersControl.BaseLayer>
           <LayersControl.BaseLayer name="腾讯地图">
             <TileLayer
-              attribution='&copy; <a href="//osm.org/copyright">OpenStreetMap</a> contributors'
+              attribution='&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
           </LayersControl.BaseLayer>
           <LayersControl.BaseLayer name="百度地图">
             <TileLayer
-              attribution='&copy; <a href="//osm.org/copyright">OpenStreetMap</a> contributors'
+              attribution='&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
           </LayersControl.BaseLayer>
@@ -93,7 +93,7 @@ export class LMap extends Component {
           </LayersControl.Overlay> */}
         </LayersControl>
         <TileLayer
-          attribution='&copy; <a href="//osm.org/copyright">OpenStreetMap</a> contributors'
+          attribution='&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.osm.org/{z}/{x}/{y}.png"
         />
         {children}

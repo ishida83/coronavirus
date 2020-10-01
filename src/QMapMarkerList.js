@@ -3,7 +3,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Marker, config } from "react-tmap";
 
-export default class MarkerList extends React.Component {
+export default class MarkerList extends React.PureComponent {
   static defaultProps = {
     data: [],
     animation: config.ANIMATION_DROP,

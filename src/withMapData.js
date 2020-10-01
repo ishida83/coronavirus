@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import { Marker, Popup } from "react-leaflet";
 
 import CITIES from "./data/cities.json";
@@ -43,7 +43,7 @@ export default function withMapData(MapComponent) {
     return <>{items}</>;
   };
 
-  class withMapData extends Component {
+  class withMapData extends PureComponent {
     constructor(props) {
       super(props);
       let markers = CITIES.map((it, idx) => {

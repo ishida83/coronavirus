@@ -3,10 +3,16 @@
 @import '~@material/react-button/index.scss';
 @import '~@material/react-icon-button/index.scss';
 @import '~@material/react-material-icon/index.scss';
+@import '~@material/react-top-app-bar/index.scss';
+@import '~@material/react-drawer/index.scss';
+@import '~@material/react-list/index.scss';
+@import '~@material/react-snackbar/index.scss';
 
 .App {
   text-align: center;
   height: 100vh;
+  margin-top: -64px;
+  overflow: hidden;
 
   will-change: transform, opacity;
 }
@@ -85,7 +91,9 @@ video, .BMap_Marker > div > img {
   // background-clip: padding-box; /* !importanté */
   // border: solid $border transparent; /* !importanté */
 
-  
+  ul.mdc-list > li > & {
+    border-radius: 0;
+  }  
 }
 
 div[style*="width: 90px"]{
@@ -116,8 +124,51 @@ aside iframe {
   position: relative;
 }
 
+aside {
+  .mdc-drawer__content {
+    & > section {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+}
+
 .mdc-card__media iframe {
   position: absolute;
   top: 0;
   left: 0;
+}
+
+
+.drawer-container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.drawer-app-content {
+  flex: auto;
+  overflow: auto;
+}
+
+li.mdc-list-item{
+  height: 10rem;
+}
+
+.mdc-drawer--dismissible.mdc-drawer--open{
+  max-width: 8rem;
+}
+
+.mdc-drawer.mdc-drawer--open:not(.mdc-drawer--closing) + .mdc-drawer-app-content{
+  margin-left: 8rem;
+}
+
+.mdc-top-app-bar{
+  width: calc(100% - 8rem);
+}
+
+.mdc-top-app-bar--short-collapsed.mdc-top-app-bar--short-has-action-item{
+  width: auto;
 }
