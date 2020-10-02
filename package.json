@@ -21,6 +21,7 @@
     "framer-motion": "^2.6.5",
     "gifshot": "^0.4.5",
     "hammerjs": "^2.0.8",
+    "jwt-decode": "^3.0.0",
     "leaflet": "^1.6.0",
     "ra-data-json-server": "^3.8.5",
     "react": "^16.13.1",
