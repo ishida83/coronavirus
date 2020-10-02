@@ -1,6 +1,6 @@
 // in src/App.js
 import * as React from "react";
-import { Admin, Resource } from "react-admin";
+import { Admin, Resource, ListGuesser } from "react-admin";
 import jsonServerProvider from "ra-data-json-server";
 import { createBrowserHistory as createHistory } from "history";
 
@@ -38,7 +38,7 @@ const App = () => (
       create={PostCreate}
       icon={PostIcon}
     />
-    {/* <Resource name="users" list={UserList} icon={UserIcon} /> */}
+    <Resource name="users" list={ListGuesser} icon={UserIcon}/>
   </Admin>
 );
 
