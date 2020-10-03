@@ -9,8 +9,8 @@ import Admin from './admin';
 
 ReactDOM.render(
   <Router>
-		<Route path="/" exact component={App} />
-		<Route path={`/${process.env.REACT_APP_ADMIN_URL}`} component={Admin} />
+		<Route path="/" component={App} />
+		{/* <Route path={`/${process.env.REACT_APP_ADMIN_URL}`} component={Admin} /> */}
   </Router>,
   document.getElementById("root")
 );

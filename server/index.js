@@ -22,6 +22,11 @@ Object.defineProperty(app.request, 'ip', {
   get: function () { return this.get('Client-IP') }
 });
 
+require('http').globalAgent.options.keepAlive = true;
+require('https').globalAgent.options.keepAlive = true;
+require('http').globalAgent.maxSockets = 5000;
+require('https').globalAgent.maxSockets = 5000;
+
 app.disable('x-powered-by');
 app.set('trust proxy', 1);
 
