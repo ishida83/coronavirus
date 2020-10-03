@@ -19,7 +19,7 @@ import {
 } from "react-admin";
 
 import { useMediaQuery } from "@material-ui/core";
-// import { ImportButton } from "react-admin-import-csv";
+import { ImportButton } from "react-admin-import-csv";
 
 const ListActions = props => {
   const { 
@@ -41,7 +41,7 @@ const ListActions = props => {
         filter={filterValues}
         exporter={exporter}
       />
-      {/* <ImportButton {...props} /> */}
+      <ImportButton {...props} />
     </TopToolbar>
   );
 };

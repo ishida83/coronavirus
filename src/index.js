@@ -8,9 +8,9 @@ import { BrowserRouter as Router, Switch, Route, } from "react-router-dom";
 import Admin from './admin';
 
 ReactDOM.render(
-  <Router>
-		<Route path="/" component={App} />
-		{/* <Route path={`/${process.env.REACT_APP_ADMIN_URL}`} component={Admin} /> */}
+  <Router basename={process.env.NODE_ENV === 'production' ? '/map' : ''}>
+		<Route path="/" exact component={App} />
+		<Route path={`/${process.env.REACT_APP_ADMIN_URL}`} component={Admin} />
   </Router>,
   document.getElementById("root")
 );
