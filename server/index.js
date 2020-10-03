@@ -29,7 +29,7 @@ app.use(express.static(path.join(__dirname, '../', 'build')));
 
 app.use('/api', jsonMiddlewares, jsonServer.bodyParser, jsonRouter);
 
-app.get('/', function(req, res) {
+app.get(['/', '/admin*'], function(req, res) {
   res.sendFile(path.join(__dirname, '../build', 'index.html'));
 });
 app.use(function (req, res, next) {

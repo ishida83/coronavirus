@@ -7,7 +7,7 @@ const PostEdit = (props) => (
     <SimpleForm>
       <TextInput disabled source="id" />
       <TextInput source="title" />
-      <TextInput source="teaser" options={{ multiLine: true }} />
+      <TextInput source="teaser" options={{ multiline: true }} />
       <TextInput multiline source="body" />
       <DateInput label="Publication date" source="published_at" />
       <TextInput source="average_note" />
