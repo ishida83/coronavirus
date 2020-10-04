@@ -77,7 +77,7 @@ jobs:
         with:
           node-version: 10
       - run: npm i --no-optional
-      - run: npm run build
+      - run: npm run build:deploy
         env:
             CI: false
       

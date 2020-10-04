@@ -19,7 +19,7 @@ const theme = createMuiTheme({
   },
 });
 const history = createHistory({
-  basename: `/${process.env.REACT_APP_ADMIN_URL}`
+  basename: `${process.env.PUBLIC_URL}/admin`
 });
 
 const dataProvider = jsonServerProvider(`${process.env.REACT_APP_JSON_SERVER}`);

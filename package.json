@@ -4,6 +4,7 @@
   "private": true,
   "homepage": ".",
   "dependencies": {
+    "@capacitor-community/electron": "^1.2.3",
     "@capacitor/android": "^2.4.2",
     "@capacitor/core": "^2.4.2",
     "@capacitor/ios": "^2.4.2",
@@ -51,6 +52,7 @@
     "start": "react-scripts start",
     "dev": "serve -s build -l 4000",
     "build": "react-scripts build",
+    "build:deploy": "PUBLIC_URL=/map react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "styleguide": "styleguidist server",
@@ -66,7 +68,7 @@
     "serve": "nodemon server",
     "ios": "npm run build && npx cap copy && npx cap open ios",
     "android": "npm run build && npx cap copy && npx cap open android",
-    "electron": "npm run build && npx cap copy && npx cap open electron",
+    "electron": "npm run build && npx cap copy && npx cap open @capacitor-community/electron",
     "pwa": "npm run build && npx cap copy && npx cap serve"
   },
   "babel": {
