@@ -6,10 +6,14 @@ import CardHeader from "@material-ui/core/CardHeader";
 
 import { Title, } from "react-admin";
 
+import LocaleSwitcher from './LocaleSwitcher';
+
 
 export default () => (
   <Card>
     <CardHeader title="Welcome to the administration" />
-    <CardContent>Lorem ipsum sic dolor amet...</CardContent>
+    <CardContent>
+      <LocaleSwitcher />
+    </CardContent>
   </Card>
 );

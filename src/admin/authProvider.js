@@ -1,6 +1,6 @@
 import decodeJwt from 'jwt-decode';
 
-export const authProvider = {
+const authProvider = {
   login: ({ username, password }) => {
     const request = new Request("https://mydomain.com/authenticate", {
       method: "POST",
@@ -45,3 +45,5 @@ export const authProvider = {
     return role ? Promise.resolve(role) : Promise.reject();
 	},
 };
+
+export default authProvider;

@@ -10,7 +10,8 @@ import { RoomIcon } from "./cities";
 import Dashboard from "./Dashboard";
 import NotFound from "./NotFound";
 
-import {authProvider} from "./authProvider";
+import authProvider from "./authProvider";
+import i18nProvider from './i18n/i18nProvider';
 
 import { createMuiTheme } from "@material-ui/core/styles";
 const theme = createMuiTheme({
@@ -30,7 +31,9 @@ const App = () => (
     title={`${process.env.REACT_APP_WEBSITE_NAME} Admin`}
     theme={theme}
     history={history}
-    // authProvider={authProvider}
+    locale="zh"
+    authProvider={authProvider}
+    i18nProvider={i18nProvider}
   >
     <Resource
       name="posts"
