@@ -1,8 +1,17 @@
 import React from "react";
-import { Edit, SimpleForm, TextInput, DateInput, NumberInput } from "react-admin";
+import { Edit, SimpleForm, TextInput, DateInput, NumberInput, TopToolbar, ListButton } from "react-admin";
+
+import ChevronLeft from '@material-ui/icons/ChevronLeft';
+
+export const VideoEditActions = ({ basePath, data }) => (
+    <TopToolbar>
+        <ListButton basePath={basePath} label="Back" icon={<ChevronLeft />} />
+        {/* <ShowButton basePath={basePath} record={data} /> */}
+    </TopToolbar>
+);
 
 const VideoEdit = (props) => (
-  <Edit title={<span>{props ? `"${props.id}"` : ""}</span>} {...props}>
+  <Edit title={<span>{props ? `"${props.id}"` : ""}</span>} actions={<VideoEditActions />} {...props}>
     <SimpleForm>
       <TextInput disabled source="id" />
 			<TextInput source="city" />

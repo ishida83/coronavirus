@@ -1,6 +1,6 @@
 // in src/App.js
 import * as React from "react";
-import { Admin, Resource, ListGuesser } from "react-admin";
+import { Admin, Resource, ListGuesser, Login } from "react-admin";
 import jsonServerProvider from "ra-data-json-server";
 import { createBrowserHistory as createHistory } from "history";
 
@@ -24,6 +24,15 @@ const history = createHistory({
 });
 
 const dataProvider = jsonServerProvider(`${process.env.REACT_APP_JSON_SERVER}`);
+
+const MyLoginPage = () => (
+    <Login
+        // A random image that changes everyday
+        backgroundImage="https://source.unsplash.com/random/1600x900/daily"
+    />
+);
+
+
 const App = () => (
   <Admin
     dashboard={Dashboard}
@@ -32,6 +41,7 @@ const App = () => (
     theme={theme}
     history={history}
     locale="zh"
+    loginPage={MyLoginPage}
     authProvider={authProvider}
     i18nProvider={i18nProvider}
   >
