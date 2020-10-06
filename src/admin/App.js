@@ -6,7 +6,7 @@ import { createBrowserHistory as createHistory } from "history";
 
 import { PostList, PostEdit, PostCreate, PostIcon } from "./posts";
 import { UserList, UserIcon } from "./users";
-import { RoomIcon } from "./cities";
+import { RoomIcon, VideoList } from "./cities";
 import Dashboard from "./Dashboard";
 import NotFound from "./NotFound";
 
@@ -43,7 +43,7 @@ const App = () => (
       icon={PostIcon}
     />
     <Resource name="users" list={ListGuesser} icon={UserIcon}/>
-    <Resource name="cities" list={ListGuesser} icon={RoomIcon}/>
+    <Resource name="cities" list={VideoList} icon={RoomIcon}/>
   </Admin>
 );
 
