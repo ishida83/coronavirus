@@ -2,7 +2,7 @@ import decodeJwt from 'jwt-decode';
 
 const authProvider = {
   login: ({ username, password }) => {
-    const request = new Request("https://mydomain.com/authenticate", {
+    const request = new Request("/api/authenticate", {
       method: "POST",
       body: JSON.stringify({ username, password }),
       headers: new Headers({ "Content-Type": "application/json" }),

@@ -28,7 +28,7 @@ const dataProvider = jsonServerProvider(`${process.env.REACT_APP_JSON_SERVER}`);
 const MyLoginPage = () => (
     <Login
         // A random image that changes everyday
-        backgroundImage="https://source.unsplash.com/random/1600x900/daily"
+        backgroundImage="https://source.unsplash.com/random/1366x768"
     />
 );
 

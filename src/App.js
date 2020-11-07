@@ -191,7 +191,7 @@ class App extends React.PureComponent {
     const opts = {
       title: "Magic Map",
       text: "可以分享视频音乐的神奇地图！",
-      url: url || "https://v.s1ar.cc/map/",
+      url: url || process.env.PUBLIC_URL,
       dialogTitle: "分享给我的朋友",
     };
     if (navigator.share) {
@@ -277,7 +277,7 @@ class App extends React.PureComponent {
                       <>
                         <video autoPlay loop muted playsInline>
                           <source
-                            src="https://v.s1ar.cc/v/01.mp4"
+                            src={`${process.env.REACT_APP_VIDEO_URL}/v/01.mp4`}
                             type="video/mp4"
                           />
                         </video>
@@ -291,7 +291,7 @@ class App extends React.PureComponent {
                       <>
                         <video autoPlay loop muted playsInline>
                           <source
-                            src="https://v.s1ar.cc/v/02.mp4"
+                            src={`${process.env.REACT_APP_VIDEO_URL}/v/02.mp4`}
                             type="video/mp4"
                           />
                         </video>
@@ -305,7 +305,7 @@ class App extends React.PureComponent {
                       <>
                         <video autoPlay loop muted playsInline>
                           <source
-                            src="https://v.s1ar.cc/v/03.mp4"
+                            src={`${process.env.REACT_APP_VIDEO_URL}/v/03.mp4`}
                             type="video/mp4"
                           />
                         </video>
@@ -319,7 +319,7 @@ class App extends React.PureComponent {
                       <>
                         <video autoPlay loop muted playsInline>
                           <source
-                            src="https://v.s1ar.cc/v/04.mp4"
+                            src={`${process.env.REACT_APP_VIDEO_URL}/v/04.mp4`}
                             type="video/mp4"
                           />
                         </video>
@@ -333,7 +333,7 @@ class App extends React.PureComponent {
                       <>
                         <video autoPlay loop muted playsInline>
                           <source
-                            src="https://v.s1ar.cc/v/05.mp4"
+                            src={`${process.env.REACT_APP_VIDEO_URL}/v/05.mp4`}
                             type="video/mp4"
                           />
                         </video>
@@ -347,7 +347,7 @@ class App extends React.PureComponent {
                       <>
                         <video autoPlay loop muted playsInline>
                           <source
-                            src="https://v.s1ar.cc/v/06.mp4"
+                            src={`${process.env.REACT_APP_VIDEO_URL}/v/06.mp4`}
                             type="video/mp4"
                           />
                         </video>
@@ -361,7 +361,7 @@ class App extends React.PureComponent {
                       <>
                         <video autoPlay loop muted playsInline>
                           <source
-                            src="https://v.s1ar.cc/v/07.mp4"
+                            src={`${process.env.REACT_APP_VIDEO_URL}/v/07.mp4`}
                             type="video/mp4"
                           />
                         </video>
@@ -375,7 +375,7 @@ class App extends React.PureComponent {
                       <>
                         <video autoPlay loop muted playsInline>
                           <source
-                            src="https://v.s1ar.cc/v/08.mp4"
+                            src={`${process.env.REACT_APP_VIDEO_URL}/v/08.mp4`}
                             type="video/mp4"
                           />
                         </video>
@@ -389,7 +389,7 @@ class App extends React.PureComponent {
                       <>
                         <video autoPlay loop muted playsInline>
                           <source
-                            src="https://v.s1ar.cc/v/08.webm"
+                            src={`${process.env.REACT_APP_VIDEO_URL}/v/08.webm`}
                             type="video/webm"
                           />
                         </video>
@@ -404,7 +404,7 @@ class App extends React.PureComponent {
                       <>
                         <video autoPlay loop muted playsInline>
                           <source
-                            src="https://v.s1ar.cc/v/01.mp4"
+                            src={`${process.env.REACT_APP_VIDEO_URL}/v/01.mp4`}
                             type="video/mp4"
                           />
                         </video>
@@ -418,7 +418,7 @@ class App extends React.PureComponent {
                       <>
                         <video autoPlay loop muted playsInline>
                           <source
-                            src="https://v.s1ar.cc/v/02.mp4"
+                            src={`${process.env.REACT_APP_VIDEO_URL}/v/02.mp4`}
                             type="video/mp4"
                           />
                         </video>
@@ -432,7 +432,7 @@ class App extends React.PureComponent {
                       <>
                         <video autoPlay loop muted playsInline>
                           <source
-                            src="https://v.s1ar.cc/v/03.mp4"
+                            src={`${process.env.REACT_APP_VIDEO_URL}/v/03.mp4`}
                             type="video/mp4"
                           />
                         </video>
@@ -446,7 +446,7 @@ class App extends React.PureComponent {
                       <>
                         <video autoPlay loop muted playsInline>
                           <source
-                            src="https://v.s1ar.cc/v/04.mp4"
+                            src={`${process.env.REACT_APP_VIDEO_URL}/v/04.mp4`}
                             type="video/mp4"
                           />
                         </video>
@@ -460,7 +460,7 @@ class App extends React.PureComponent {
                       <>
                         <video autoPlay loop muted playsInline>
                           <source
-                            src="https://v.s1ar.cc/v/05.mp4"
+                            src={`${process.env.REACT_APP_VIDEO_URL}/v/05.mp4`}
                             type="video/mp4"
                           />
                         </video>
@@ -474,7 +474,7 @@ class App extends React.PureComponent {
                       <>
                         <video autoPlay loop muted playsInline>
                           <source
-                            src="https://v.s1ar.cc/v/06.mp4"
+                            src={`${process.env.REACT_APP_VIDEO_URL}/v/06.mp4`}
                             type="video/mp4"
                           />
                         </video>
@@ -488,7 +488,7 @@ class App extends React.PureComponent {
                       <>
                         <video autoPlay loop muted playsInline>
                           <source
-                            src="https://v.s1ar.cc/v/07.mp4"
+                            src={`${process.env.REACT_APP_VIDEO_URL}/v/07.mp4`}
                             type="video/mp4"
                           />
                         </video>
@@ -502,7 +502,7 @@ class App extends React.PureComponent {
                       <>
                         <video autoPlay loop muted playsInline>
                           <source
-                            src="https://v.s1ar.cc/v/08.mp4"
+                            src={`${process.env.REACT_APP_VIDEO_URL}/v/08.mp4`}
                             type="video/mp4"
                           />
                         </video>
@@ -516,7 +516,7 @@ class App extends React.PureComponent {
                       <>
                         <video autoPlay loop muted playsInline>
                           <source
-                            src="https://v.s1ar.cc/v/08.webm"
+                            src={`${process.env.REACT_APP_VIDEO_URL}/v/08.webm`}
                             type="video/webm"
                           />
                         </video>
@@ -531,7 +531,7 @@ class App extends React.PureComponent {
                       <>
                         <video autoPlay loop muted playsInline>
                           <source
-                            src="https://v.s1ar.cc/v/01.mp4"
+                            src={`${process.env.REACT_APP_VIDEO_URL}/v/01.mp4`}
                             type="video/mp4"
                           />
                         </video>
@@ -545,7 +545,7 @@ class App extends React.PureComponent {
                       <>
                         <video autoPlay loop muted playsInline>
                           <source
-                            src="https://v.s1ar.cc/v/02.mp4"
+                            src={`${process.env.REACT_APP_VIDEO_URL}/v/02.mp4`}
                             type="video/mp4"
                           />
                         </video>
@@ -559,7 +559,7 @@ class App extends React.PureComponent {
                       <>
                         <video autoPlay loop muted playsInline>
                           <source
-                            src="https://v.s1ar.cc/v/03.mp4"
+                            src={`${process.env.REACT_APP_VIDEO_URL}/v/03.mp4`}
                             type="video/mp4"
                           />
                         </video>
@@ -573,7 +573,7 @@ class App extends React.PureComponent {
                       <>
                         <video autoPlay loop muted playsInline>
                           <source
-                            src="https://v.s1ar.cc/v/04.mp4"
+                            src={`${process.env.REACT_APP_VIDEO_URL}/v/04.mp4`}
                             type="video/mp4"
                           />
                         </video>
@@ -587,7 +587,7 @@ class App extends React.PureComponent {
                       <>
                         <video autoPlay loop muted playsInline>
                           <source
-                            src="https://v.s1ar.cc/v/05.mp4"
+                            src={`${process.env.REACT_APP_VIDEO_URL}/v/05.mp4`}
                             type="video/mp4"
                           />
                         </video>
@@ -601,7 +601,7 @@ class App extends React.PureComponent {
                       <>
                         <video autoPlay loop muted playsInline>
                           <source
-                            src="https://v.s1ar.cc/v/06.mp4"
+                            src={`${process.env.REACT_APP_VIDEO_URL}/v/06.mp4`}
                             type="video/mp4"
                           />
                         </video>
@@ -615,7 +615,7 @@ class App extends React.PureComponent {
                       <>
                         <video autoPlay loop muted playsInline>
                           <source
-                            src="https://v.s1ar.cc/v/07.mp4"
+                            src={`${process.env.REACT_APP_VIDEO_URL}/v/07.mp4`}
                             type="video/mp4"
                           />
                         </video>
@@ -629,7 +629,7 @@ class App extends React.PureComponent {
                       <>
                         <video autoPlay loop muted playsInline>
                           <source
-                            src="https://v.s1ar.cc/v/08.mp4"
+                            src={`${process.env.REACT_APP_VIDEO_URL}/v/08.mp4`}
                             type="video/mp4"
                           />
                         </video>
@@ -643,7 +643,7 @@ class App extends React.PureComponent {
                     <>
                       <video autoPlay loop muted playsInline>
                         <source
-                          src="https://v.s1ar.cc/v/08.webm"
+                          src={`${process.env.REACT_APP_VIDEO_URL}/v/08.webm`}
                           type="video/webm"
                         />
                       </video>

@@ -51,7 +51,7 @@ for (let i = 0; i < MAX; i++) {
   markerClusterer.push({
     lng: (Math.random() * 40) + 85,
     lat: (Math.random() * 30) + 21,
-    imageUrl: `https://v.s1ar.cc/v/0${i+1}.mp4`
+    imageUrl: `${process.env.REACT_APP_VIDEO_URL}/v/0${i+1}.mp4`
   });
 }
 const videoAttr = { 'autoplay': true, 'loop': true, 'mute': true, 'playsinline': true };
@@ -75,7 +75,22 @@ export default class BaiduMap extends React.PureComponent {
     if (typeof document === "object") {
       window._changeMapType = this._changeMapType;
 
-      CITIES.forEach((it) => this._renderVideos(it));
+      fetch(`${process.env.REACT_APP_JSON_SERVER}/cities`)
+      .then((response) => {
+        if (response.status < 200 || response.status >= 300) {
+          throw new Error(response.statusText);
+        }
+        return response.json();
+      })
+      .then((response) => {
+        console.log(response);
+        response.forEach((it) => this._renderVideos(it));
+      })
+			.catch((err) => {
+				console.error(err);
+			})
+
+      // CITIES.forEach((it) => this._renderVideos(it));
     }
   }
 
