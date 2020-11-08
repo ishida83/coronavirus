@@ -51,7 +51,7 @@ for (let i = 0; i < MAX; i++) {
   markerClusterer.push({
     lng: (Math.random() * 40) + 85,
     lat: (Math.random() * 30) + 21,
-    imageUrl: `https://v.s1ar.cc/v/0${i+1}.mp4`
+    imageUrl: `${process.env.REACT_APP_VIDEO_URL}/v/0${i+1}.mp4`
   });
 }
 const videoAttr = { 'autoplay': true, 'loop': true, 'mute': true, 'playsinline': true };
@@ -75,7 +75,22 @@ export default class BaiduMap extends React.PureComponent {
     if (typeof document === "object") {
       window._changeMapType = this._changeMapType;
 
-      CITIES.forEach((it) => this._renderVideos(it));
+      fetch(`${process.env.REACT_APP_JSON_SERVER}/cities`)
+      .then((response) => {
+        if (response.status < 200 || response.status >= 300) {
+          throw new Error(response.statusText);
+        }
+        return response.json();
+      })
+      .then((response) => {
+        console.log(response);
+        response.forEach((it) => this._renderVideos(it));
+      })
+			.catch((err) => {
+				console.error(err);
+			})
+
+      // CITIES.forEach((it) => this._renderVideos(it));
     }
   }
 
@@ -299,7 +314,7 @@ export default class BaiduMap extends React.PureComponent {
             {
               id: 1,
               content: `<div href='#' style='color: #333; -moz-box-shadow: 0 0 2px rgba(0,0,0,.1); -webkit-box-shadow: 0 0 2px rgba(0,0,0,.1); box-shadow: 0 0 0 2px rgba(0,0,0,.1);border-radius: 4px; padding: 5px; backdrop-filter: blur(1px); background-color: rgba(255,255,255,0.5); font-size: 12px; font-family: "Hiragino Sans W3", Roboto;'>
-                  <label>
+                <!--label>
                     <div>
                         <input
                             type="radio"
@@ -310,8 +325,8 @@ export default class BaiduMap extends React.PureComponent {
                         />
                         <span> Leaflet</span>
                     </div>
-                </label>
-                <label>
+                </label-->
+                <!--label>
                     <div>
                         <input
                             type="radio"
@@ -322,7 +337,7 @@ export default class BaiduMap extends React.PureComponent {
                         />
                         <span> MapGl</span>
                     </div>
-                </label>
+                </label-->
                 <label>
                     <div>
                         <input
@@ -336,7 +351,7 @@ export default class BaiduMap extends React.PureComponent {
                     </div>
                 </label>
 
-                <label>
+                <!--label>
                     <div>
                         <input
                             type="radio"
@@ -347,9 +362,9 @@ export default class BaiduMap extends React.PureComponent {
                         />
                         <span> Google</span>
                     </div>
-                </label>
+                </label-->
 
-                <label>
+                <!--label>
                     <div>
                         <input
                             type="radio"
@@ -360,7 +375,7 @@ export default class BaiduMap extends React.PureComponent {
                         />
                         <span> 腾讯地图</span>
                     </div>
-                </label>
+                </label-->
 
                 <label>
                     <div>
