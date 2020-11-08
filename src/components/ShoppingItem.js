@@ -11,6 +11,7 @@ import Card, {
 import IconButton from "@material/react-icon-button";
 import Button from "@material/react-button";
 import MaterialIcon from "@material/react-material-icon";
+import cx from 'classnames';
 
 import {
   Body1,
@@ -35,7 +36,7 @@ const ShoppingItem = props => {
 	}
 	const clickViaButton = () => {}
 	return (
-    <Card className="mdc-card demo-card demo-ui-control demo-card-shaped">
+    <Card className={cx(`mdc-card demo-card demo-ui-control demo-card-shaped`, props.className)}>
       <CardPrimaryContent className="demo-card__primary-action">
         <CardMedia square imageUrl={props.imageUrl} className="demo-card__media" />
         <div className="demo-card__primary">

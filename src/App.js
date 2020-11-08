@@ -699,6 +699,29 @@ class App extends React.PureComponent {
             {this.hintOnlineStatus()}
             <div className="App">
               <BrowserView>
+                <div
+                  style={{
+                    display: 'flex',
+                    flexWrap: 'nowrap',
+                    position: "absolute",
+                    zIndex: 1,
+                    bottom: '3rem',
+                    width: '100vw',
+                    overflowX: 'auto',
+                    overflowY: 'hidden',
+                    '-webkitOverflowScrolling': 'touch',
+                    flexDirection: "row",
+                    scrollSnapType: 'x mandatory',
+                    alignContent: "space-evenly",
+                  }}
+                >
+                  <ShoppingItem className='shoppingItemClasses' imageUrl="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg" />
+                  <ShoppingItem className='shoppingItemClasses' imageUrl="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg" />
+                  <ShoppingItem className='shoppingItemClasses' imageUrl="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg" />
+                  <ShoppingItem className='shoppingItemClasses' imageUrl="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg" />
+                  <ShoppingItem className='shoppingItemClasses' imageUrl="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg" />
+                  <ShoppingItem className='shoppingItemClasses' imageUrl="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg" />
+                </div>
                 <Player isToggled={this.state.showMarkerInfo}>
                   <Card
                     className="mdc-card demo-card"
