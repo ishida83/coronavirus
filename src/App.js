@@ -78,7 +78,7 @@ const sidePanelMobileStyle = {
   position: "fixed",
   height: "50vh",
   width: "100%",
-  zIndex: 1,
+  zIndex: 2,
   bottom: 0,
   // backgroundColor: "white",
 };
@@ -789,7 +789,7 @@ class App extends React.PureComponent {
                 <div style={{
                   position: "absolute",
                   zIndex: 1,
-                  bottom: 0,
+                  bottom: '3rem',
                   width: '100vw',
                   overflowX: 'auto',
                   overflowY: 'hidden',
