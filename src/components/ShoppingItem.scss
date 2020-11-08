@@ -1,0 +1,64 @@
+@import '~@material/react-card/index.scss';
+@import '~@material/react-button/index.scss';
+@import '~@material/react-icon-button/index.scss';
+
+
+.demo-card {
+  width: 350px;
+	margin: 0 auto;
+}
+
+.demo-card__primary {
+  padding: 1rem;
+	flex: 1;
+	text-align: left;
+}
+
+.demo-card__title {
+  margin: 0;
+}
+
+.demo-card__subtitle {
+  @include mdc-theme-prop(color, text-secondary-on-background);
+
+  margin: 0;
+}
+
+.demo-card__secondary {
+  @include mdc-theme-prop(color, text-secondary-on-background);
+
+  padding: 0 1rem 8px 1rem;
+}
+
+.demo-card-shaped {
+  @include mdc-card-shape-radius(24px 8px, $rtl-reflexive: true);
+}
+
+.demo-card__media.mdc-card__media--square {
+  width: 110px;
+	border-radius:0;
+}
+
+.demo-basic-with-header,
+.demo-basic-with-text-over-media {
+  .demo-card__secondary {
+    padding-top: 1rem;
+  }
+}
+
+.demo-basic-with-text-over-media {
+  .demo-card__media-content {
+    display: flex;
+    align-items: flex-end;
+
+    .demo-card__title,
+    .demo-card__subtitle {
+      @include mdc-theme-prop(color, white);
+    }
+  }
+}
+
+.demo-ui-control .demo-card__primary-action {
+  display: flex;
+  flex-direction: row;
+}

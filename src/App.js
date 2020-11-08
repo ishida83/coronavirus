@@ -49,14 +49,16 @@ import logo from "./logo.svg";
 import "./App.scss";
 
 import LeafletMap from "./LeafletMap";
-import MapGlMap from "./MapGlMap";
+// import MapGlMap from "./MapGlMap";
 import AMap from "./AMap";
-import QMap from "./QMap";
+// import QMap from "./QMap";
 import BaiduMap from "./BaiduMap";
 
 import Player from "./Player";
 
 import Hammer from 'react-hammerjs';
+
+import ShoppingItem from './components/ShoppingItem';
 
 
 const { Share } = Plugins;
@@ -157,12 +159,12 @@ class App extends React.PureComponent {
     switch (this.state.mapType) {
       case "Leaflet":
         return <LeafletMap {...props} />;
-      case "MapGl":
-        return <MapGlMap {...props} />;
+      // case "MapGl":
+      //   return <MapGlMap {...props} />;
       case "AMap":
         return <AMap {...props} />;
-      case "Tencent":
-        return <QMap {...props} />;
+      // case "Tencent":
+      //   return <QMap {...props} />;
       case "Baidu":
         return <BaiduMap {...props} />;
       default:
@@ -261,383 +263,129 @@ class App extends React.PureComponent {
           </DrawerHeader>
 
           <DrawerContent>
-              <List
-                singleSelection
-                avatarList
-                selectedIndex={this.state.selectedIndex}
-              >
-                {/* <ListItem>
+            <List
+              singleSelection
+              avatarList
+              selectedIndex={this.state.selectedIndex}
+            >
+              {/* <ListItem>
                   <ListItemGraphic graphic={<MaterialIcon icon="folder" />} />
                   <ListItemText primaryText="首页" />
                 </ListItem> */}
 
-                <ListItem>
-                  <ListItemGraphic
-                    graphic={
-                      <>
-                        <video autoPlay loop muted playsInline>
-                          <source
-                            src={`${process.env.REACT_APP_VIDEO_URL}/v/01.mp4`}
-                            type="video/mp4"
-                          />
-                        </video>
-                      </>
-                    }
-                  />
-                </ListItem>
-                <ListItem>
-                  <ListItemGraphic
-                    graphic={
-                      <>
-                        <video autoPlay loop muted playsInline>
-                          <source
-                            src={`${process.env.REACT_APP_VIDEO_URL}/v/02.mp4`}
-                            type="video/mp4"
-                          />
-                        </video>
-                      </>
-                    }
-                  />
-                </ListItem>
-                <ListItem>
-                  <ListItemGraphic
-                    graphic={
-                      <>
-                        <video autoPlay loop muted playsInline>
-                          <source
-                            src={`${process.env.REACT_APP_VIDEO_URL}/v/03.mp4`}
-                            type="video/mp4"
-                          />
-                        </video>
-                      </>
-                    }
-                  />
-                </ListItem>
-                <ListItem>
-                  <ListItemGraphic
-                    graphic={
-                      <>
-                        <video autoPlay loop muted playsInline>
-                          <source
-                            src={`${process.env.REACT_APP_VIDEO_URL}/v/04.mp4`}
-                            type="video/mp4"
-                          />
-                        </video>
-                      </>
-                    }
-                  />
-                </ListItem>
-                <ListItem>
-                  <ListItemGraphic
-                    graphic={
-                      <>
-                        <video autoPlay loop muted playsInline>
-                          <source
-                            src={`${process.env.REACT_APP_VIDEO_URL}/v/05.mp4`}
-                            type="video/mp4"
-                          />
-                        </video>
-                      </>
-                    }
-                  />
-                </ListItem>
-                <ListItem>
-                  <ListItemGraphic
-                    graphic={
-                      <>
-                        <video autoPlay loop muted playsInline>
-                          <source
-                            src={`${process.env.REACT_APP_VIDEO_URL}/v/06.mp4`}
-                            type="video/mp4"
-                          />
-                        </video>
-                      </>
-                    }
-                  />
-                </ListItem>
-                <ListItem>
-                  <ListItemGraphic
-                    graphic={
-                      <>
-                        <video autoPlay loop muted playsInline>
-                          <source
-                            src={`${process.env.REACT_APP_VIDEO_URL}/v/07.mp4`}
-                            type="video/mp4"
-                          />
-                        </video>
-                      </>
-                    }
-                  />
-                </ListItem>
-                <ListItem>
-                  <ListItemGraphic
-                    graphic={
-                      <>
-                        <video autoPlay loop muted playsInline>
-                          <source
-                            src={`${process.env.REACT_APP_VIDEO_URL}/v/08.mp4`}
-                            type="video/mp4"
-                          />
-                        </video>
-                      </>
-                    }
-                  />
-                </ListItem>
-                <ListItem>
-                  <ListItemGraphic
-                    graphic={
-                      <>
-                        <video autoPlay loop muted playsInline>
-                          <source
-                            src={`${process.env.REACT_APP_VIDEO_URL}/v/08.webm`}
-                            type="video/webm"
-                          />
-                        </video>
-                      </>
-                    }
-                  />
-                </ListItem>
-
-                <ListItem>
-                  <ListItemGraphic
-                    graphic={
-                      <>
-                        <video autoPlay loop muted playsInline>
-                          <source
-                            src={`${process.env.REACT_APP_VIDEO_URL}/v/01.mp4`}
-                            type="video/mp4"
-                          />
-                        </video>
-                      </>
-                    }
-                  />
-                </ListItem>
-                <ListItem>
-                  <ListItemGraphic
-                    graphic={
-                      <>
-                        <video autoPlay loop muted playsInline>
-                          <source
-                            src={`${process.env.REACT_APP_VIDEO_URL}/v/02.mp4`}
-                            type="video/mp4"
-                          />
-                        </video>
-                      </>
-                    }
-                  />
-                </ListItem>
-                <ListItem>
-                  <ListItemGraphic
-                    graphic={
-                      <>
-                        <video autoPlay loop muted playsInline>
-                          <source
-                            src={`${process.env.REACT_APP_VIDEO_URL}/v/03.mp4`}
-                            type="video/mp4"
-                          />
-                        </video>
-                      </>
-                    }
-                  />
-                </ListItem>
-                <ListItem>
-                  <ListItemGraphic
-                    graphic={
-                      <>
-                        <video autoPlay loop muted playsInline>
-                          <source
-                            src={`${process.env.REACT_APP_VIDEO_URL}/v/04.mp4`}
-                            type="video/mp4"
-                          />
-                        </video>
-                      </>
-                    }
-                  />
-                </ListItem>
-                <ListItem>
-                  <ListItemGraphic
-                    graphic={
-                      <>
-                        <video autoPlay loop muted playsInline>
-                          <source
-                            src={`${process.env.REACT_APP_VIDEO_URL}/v/05.mp4`}
-                            type="video/mp4"
-                          />
-                        </video>
-                      </>
-                    }
-                  />
-                </ListItem>
-                <ListItem>
-                  <ListItemGraphic
-                    graphic={
-                      <>
-                        <video autoPlay loop muted playsInline>
-                          <source
-                            src={`${process.env.REACT_APP_VIDEO_URL}/v/06.mp4`}
-                            type="video/mp4"
-                          />
-                        </video>
-                      </>
-                    }
-                  />
-                </ListItem>
-                <ListItem>
-                  <ListItemGraphic
-                    graphic={
-                      <>
-                        <video autoPlay loop muted playsInline>
-                          <source
-                            src={`${process.env.REACT_APP_VIDEO_URL}/v/07.mp4`}
-                            type="video/mp4"
-                          />
-                        </video>
-                      </>
-                    }
-                  />
-                </ListItem>
-                <ListItem>
-                  <ListItemGraphic
-                    graphic={
-                      <>
-                        <video autoPlay loop muted playsInline>
-                          <source
-                            src={`${process.env.REACT_APP_VIDEO_URL}/v/08.mp4`}
-                            type="video/mp4"
-                          />
-                        </video>
-                      </>
-                    }
-                  />
-                </ListItem>
-                <ListItem>
-                  <ListItemGraphic
-                    graphic={
-                      <>
-                        <video autoPlay loop muted playsInline>
-                          <source
-                            src={`${process.env.REACT_APP_VIDEO_URL}/v/08.webm`}
-                            type="video/webm"
-                          />
-                        </video>
-                      </>
-                    }
-                  />
-                </ListItem>
-
-                <ListItem>
-                  <ListItemGraphic
-                    graphic={
-                      <>
-                        <video autoPlay loop muted playsInline>
-                          <source
-                            src={`${process.env.REACT_APP_VIDEO_URL}/v/01.mp4`}
-                            type="video/mp4"
-                          />
-                        </video>
-                      </>
-                    }
-                  />
-                </ListItem>
-                <ListItem>
-                  <ListItemGraphic
-                    graphic={
-                      <>
-                        <video autoPlay loop muted playsInline>
-                          <source
-                            src={`${process.env.REACT_APP_VIDEO_URL}/v/02.mp4`}
-                            type="video/mp4"
-                          />
-                        </video>
-                      </>
-                    }
-                  />
-                </ListItem>
-                <ListItem>
-                  <ListItemGraphic
-                    graphic={
-                      <>
-                        <video autoPlay loop muted playsInline>
-                          <source
-                            src={`${process.env.REACT_APP_VIDEO_URL}/v/03.mp4`}
-                            type="video/mp4"
-                          />
-                        </video>
-                      </>
-                    }
-                  />
-                </ListItem>
-                <ListItem>
-                  <ListItemGraphic
-                    graphic={
-                      <>
-                        <video autoPlay loop muted playsInline>
-                          <source
-                            src={`${process.env.REACT_APP_VIDEO_URL}/v/04.mp4`}
-                            type="video/mp4"
-                          />
-                        </video>
-                      </>
-                    }
-                  />
-                </ListItem>
-                <ListItem>
-                  <ListItemGraphic
-                    graphic={
-                      <>
-                        <video autoPlay loop muted playsInline>
-                          <source
-                            src={`${process.env.REACT_APP_VIDEO_URL}/v/05.mp4`}
-                            type="video/mp4"
-                          />
-                        </video>
-                      </>
-                    }
-                  />
-                </ListItem>
-                <ListItem>
-                  <ListItemGraphic
-                    graphic={
-                      <>
-                        <video autoPlay loop muted playsInline>
-                          <source
-                            src={`${process.env.REACT_APP_VIDEO_URL}/v/06.mp4`}
-                            type="video/mp4"
-                          />
-                        </video>
-                      </>
-                    }
-                  />
-                </ListItem>
-                <ListItem>
-                  <ListItemGraphic
-                    graphic={
-                      <>
-                        <video autoPlay loop muted playsInline>
-                          <source
-                            src={`${process.env.REACT_APP_VIDEO_URL}/v/07.mp4`}
-                            type="video/mp4"
-                          />
-                        </video>
-                      </>
-                    }
-                  />
-                </ListItem>
-                <ListItem>
-                  <ListItemGraphic
-                    graphic={
-                      <>
-                        <video autoPlay loop muted playsInline>
-                          <source
-                            src={`${process.env.REACT_APP_VIDEO_URL}/v/08.mp4`}
-                            type="video/mp4"
-                          />
-                        </video>
-                      </>
-                    }
-                  />
-                </ListItem>
-                <ListItem>
+              <ListItem>
+                <ListItemGraphic
+                  graphic={
+                    <>
+                      <video autoPlay loop muted playsInline>
+                        <source
+                          src={`${process.env.REACT_APP_VIDEO_URL}/v/01.mp4`}
+                          type="video/mp4"
+                        />
+                      </video>
+                    </>
+                  }
+                />
+              </ListItem>
+              <ListItem>
+                <ListItemGraphic
+                  graphic={
+                    <>
+                      <video autoPlay loop muted playsInline>
+                        <source
+                          src={`${process.env.REACT_APP_VIDEO_URL}/v/02.mp4`}
+                          type="video/mp4"
+                        />
+                      </video>
+                    </>
+                  }
+                />
+              </ListItem>
+              <ListItem>
+                <ListItemGraphic
+                  graphic={
+                    <>
+                      <video autoPlay loop muted playsInline>
+                        <source
+                          src={`${process.env.REACT_APP_VIDEO_URL}/v/03.mp4`}
+                          type="video/mp4"
+                        />
+                      </video>
+                    </>
+                  }
+                />
+              </ListItem>
+              <ListItem>
+                <ListItemGraphic
+                  graphic={
+                    <>
+                      <video autoPlay loop muted playsInline>
+                        <source
+                          src={`${process.env.REACT_APP_VIDEO_URL}/v/04.mp4`}
+                          type="video/mp4"
+                        />
+                      </video>
+                    </>
+                  }
+                />
+              </ListItem>
+              <ListItem>
+                <ListItemGraphic
+                  graphic={
+                    <>
+                      <video autoPlay loop muted playsInline>
+                        <source
+                          src={`${process.env.REACT_APP_VIDEO_URL}/v/05.mp4`}
+                          type="video/mp4"
+                        />
+                      </video>
+                    </>
+                  }
+                />
+              </ListItem>
+              <ListItem>
+                <ListItemGraphic
+                  graphic={
+                    <>
+                      <video autoPlay loop muted playsInline>
+                        <source
+                          src={`${process.env.REACT_APP_VIDEO_URL}/v/06.mp4`}
+                          type="video/mp4"
+                        />
+                      </video>
+                    </>
+                  }
+                />
+              </ListItem>
+              <ListItem>
+                <ListItemGraphic
+                  graphic={
+                    <>
+                      <video autoPlay loop muted playsInline>
+                        <source
+                          src={`${process.env.REACT_APP_VIDEO_URL}/v/07.mp4`}
+                          type="video/mp4"
+                        />
+                      </video>
+                    </>
+                  }
+                />
+              </ListItem>
+              <ListItem>
+                <ListItemGraphic
+                  graphic={
+                    <>
+                      <video autoPlay loop muted playsInline>
+                        <source
+                          src={`${process.env.REACT_APP_VIDEO_URL}/v/08.mp4`}
+                          type="video/mp4"
+                        />
+                      </video>
+                    </>
+                  }
+                />
+              </ListItem>
+              <ListItem>
                 <ListItemGraphic
                   graphic={
                     <>
@@ -651,7 +399,261 @@ class App extends React.PureComponent {
                   }
                 />
               </ListItem>
-              </List>
+
+              <ListItem>
+                <ListItemGraphic
+                  graphic={
+                    <>
+                      <video autoPlay loop muted playsInline>
+                        <source
+                          src={`${process.env.REACT_APP_VIDEO_URL}/v/01.mp4`}
+                          type="video/mp4"
+                        />
+                      </video>
+                    </>
+                  }
+                />
+              </ListItem>
+              <ListItem>
+                <ListItemGraphic
+                  graphic={
+                    <>
+                      <video autoPlay loop muted playsInline>
+                        <source
+                          src={`${process.env.REACT_APP_VIDEO_URL}/v/02.mp4`}
+                          type="video/mp4"
+                        />
+                      </video>
+                    </>
+                  }
+                />
+              </ListItem>
+              <ListItem>
+                <ListItemGraphic
+                  graphic={
+                    <>
+                      <video autoPlay loop muted playsInline>
+                        <source
+                          src={`${process.env.REACT_APP_VIDEO_URL}/v/03.mp4`}
+                          type="video/mp4"
+                        />
+                      </video>
+                    </>
+                  }
+                />
+              </ListItem>
+              <ListItem>
+                <ListItemGraphic
+                  graphic={
+                    <>
+                      <video autoPlay loop muted playsInline>
+                        <source
+                          src={`${process.env.REACT_APP_VIDEO_URL}/v/04.mp4`}
+                          type="video/mp4"
+                        />
+                      </video>
+                    </>
+                  }
+                />
+              </ListItem>
+              <ListItem>
+                <ListItemGraphic
+                  graphic={
+                    <>
+                      <video autoPlay loop muted playsInline>
+                        <source
+                          src={`${process.env.REACT_APP_VIDEO_URL}/v/05.mp4`}
+                          type="video/mp4"
+                        />
+                      </video>
+                    </>
+                  }
+                />
+              </ListItem>
+              <ListItem>
+                <ListItemGraphic
+                  graphic={
+                    <>
+                      <video autoPlay loop muted playsInline>
+                        <source
+                          src={`${process.env.REACT_APP_VIDEO_URL}/v/06.mp4`}
+                          type="video/mp4"
+                        />
+                      </video>
+                    </>
+                  }
+                />
+              </ListItem>
+              <ListItem>
+                <ListItemGraphic
+                  graphic={
+                    <>
+                      <video autoPlay loop muted playsInline>
+                        <source
+                          src={`${process.env.REACT_APP_VIDEO_URL}/v/07.mp4`}
+                          type="video/mp4"
+                        />
+                      </video>
+                    </>
+                  }
+                />
+              </ListItem>
+              <ListItem>
+                <ListItemGraphic
+                  graphic={
+                    <>
+                      <video autoPlay loop muted playsInline>
+                        <source
+                          src={`${process.env.REACT_APP_VIDEO_URL}/v/08.mp4`}
+                          type="video/mp4"
+                        />
+                      </video>
+                    </>
+                  }
+                />
+              </ListItem>
+              <ListItem>
+                <ListItemGraphic
+                  graphic={
+                    <>
+                      <video autoPlay loop muted playsInline>
+                        <source
+                          src={`${process.env.REACT_APP_VIDEO_URL}/v/08.webm`}
+                          type="video/webm"
+                        />
+                      </video>
+                    </>
+                  }
+                />
+              </ListItem>
+
+              <ListItem>
+                <ListItemGraphic
+                  graphic={
+                    <>
+                      <video autoPlay loop muted playsInline>
+                        <source
+                          src={`${process.env.REACT_APP_VIDEO_URL}/v/01.mp4`}
+                          type="video/mp4"
+                        />
+                      </video>
+                    </>
+                  }
+                />
+              </ListItem>
+              <ListItem>
+                <ListItemGraphic
+                  graphic={
+                    <>
+                      <video autoPlay loop muted playsInline>
+                        <source
+                          src={`${process.env.REACT_APP_VIDEO_URL}/v/02.mp4`}
+                          type="video/mp4"
+                        />
+                      </video>
+                    </>
+                  }
+                />
+              </ListItem>
+              <ListItem>
+                <ListItemGraphic
+                  graphic={
+                    <>
+                      <video autoPlay loop muted playsInline>
+                        <source
+                          src={`${process.env.REACT_APP_VIDEO_URL}/v/03.mp4`}
+                          type="video/mp4"
+                        />
+                      </video>
+                    </>
+                  }
+                />
+              </ListItem>
+              <ListItem>
+                <ListItemGraphic
+                  graphic={
+                    <>
+                      <video autoPlay loop muted playsInline>
+                        <source
+                          src={`${process.env.REACT_APP_VIDEO_URL}/v/04.mp4`}
+                          type="video/mp4"
+                        />
+                      </video>
+                    </>
+                  }
+                />
+              </ListItem>
+              <ListItem>
+                <ListItemGraphic
+                  graphic={
+                    <>
+                      <video autoPlay loop muted playsInline>
+                        <source
+                          src={`${process.env.REACT_APP_VIDEO_URL}/v/05.mp4`}
+                          type="video/mp4"
+                        />
+                      </video>
+                    </>
+                  }
+                />
+              </ListItem>
+              <ListItem>
+                <ListItemGraphic
+                  graphic={
+                    <>
+                      <video autoPlay loop muted playsInline>
+                        <source
+                          src={`${process.env.REACT_APP_VIDEO_URL}/v/06.mp4`}
+                          type="video/mp4"
+                        />
+                      </video>
+                    </>
+                  }
+                />
+              </ListItem>
+              <ListItem>
+                <ListItemGraphic
+                  graphic={
+                    <>
+                      <video autoPlay loop muted playsInline>
+                        <source
+                          src={`${process.env.REACT_APP_VIDEO_URL}/v/07.mp4`}
+                          type="video/mp4"
+                        />
+                      </video>
+                    </>
+                  }
+                />
+              </ListItem>
+              <ListItem>
+                <ListItemGraphic
+                  graphic={
+                    <>
+                      <video autoPlay loop muted playsInline>
+                        <source
+                          src={`${process.env.REACT_APP_VIDEO_URL}/v/08.mp4`}
+                          type="video/mp4"
+                        />
+                      </video>
+                    </>
+                  }
+                />
+              </ListItem>
+              <ListItem>
+                <ListItemGraphic
+                  graphic={
+                    <>
+                      <video autoPlay loop muted playsInline>
+                        <source
+                          src={`${process.env.REACT_APP_VIDEO_URL}/v/08.webm`}
+                          type="video/webm"
+                        />
+                      </video>
+                    </>
+                  }
+                />
+              </ListItem>
+            </List>
           </DrawerContent>
           {/* </div>
           </Hammer> */}
@@ -680,14 +682,16 @@ class App extends React.PureComponent {
                   />
                 </TopAppBarIcon>
 
-                {isMobile && <TopAppBarIcon actionItem tabIndex={0}>
-                  <MaterialIcon
-                    aria-label="share page"
-                    hasRipple
-                    icon="share"
-                    onClick={this.shareIt}
-                  />
-                </TopAppBarIcon>}
+                {isMobile && (
+                  <TopAppBarIcon actionItem tabIndex={0}>
+                    <MaterialIcon
+                      aria-label="share page"
+                      hasRipple
+                      icon="share"
+                      onClick={this.shareIt}
+                    />
+                  </TopAppBarIcon>
+                )}
               </TopAppBarSection>
             </TopAppBarRow>
           </TopAppBar>
@@ -781,6 +785,31 @@ class App extends React.PureComponent {
                     </motion.aside>
                   )}
                 </Motion>
+
+                <div style={{
+                  position: "absolute",
+                  zIndex: 1,
+                  bottom: 0,
+                  width: '100vw',
+                  overflowX: 'auto',
+                  overflowY: 'hidden',
+                }}>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "row",
+                      width: 2000,
+                      scrollSnapType: 'x mandatory',
+                      alignContent: "space-evenly",
+                    }}
+                  >
+                    <ShoppingItem imageUrl="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg" />
+                    <ShoppingItem imageUrl="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg" />
+                    <ShoppingItem imageUrl="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg" />
+                    <ShoppingItem imageUrl="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg" />
+                    <ShoppingItem imageUrl="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg" />
+                  </div>
+                </div>
               </MobileView>
               {this.renderMap()}
             </div>
